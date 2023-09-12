@@ -167,7 +167,7 @@ h6 {
 #header.fixed-top {
   background: #191919;
 }
-
+ 
 #header .logo {
   font-size: 300px;
   margin: 0;
@@ -183,7 +183,7 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 500px;
+  max-height: 300px;
 }
 
 .scrolled-offset {
