@@ -660,8 +660,8 @@ section {
   }
 }
 
-hr.dashed {
-  border-top: 30px dashed #bbb;
+hr.dotted {
+  border-top: 15px dashed #bbb;
 }
 /*--------------------------------------------------------------
 # Services
