@@ -769,7 +769,7 @@ hr.dotted {
 }
 
 .services .icon-box .icon i {
-  color: #fff;
+  color: hsl(0, 0%, 100%);
   font-size: 28px;
   transition: ease-in-out 0.3s;
 }
@@ -823,7 +823,7 @@ hr.dotted {
 
 .services .icon-box:hover h4 a,
 .services .icon-box:hover p {
-  color: #fff;
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
