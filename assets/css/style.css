@@ -185,8 +185,6 @@ h6 {
 } */
 
 
-<<<<<<< HEAD
-=======
 .header-main .right 
 { 
   flex: 1;
@@ -198,7 +196,6 @@ form
   position: relative;
 }
 
->>>>>>> 209c1fbc24b3d5cd7592ceec9244d5b6908a01ad
 form.search input 
 {
   line-height: 3.25em; 
@@ -209,10 +206,7 @@ form.search input
   font-size: 0.9em; 
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 209c1fbc24b3d5cd7592ceec9244d5b6908a01ad
 form.search button 
 { 
   line-height: 3.25em;
