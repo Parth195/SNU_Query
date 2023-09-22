@@ -1425,7 +1425,8 @@ hr.dotted {
 
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
-  padding-left: 250px;
+  margin-left: 125px;
+  margin-right: 50px;
 }
 
 
