@@ -185,6 +185,20 @@ h6 {
 } */
 
 
+<<<<<<< HEAD
+=======
+.header-main .right 
+{ 
+  flex: 1;
+  
+} 
+
+form 
+{
+  position: relative;
+}
+
+>>>>>>> 209c1fbc24b3d5cd7592ceec9244d5b6908a01ad
 form.search input 
 {
   line-height: 3.25em; 
@@ -195,7 +209,10 @@ form.search input
   font-size: 0.9em; 
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 209c1fbc24b3d5cd7592ceec9244d5b6908a01ad
 form.search button 
 { 
   line-height: 3.25em;
@@ -1410,18 +1427,28 @@ hr.dotted {
   text-decoration: none;
 }
 
-#footer .footer-top h4 {
+#footer .footer-top h3 {
   font-size: 16px;
   font-weight: 600;
   color: #fff;
   position: relative;
   padding-bottom: 12px;
+  padding: 100;
+  /* margin: 100px;
+  margin-left: auto; Set margin-left to auto to center-align horizontally */
 }
 
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
+  margin-left: 125px;
+  margin-right: 50px;
+  padding-top: 15px;
+  /* padding-left: 50; */
 }
 
+
+
+/* XXXXXXXXXXXX */
 #footer .footer-top .footer-links ul {
   list-style: none;
   padding: 0;
@@ -1435,8 +1462,15 @@ hr.dotted {
   line-height: 1;
 }
 
+
+/* XXXXXXXX CHANGES FOOTER LINKS*/
+
+
+
 #footer .footer-top .footer-links ul li {
   padding: 10px 0;
+  /* padding-right: -10px;
+  padding-left: 100px; */
   display: flex;
   align-items: center;
 }
@@ -1456,14 +1490,14 @@ hr.dotted {
   color: #eb4444;
 }
 
-#footer .footer-top .footer-newsletter form {
+/* #footer .footer-top .footer-newsletter form {
   margin-top: 30px;
   background: #fff;
   padding: 6px 10px;
   position: relative;
   border-radius: 4;
-}
-
+} */
+/* 
 #footer .footer-top .footer-newsletter form input[type=email] {
   border: 0;
   padding: 4px;
@@ -1487,7 +1521,7 @@ hr.dotted {
 
 #footer .footer-top .footer-newsletter form input[type=submit]:hover {
   background: #e82d2d;
-}
+} */
 
 #footer .copyright {
   border-top: 1px solid #262626;
