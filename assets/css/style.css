@@ -188,6 +188,7 @@ h6 {
 .header-main .right 
 { 
   flex: 1;
+  
 } 
 
 form 
@@ -206,16 +207,6 @@ form.search input
   font-size: 0.9em; 
   font-weight: var(--fw3);
   text-align: left;
-}
-
-form.search :where (span, button) 
-{
-  position: absolute; 
-  top: 0;
-  padding: 0.55em 1.5em; 
-  font-size: 1em;
-  color: var(--light-text-color);
-  height: var(--percent100);
 }
 
 form.search button 
