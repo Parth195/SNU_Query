@@ -1412,7 +1412,7 @@ hr.dotted {
   text-decoration: none;
 }
 
-#footer .footer-top h4 {
+#footer .footer-top h3 {
   font-size: 16px;
   font-weight: 600;
   color: #fff;
@@ -1427,6 +1427,8 @@ hr.dotted {
   margin-bottom: 30px;
   margin-left: 125px;
   margin-right: 50px;
+  padding-top: 15px;
+  /* padding-left: 50; */
 }
 
 
