@@ -484,7 +484,7 @@ form.search button:hover
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  height: 680px;
+  height: 700px;
   background: url("/assets/img/Shiv-Nadar-University-August-2021-1731.jpg")top center;
   background-size: cover;
   position: relative;
@@ -662,6 +662,8 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
+
+.about .
 
 /*--------------------------------------------------------------
 # Why Us
