@@ -201,13 +201,11 @@ form.search input
   line-height: 3.25em; 
   padding: 0 10em 0 10em;
   border: 0;
-  outline: 0;
-  width: var(--percent100); 
+  outline: 0; 
   border-radius: 30px 0 0 30px;
   font-size: 0.9em; 
-  font-weight: var(--fw3);
-  text-align: left;
 }
+
 
 form.search button
 { 
@@ -216,11 +214,10 @@ form.search button
   border: 0; 
   outline: 0;
   font-size: 0.875em;
-  text-align: left;
   background-color: white;
   color: red;
   border-radius: 0 30px 30px 0 ;
-  transition: red;
+  transition: #cc1616;
   cursor: pointer;
   
 }
@@ -488,10 +485,31 @@ form.search button:hover
 --------------------------------------------------------------*/
 #hero {
   height: 680px;
-  background: url("../img/hero-bg.jpg")top center;
+  background: url("/assets/img/Shiv-Nadar-University-August-2021-1731.jpg")top center;
   background-size: cover;
   position: relative;
+  animation: change 10s infinite ease-in-out;
 }
+
+@keyframes change{
+  0%
+  {
+      background-image: url(/assets/img/1.jpg);
+  }
+  35%
+  {
+      background-image: url(/assets/img/2.jpg);
+  }
+  70%
+  {
+      background-image: url(/assets/img/3.jpg);
+  }
+  100%
+  {
+      background-image: url(/assets/img/4.jpg);
+  }
+}
+
 
 #hero:before {
   content: "";
@@ -1403,20 +1421,28 @@ hr.dotted {
   text-decoration: none;
 }
 
-#footer .footer-top h4 {
+#footer .footer-top h3 {
   font-size: 16px;
   font-weight: 600;
   color: #fff;
   position: relative;
   padding-bottom: 12px;
+  padding: 100;
+  /* margin: 100px;
+  margin-left: auto; Set margin-left to auto to center-align horizontally */
 }
 
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
   margin-left: 125px;
   margin-right: 50px;
+  padding-top: 15px;
+  /* padding-left: 50; */
 }
 
+
+
+/* XXXXXXXXXXXX */
 #footer .footer-top .footer-links ul {
   list-style: none;
   padding: 0;
@@ -1430,8 +1456,15 @@ hr.dotted {
   line-height: 1;
 }
 
+
+/* XXXXXXXX CHANGES FOOTER LINKS*/
+
+
+
 #footer .footer-top .footer-links ul li {
   padding: 10px 0;
+  /* padding-right: -10px;
+  padding-left: 100px; */
   display: flex;
   align-items: center;
 }
@@ -1451,14 +1484,14 @@ hr.dotted {
   color: #eb4444;
 }
 
-#footer .footer-top .footer-newsletter form {
+/* #footer .footer-top .footer-newsletter form {
   margin-top: 30px;
   background: #fff;
   padding: 6px 10px;
   position: relative;
   border-radius: 4;
-}
-
+} */
+/* 
 #footer .footer-top .footer-newsletter form input[type=email] {
   border: 0;
   padding: 4px;
@@ -1482,7 +1515,7 @@ hr.dotted {
 
 #footer .footer-top .footer-newsletter form input[type=submit]:hover {
   background: #e82d2d;
-}
+} */
 
 #footer .copyright {
   border-top: 1px solid #262626;
