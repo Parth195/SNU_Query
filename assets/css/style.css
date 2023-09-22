@@ -178,11 +178,10 @@ h6 {
   text-transform: uppercase;
 }
 
-input[type="text"], textarea {
-
+/* input[type="text"], textarea {
   background-color : rgba(25, 25, 25, 0.95); 
+} */
 
-}
 
 #header .logo a {
   color: #fff;
