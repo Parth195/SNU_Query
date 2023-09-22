@@ -315,7 +315,7 @@ form.search button:hover
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #651b1b;
+  color: hsl(0, 0%, 1%);
 }
 
 .navbar .dropdown:hover>ul {
