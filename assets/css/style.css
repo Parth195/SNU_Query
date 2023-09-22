@@ -1347,12 +1347,19 @@ hr.dotted {
   color: #fff;
   position: relative;
   padding-bottom: 12px;
+  padding: 100;
+  /* margin: 100px;
+  margin-left: auto; Set margin-left to auto to center-align horizontally */
 }
 
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
+  padding-left: 250px;
 }
 
+
+
+/* XXXXXXXXXXXX */
 #footer .footer-top .footer-links ul {
   list-style: none;
   padding: 0;
@@ -1366,8 +1373,15 @@ hr.dotted {
   line-height: 1;
 }
 
+
+/* XXXXXXXX CHANGES FOOTER LINKS*/
+
+
+
 #footer .footer-top .footer-links ul li {
   padding: 10px 0;
+  /* padding-right: -10px;
+  padding-left: 100px; */
   display: flex;
   align-items: center;
 }
@@ -1387,14 +1401,14 @@ hr.dotted {
   color: #eb4444;
 }
 
-#footer .footer-top .footer-newsletter form {
+/* #footer .footer-top .footer-newsletter form {
   margin-top: 30px;
   background: #fff;
   padding: 6px 10px;
   position: relative;
   border-radius: 4;
-}
-
+} */
+/* 
 #footer .footer-top .footer-newsletter form input[type=email] {
   border: 0;
   padding: 4px;
@@ -1418,7 +1432,7 @@ hr.dotted {
 
 #footer .footer-top .footer-newsletter form input[type=submit]:hover {
   background: #e82d2d;
-}
+} */
 
 #footer .copyright {
   border-top: 1px solid #262626;
