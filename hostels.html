@@ -6,79 +6,120 @@
     <title>Hostel Information</title>
     <style>
         /* Common styles */
+        body {
+            background-color: black;
+            color: white;
+            text-align: center; /* Align text to the center */
+            padding: 0; /* Remove default padding */
+            margin: 0; /* Reset margin */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+        }
+
+        .header {
+            padding: 0px; /* Add padding to the header */
+            display: flex;
+            align-items: center;
+            background-color: #808080; /* Set grey background for the header */
+            width: 100%; /* Take full width of the viewport */
+        }
+
+        .hostel-logo {
+            margin-left: 20px;
+            margin-right: 20px; /* Add margin to the left of the image */
+        }
+
+        .hostel-logo img {
+            width: 120px; /* Set the width of the image */
+            height: 120px; /* Maintain aspect ratio */
+            padding: 0px;
+            padding-top: 0px;
+            border: 0px;
+            margin: 0px;
+        }
+
         .hostel-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-gap: 20px;
-            justify-content: space-evenly;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            gap: 20px; /* Adjust the gap between hostels */
+            padding: 20px 0; /* Add padding to the container */
+            margin: 0; /* Reset margin */
+            width: 80%; /* Adjust container width */
+        }
+
+        .hostel-heading {
+            text-align: center; /* Center the heading */
+            margin: 0; /* Remove margin for the heading */
+            margin-left: 625px;
+        }
+
+        .hostel-heading h1 {
+            margin: 0; /* Remove margin for the heading */
+        }
+
+        .hostel-heading img {
+            width: 100px; /* Set the width of the image */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 1000px; /* Add some spacing between the image and text */
+        }
+
+        .hostel-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px; /* Adjust the gap between hostels */
+            padding: 20px 0; /* Add padding to the container */
+            margin: 0; /* Reset margin */
         }
 
         .hostel-card {
-            background-color: #f0f0f0;
+            width: calc(25% - 20px); /* Set the width of each hostel card */
+            background-color: black; /* Set a background color */
             border-radius: 15px;
             padding: 15px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .hostel-card img {
+            max-width: 100%; /* Ensure images don't overflow */
+            height: auto;
+        }
+
         .hostel-card:hover {
+            background-color: white; /* Change the background color on hover */
+            color: black;
             transform: scale(1.1);
             opacity: 1;
             z-index: 1;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .hostel-card:not(:hover) {
-            opacity: 0.5;
-            z-index: 0;
+        .hostel-card:nth-child(3n+1) {
+            margin-right: 20px; /* Add right margin to every 3rd hostel card */
         }
-
-        .hostel-name {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .hostel-address {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .hostel-contact {
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .contact-icon {
-            font-size: 24px;
-            margin-right: 5px;
+        .hostel-card:nth-child(3n+2) {
+            margin: 0 20px; /* Add margin to every 3rd+1 hostel card */
         }
 
         .hostel-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .info-popup {
-            display: none;
-            margin-top: 15px;
-        }
-
-        .expand-info {
-            display: block;
-            text-align: center;
-            cursor: pointer;
-            font-size: 24px;
-            margin-top: 10px;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="hostel-logo">
+            <img src="/assets/img/logo.png">
+        </div>
+        <div class="hostel-heading">
+            <h1>HOSTELS</h1>
+        </div>
+    </div>
+
     <div class="hostel-container">
         <!-- Hostel 1 -->
         <div class="hostel-card">
