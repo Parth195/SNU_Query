@@ -511,17 +511,17 @@
           </div> -->
           <div class="row">
             <div class="col-lg-6">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form action="https://formspree.io/f/xeqbdzkw?ajax=true" method="POST" role="form" class="php-email-form">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                   </div>
                   <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    <input type="email" class="form-control" name="_replyto" id="email" placeholder="Your Email" required>
                   </div>
                 </div>
                 <div class="form-group mt-3">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                  <input type="text" class="form-control" name="_subject" id="subject" placeholder="Subject" required>
                 </div>
                 <div class="form-group mt-3">
                   <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
@@ -529,11 +529,50 @@
                 <div class="my-3">
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="sent-message"></div> <!-- Remove the "display" style -->
                 </div>
                 <div class="text-center"><button type="submit">Send Message</button></div>
               </form>
-            </div>
+          </div>
+          
+
+          <script type="module">
+            const form = document.querySelector('.php-email-form');
+            const sentMessage = document.querySelector('.sent-message');
+            const errorMessages = document.querySelector('.error-message');
+          
+            form.addEventListener('submit', async (event) => {
+              event.preventDefault();
+          
+              const response = await submitForm(form);
+          
+              if (response.ok || (response.statusText.includes('OK') && !response.statusText.includes('Error: {"next":"/thanks?language=en","ok":true}'))) {
+                // Show the "sent" message and hide the error message
+                sentMessage.style.display = 'block'; // Show the success message
+                errorMessages.style.display = 'none'; // Hide the error message
+                sentMessage.innerHTML = 'Thank you for your message!'; // Customize your success message here
+              } else {
+                // Hide the "sent" message and show the error message
+                sentMessage.style.display = 'none';
+                errorMessages.style.display = 'block';
+              }
+            });
+          
+            async function submitForm(form) {
+              const formData = new FormData(form);
+              const url = form.action;
+              const options = {
+                method: 'POST',
+                body: formData,
+              };
+          
+              return fetch(url, options);
+            }
+          </script>
+          
+             
+      
+           
       
             <div class="col-lg-3 col-md-6 order-lg-last" style="margin-top: 75px;">
               <div class="info-box mb-4">
