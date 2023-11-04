@@ -1,86 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>SNU Query - Login</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <meta charset="utf-8">
+    <meta content="width-device-width, initial-scale=1.0" name="viewport">
+    <title>SNU Query - Login</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fav icons Arin -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/favicon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Fav icons Arin -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.png" rel="apple-touch-icon">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <!-- Corrected the URL for swiper-bundle.min.css -->
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500"/></a></h1>
-      <a href="index.html" class="logo"> <alt="" class="img-fluid"></a>
-      <div class="search-box">
-        <form action="" class="search">
-          <span class="icon-large"><i class="ri-search-line"></i></span>
-          <input type="search" placeholder="What's on your mind today ?">
-          <button type="Submit"><img src="/assets/img/snuglass.png" height="30"/></button>
-        </form>
-      </div>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="/index.html">Home</a></li>
-          <li><a class="nav-link scrollto" href="#services">Ask</a></li>
-          <li class="dropdown">
-            <a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Faculty</a></li>
-              <li><a href="#">Hostels</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Resource Bank</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="login.html">Login</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-    </div>
-  </header><!-- End Header -->
-
-  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500"/></a></h1>
+            <a href="index.html" class="logo"> <alt="" class="img-fluid"></a>
+            <div class="search-box">
+                <form action="" class="search">
+                    <span class="icon-large"><i class="ri-search-line"></i></span>
+                    <input type="search" placeholder="What's on your mind today ?">
+                    <button type="Submit"><img src="/assets/img/snuglass.png" height="30"/></button>
+                </form>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="/index.html">Home</a></li>
+                    <li><a class "nav-link scrollto" href="#services">Ask</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Hostels</a></li>
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">Resource Bank</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="login.html">Login</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
 
     <div style="text-align: center; margin-top: 100px;">
-      <h2>Login</h2>
-      <form action="login.php" method="post" role="form">
-        <div>
-          <label for="username">Username</label>
-          <input type="text" name="username" id="username" required>
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" required>
-        </div>
-        <div>
-          <button type="submit">Sign In</button>
-        </div>
-      </form>
+        <h2>Login</h2>
+        <form action="login.php" method="post" role="form" id="loginForm">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div>
+                <button type="submit">Sign In</button>
+            </div>
+        </form>
     </div>
-  
-  </body>
-  
+    <!-- Firebase Configuration and JavaScript Code -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
+      import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
+    
+      // Your Firebase configuration here
+      const firebaseConfig = {
+        apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
+        authDomain: "snu-query.firebaseapp.com",
+        databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
+        projectId: "snu-query",
+        storageBucket: "snu-query.appspot.com",
+        messagingSenderId: "350908354215",
+        appId: "1:350908354215:web:146b8142a7db2549f15582",
+        measurementId: "G-T7426ZGZWQ"
+    };
+    
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+    
+      const loginForm = document.getElementById("loginForm");
+    
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+    
+        const email = loginForm["username"].value;
+        const password = loginForm["password"].value;
+    
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("User signed in:", user);
+            // You can redirect the user to another page after a successful login
+            // window.location.href = "/dashboard.html";
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Login failed:", errorCode, errorMessage);
+    
+            // Show an alert on the page
+            alert("Login unsuccessful. Please check your ID or Password.");
+    
+            // Reset the text boxes
+            loginForm["username"].value = "";
+            loginForm["password"].value = "";
+          });
+      });
+    </script>
 </body>
-
 </html>
