@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta content="width-device-width, initial-scale=1.0" name="viewport">
@@ -14,7 +15,9 @@
     <link href="assets/img/favicon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -31,13 +34,15 @@
     <!-- ======= Header ======= -->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500"/></a></h1>
-            <a href="index.html" class="logo"> <alt="" class="img-fluid"></a>
+            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
+            <a href="index.html" class="logo">
+                <alt="" class="img-fluid">
+            </a>
             <div class="search-box">
                 <form action="" class="search">
                     <span class="icon-large"><i class="ri-search-line"></i></span>
                     <input type="search" placeholder="What's on your mind today ?">
-                    <button type="Submit"><img src="/assets/img/snuglass.png" height="30"/></button>
+                    <button type="Submit"><img src="/assets/img/snuglass.png" height="30" /></button>
                 </form>
             </div>
             <nav id="navbar" class="navbar">
@@ -78,53 +83,70 @@
     </div>
     <!-- Firebase Configuration and JavaScript Code -->
     <script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
-      import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
-    
-      // Your Firebase configuration here
-      const firebaseConfig = {
-        apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
-        authDomain: "snu-query.firebaseapp.com",
-        databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
-        projectId: "snu-query",
-        storageBucket: "snu-query.appspot.com",
-        messagingSenderId: "350908354215",
-        appId: "1:350908354215:web:146b8142a7db2549f15582",
-        measurementId: "G-T7426ZGZWQ"
-    };
-    
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-    
-      const loginForm = document.getElementById("loginForm");
-    
-      loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-    
-        const email = loginForm["username"].value;
-        const password = loginForm["password"].value;
-    
-        signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            console.log("User signed in:", user);
-            // You can redirect the user to another page after a successful login
-            // window.location.href = "/dashboard.html";
-            window.location.href = "index.html";
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error("Login failed:", errorCode, errorMessage);
-    
-            // Show an alert on the page
-            alert("Login unsuccessful. Please check your ID or Password.");
-    
-            // Reset the text boxes
-            loginForm["username"].value = "";
-            loginForm["password"].value = "";
-          });
-      });
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
+
+        // Your Firebase configuration here
+        const firebaseConfig = {
+            apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
+            authDomain: "snu-query.firebaseapp.com",
+            databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
+            projectId: "snu-query",
+            storageBucket: "snu-query.appspot.com",
+            messagingSenderId: "350908354215",
+            appId: "1:350908354215:web:146b8142a7db2549f15582",
+            measurementId: "G-T7426ZGZWQ"
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const loginForm = document.getElementById("loginForm");
+
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const email = loginForm["username"].value;
+            const password = loginForm["password"].value;
+
+            // Check if the email ends with "@snu.edu.in"
+            if (email.endsWith("@snu.edu.in")) {
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        console.log("User signed in:", user);
+                        // You can redirect the user to another page after a successful login
+                        // window.location.href = "/dashboard.html";
+                        window.location.href = "index.html";
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        console.error("Login failed:", errorCode, errorMessage);
+
+                        // Show an alert on the page based on the error code
+                        if (errorCode === "auth/user-not-found") {
+                            alert("User not found. Please use your SNU Email ID.");
+                        } else if (errorCode === "auth/wrong-password") {
+                            alert("Incorrect password. Please use your SNU Email ID.");
+                        } else {
+                            alert("Login unsuccessful. Please check your ID or Password.");
+                        }
+
+                        // Reset the text boxes
+                        loginForm["username"].value = "";
+                        loginForm["password"].value = "";
+                    });
+            } else {
+                // Email domain is not allowed, show an alert
+                alert("Only @snu.edu.in email addresses are allowed to log in.");
+
+                // Reset the text boxes
+                loginForm["username"].value = "";
+                loginForm["password"].value = "";
+            }
+        });
     </script>
+
 </body>
+
 </html>
