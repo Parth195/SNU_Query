@@ -141,7 +141,7 @@ h6 {
   line-height: 1px;
   transition: 0.3s;
 }
- 
+
 #topbar .social-links a:hover {
   color: #fff;
 }
@@ -159,7 +159,7 @@ h6 {
 #header.fixed-top {
   background: hwb(0 26% 74%);
 }
- 
+
 #header .logo {
   font-size: 18px;
   margin: 0;
@@ -169,7 +169,7 @@ h6 {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-right: 80px;
-  margin-left:  -80px;
+  margin-left: -80px;
 }
 
 /* input[type="text"], textarea {
@@ -177,45 +177,40 @@ h6 {
 } */
 
 
-.header-main .right 
-{ 
+.header-main .right {
   flex: 1;
-  
-} 
 
-form 
-{
+}
+
+form {
   position: relative;
 }
 
-form.search input 
-{
-  line-height: 3.25em; 
+form.search input {
+  line-height: 3.25em;
   padding: 0 10em 0 10em;
   border: 0;
-  outline: 0; 
+  outline: 0;
   border-radius: 30px 0 0 30px;
-  font-size: 0.9em; 
+  font-size: 0.9em;
 }
 
 
-form.search button
-{ 
+form.search button {
   line-height: 3.25em;
   right: 0;
-  border: 0; 
+  border: 0;
   outline: 0;
   font-size: 0.875em;
   background-color: white;
   color: red;
-  border-radius: 0 30px 30px 0 ;
+  border-radius: 0 30px 30px 0;
   transition: #cc1616;
   cursor: pointer;
-  
+
 }
 
-form.search button:hover 
-{ 
+form.search button:hover {
   background-color: #cc1616;
 }
 
@@ -225,7 +220,7 @@ form.search button:hover
 
 #header .logo img {
   max-height: 180px;
-  
+
 }
 
 .scrolled-offset {
@@ -461,29 +456,28 @@ form.search button:hover
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  height: 700px;
+  height: 750px;
   background: url("/assets/img/Shiv-Nadar-University-August-2021-1731.jpg")top center;
   background-size: cover;
   position: relative;
   animation: change 10s infinite ease-in-out;
 }
 
-@keyframes change{
-  0%
-  {
-      background-image: url(/assets/img/1.jpg);
+@keyframes change {
+  0% {
+    background-image: url(/assets/img/1.jpg);
   }
-  35%
-  {
-      background-image: url(/assets/img/2.jpg);
+
+  35% {
+    background-image: url(/assets/img/2.jpg);
   }
-  70%
-  {
-      background-image: url(/assets/img/3.jpg);
+
+  70% {
+    background-image: url(/assets/img/3.jpg);
   }
-  100%
-  {
-      background-image: url(/assets/img/4.jpg);
+
+  100% {
+    background-image: url(/assets/img/4.jpg);
   }
 }
 
@@ -719,6 +713,7 @@ section {
 hr.dotted {
   border-top: 15px dashed #bbb;
 }
+
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
@@ -1065,7 +1060,6 @@ hr.dotted {
 
 .pricing .box ul li {
   padding-bottom: 16p
-  
 }
 
 .pricing .box ul i {
@@ -1238,7 +1232,8 @@ hr.dotted {
 }
 
 .contact .php-email-form .sent-message {
-  display: none; /* Initially hide the success message */
+  display: none;
+  /* Initially hide the success message */
   color: #fff;
   background: #18d26e;
   text-align: center;
@@ -1518,5 +1513,3 @@ hr.dotted {
     margin: -20px 0 30px 0;
   }
 }
-
-
