@@ -14,7 +14,9 @@
   <link href="assets/img/favicon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -51,17 +53,19 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500"/></a></h1>
+      <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="index.html" class="logo"> <alt="" class="img-fluid"></a>
-      
+      <a href="index.html" class="logo">
+        <alt="" class="img-fluid">
+      </a>
+
       <div class="search-box">
-        <form action ="" class="search">
-            <input type="search" placeholder="What's on your mind today ?" size="26"  >
-            <button type="Submit"><img src="/assets/img/snuglass.png" height="25"align-items-ce/></button>
+        <form action="" class="search">
+          <input type="search" placeholder="What's on your mind today ?" size="26">
+          <button type="Submit"><img src="/assets/img/snuglass.png" height="25" align-items-ce /></button>
         </form>
-    </div>
-      
+      </div>
+
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -85,16 +89,16 @@
               <li><a href="#">Resource Bank</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href = "#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <ul>
             <li class="dropdown" id="userDropdown" style="display: none;">
-                <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
-                <ul id="userDropdownList">
-                    <li><a href="#" id="logoutLink">Logout</a></li>
-                </ul>
+              <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
+              <ul id="userDropdownList">
+                <li><a href="#" id="logoutLink">Logout</a></li>
+              </ul>
             </li>
             <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login</a></li>
-        </ul>
+          </ul>
 
 
         </ul>
@@ -106,12 +110,12 @@
 
   <!-- Updated JavaScript code in your index.html -->
   <!-- Updated JavaScript code in your index.html -->
-<script type="module">
-  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
-  import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
 
-  // Your Firebase configuration here
-  const firebaseConfig = {
+    // Your Firebase configuration here
+    const firebaseConfig = {
       apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
       authDomain: "snu-query.firebaseapp.com",
       databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
@@ -120,64 +124,64 @@
       messagingSenderId: "350908354215",
       appId: "1:350908354215:web:146b8142a7db2549f15582",
       measurementId: "G-T7426ZGZWQ"
-  };
+    };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-  const userDropdown = document.getElementById("userDropdown");
-  const userEmailDisplay = document.getElementById("userEmailDisplay");
-  const logoutLink = document.getElementById("logoutLink");
-  const loginButton = document.getElementById("loginButton"); // Get the login button by ID
+    const userDropdown = document.getElementById("userDropdown");
+    const userEmailDisplay = document.getElementById("userEmailDisplay");
+    const logoutLink = document.getElementById("logoutLink");
+    const loginButton = document.getElementById("loginButton"); // Get the login button by ID
 
-  // Function to extract the part of the email before the "@"
-  function getUserNameFromEmail(email) {
-    return email.split("@")[0];
-  }
-
-  // Check if a user is logged in
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is logged in
-      const userName = getUserNameFromEmail(user.email);
-      userEmailDisplay.innerText = userName;
-      userDropdown.style.display = "block";
-      loginButton.style.display = "none"; // Hide the login button
-    } else {
-      // No user is logged in
-      userDropdown.style.display = "none";
-      loginButton.style.display = "block"; // Show the login button
+    // Function to extract the part of the email before the "@"
+    function getUserNameFromEmail(email) {
+      return email.split("@")[0];
     }
-  });
 
-  // Logout functionality
-  logoutLink.addEventListener("click", () => {
-    signOut(auth).then(() => {
-      // User is logged out
-      userDropdown.style.display = "none";
-      loginButton.style.display = "block"; // Show the login button
-    }).catch((error) => {
-      console.error("Logout failed:", error);
+    // Check if a user is logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is logged in
+        const userName = getUserNameFromEmail(user.email);
+        userEmailDisplay.innerText = userName;
+        userDropdown.style.display = "block";
+        loginButton.style.display = "none"; // Hide the login button
+      } else {
+        // No user is logged in
+        userDropdown.style.display = "none";
+        loginButton.style.display = "block"; // Show the login button
+      }
     });
-  });
-</script>
+
+    // Logout functionality
+    logoutLink.addEventListener("click", () => {
+      signOut(auth).then(() => {
+        // User is logged out
+        userDropdown.style.display = "none";
+        loginButton.style.display = "block"; // Show the login button
+      }).catch((error) => {
+        console.error("Logout failed:", error);
+      });
+    });
+  </script>
 
 
 
   <!-- ======= Hero Section ======= -->
-   <section id="hero" class="d-flex align-items-center">
+  <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
       <h1>Welcome to SNU Query</h1>
       <h2></h2>
       <a href="#services" class="btn-get-started scrollto">Ask a doubt</a>
-      
+
       <pre>        </pre> <a href="#" class="btn-get-started scrollto">Answer a Query</a>
     </div>
-    
+
   </section>
-  
-   <!-- ======= Hero Section 2 ======= -->
-   <!-- <section id="hero2" class="d-flex align-items-center">
+
+  <!-- ======= Hero Section 2 ======= -->
+  <!-- <section id="hero2" class="d-flex align-items-center">
    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">======================
     <img class="carousel-item" src="assets/img/logo.png" />
     <!-- <div class="carousel-item" style="background-image: url(assets/img/logo.png)">ynynynynn</div> 
@@ -186,7 +190,7 @@
     <div class="carousel-item" style="background-image: url(assets/img/logo.png)"></div>
   </section> -->
 
-   <!-- <div id "hero-carousel" class= "carousel slide" data-bs-ride = "carousel" data-bs-interval = "5000"> VANSH</div>
+  <!-- <div id "hero-carousel" class= "carousel slide" data-bs-ride = "carousel" data-bs-interval = "5000"> VANSH</div>
    <div class="carousel-item" style="background-image: url(assets/img/logo.png)"></div> -->
 
   <main id="main">
@@ -201,18 +205,30 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
             <h2><b>What is this platform about?</b></h2>
-            
+
             <p class="fst-italic">
-              Have you ever found yourself pondering over the best snack at C&D? Or perhaps you've wondered where to savor the most delecious aloo parantha on campus, decode the secrets of CCC courses, or even uncover the inside scoop on Goldman Sachs interview questions? Well, fikar not because we're here to satisfy your curiosity, quench your thirst for knowledge, and transform your campus life into an exciting adventure.
+              Have you ever found yourself pondering over the best snack at C&D? Or perhaps you've wondered where to
+              savor the most delecious aloo parantha on campus, decode the secrets of CCC courses, or even uncover the
+              inside scoop on Goldman Sachs interview questions? Well, fikar not because we're here to satisfy your
+              curiosity, quench your thirst for knowledge, and transform your campus life into an exciting adventure.
             </p>
             <ul>
-              <li>📚 At the SNU Query Hub, we're not just about answers; we're about empowering you with the insights, tips, and tricks you need to relish every aspect of your college experience. The spirit of learning and sharing knowledge is a two-way street. Here, students have the power to both ask and answer questions, creating a dynamic and interactive learning environment. It's not just about seeking solutions; it's about nurturing a community where insights are freely exchanged.
-                But it doesn't stop with students alone. Faculty members bring their expertise to the table, providing authoritative answers and guidance. Hostel wardens, with their intimate knowledge of campus life, offer valuable insights to make your stay comfortable and memorable. And let's not forget our esteemed alumni, who bring their real-world experiences and wisdom to the party. </li>
+              <li>📚 At the SNU Query Hub, we're not just about answers; we're about empowering you with the insights,
+                tips, and tricks you need to relish every aspect of your college experience. The spirit of learning and
+                sharing knowledge is a two-way street. Here, students have the power to both ask and answer questions,
+                creating a dynamic and interactive learning environment. It's not just about seeking solutions; it's
+                about nurturing a community where insights are freely exchanged.
+                But it doesn't stop with students alone. Faculty members bring their expertise to the table, providing
+                authoritative answers and guidance. Hostel wardens, with their intimate knowledge of campus life, offer
+                valuable insights to make your stay comfortable and memorable. And let's not forget our esteemed alumni,
+                who bring their real-world experiences and wisdom to the party. </li>
               <!-- <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li> -->
               <!-- <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li> -->
             </ul>
             <p>
-              🌟 Your mission should you choose to accept it is to join us in the quest for exploration, where every click is an Anywhere door, and every query you've ever had finds its resolution. We've got your back, Always!
+              🌟 Your mission should you choose to accept it is to join us in the quest for exploration, where every
+              click is an Anywhere door, and every query you've ever had finds its resolution. We've got your back,
+              Always!
             </p>
           </div>
         </div>
@@ -226,9 +242,9 @@
 
         <div class="row"> -->
 
-          <!-- <div class="col-lg-4" data-aos="fade-up">
+    <!-- <div class="col-lg-4" data-aos="fade-up">
             <div class="box"> -->
-              <!-- <span>01</span>
+    <!-- <span>01</span>
               <h4>ASK A PROFESSOR</h4>
               <p>Got a query for our amazing faculty? Ask them here and get the responses directly from your very own professors.</p>
             </div>
@@ -249,16 +265,16 @@
               <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
             </div>
           </div> -->
-<!-- 
+    <!-- 
         </div>
 
       </div> -->
     <!-- </section>End Why Us Section -->
 
     <!-- ======= Clients Section ======= -->
-     
 
-          <!-- <div class="col-lg-2 col-md-4 col-6">
+
+    <!-- <div class="col-lg-2 col-md-4 col-6">
             <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
           </div>
 
@@ -282,9 +298,9 @@
             <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
           </div> -->
 
-        </div>
+    </div>
 
-      </div>
+    </div>
     </section><!-- End Clients Section -->
     <hr class="dotted">
     <!-- ======= Services Section ======= -->
@@ -298,40 +314,42 @@
         </div>
 
         <div class="row">
-          
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-            <a href = "/ask.html">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-envelope"></i></div>
-              <p style="font-size: x-large;"><b>Ask the Faculty</b></p><br>
-              <p>Ask our esteemed faculty members and seek guidance on academic and career-related queries.</p>
-            </div>
-          </a>
-          </div>
-        
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
-            <a href = "/ask.html">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-phone-call"></i></div>
-              <p style="font-size: x-large;"><b>Ask the Alumni</b></p><br>
-              <p>Acknowledge the knowledge and experience by engaging with our notable alumni.</p>
-            </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <a href="/ask.html">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-envelope"></i></div>
+                <p style="font-size: x-large;"><b>Ask the Faculty</b></p><br>
+                <p>Ask our esteemed faculty members and seek guidance on academic and career-related queries.</p>
+              </div>
             </a>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <a href = "/ask.html">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-skype"></i></div>
-              <p style="font-size: x-large;"><b>Ask the Students</b></p><br>
-              <p>Engage in a lively conversation with your fellow mates and  seek help with everyday doubts.</p>
-            </div>
-          </a>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up"
+            data-aos-delay="150">
+            <a href="/ask.html">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-phone-call"></i></div>
+                <p style="font-size: x-large;"><b>Ask the Alumni</b></p><br>
+                <p>Acknowledge the knowledge and experience by engaging with our notable alumni.</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up"
+            data-aos-delay="300">
+            <a href="/ask.html">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bxl-skype"></i></div>
+                <p style="font-size: x-large;"><b>Ask the Students</b></p><br>
+                <p>Engage in a lively conversation with your fellow mates and seek help with everyday doubts.</p>
+              </div>
+            </a>
           </div>
 
 
-        
+
 
         </div>
 
@@ -344,7 +362,8 @@
 
         <div class="text-center">
           <h3>Answer a query</h3>
-          <p><q><i>Have some free time or the motivation to help your students and peers? Well, there are always some questions seeking for answers, so go ahead and crack as many as you can! </i></q></p>
+          <p><q><i>Have some free time or the motivation to help your students and peers? Well, there are always some
+                questions seeking for answers, so go ahead and crack as many as you can! </i></q></p>
           <!-- <p>                                                               <b> ~ Albert Einstein </b></p> -->
           <a class="cta-btn" href="#">Answer a query</a>
         </div>
@@ -353,7 +372,7 @@
     </section><!-- End Cta Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    
+
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Pricing Section ======= -->
@@ -509,86 +528,48 @@
               <p>A108 Adam Street, New York, NY 535022</p>
             </div>
           </div> -->
-          <div class="row">
-            <div class="col-lg-6">
-              <form action="https://formspree.io/f/xeqbdzkw?ajax=true" method="POST" role="form" class="php-email-form">
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                  </div>
-                  <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="_replyto" id="email" placeholder="Your Email" required>
-                  </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <form action="https://formspree.io/f/xeqbdzkw?ajax=true" method="POST">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
-                <div class="form-group mt-3">
-                  <input type="text" class="form-control" name="_subject" id="subject" placeholder="Subject" required>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="_replyto" id="email" placeholder="Your Email" required>
                 </div>
-                <div class="form-group mt-3">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message"></div> <!-- Remove the "display" style -->
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
-              </form>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="_subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading"></div>
+                <div class="error-message"></div>
+                <div class="sent-message"></div> <!-- Remove the "display" style -->
+              </div>
+              <div class="text-center"><button type="submit" value="Send">Send Message</button></div>
+            </form>
           </div>
-          
 
-          <script type="module">
-            const form = document.querySelector('.php-email-form');
-            const sentMessage = document.querySelector('.sent-message');
-            const errorMessages = document.querySelector('.error-message');
-          
-            form.addEventListener('submit', async (event) => {
-              event.preventDefault();
-          
-              const response = await submitForm(form);
-          
-              if (response.ok || (response.statusText.includes('OK') && !response.statusText.includes('Error: {"next":"/thanks?language=en","ok":true}'))) {
-                // Show the "sent" message and hide the error message
-                sentMessage.style.display = 'block'; // Show the success message
-                errorMessages.style.display = 'none'; // Hide the error message
-                sentMessage.innerHTML = 'Thank you for your message!'; // Customize your success message here
-              } else {
-                // Hide the "sent" message and show the error message
-                sentMessage.style.display = 'none';
-                errorMessages.style.display = 'block';
-              }
-            });
-          
-            async function submitForm(form) {
-              const formData = new FormData(form);
-              const url = form.action;
-              const options = {
-                method: 'POST',
-                body: formData,
-              };
-          
-              return fetch(url, options);
-            }
-          </script>
-          
-             
-      
-           
-      
-            <div class="col-lg-3 col-md-6 order-lg-last" style="margin-top: 75px;">
-              <div class="info-box mb-4">
-                <i class="bx bx-envelope"></i>
-                <h3>Email Us</h3>
-                <p>snu.query@snu.edu.in</p>
-              </div>
+
+          <div class="col-lg-3 col-md-6 order-lg-last" style="margin-top: 75px;">
+            <div class="info-box mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email Us</h3>
+              <p>snu.query@snu.edu.in</p>
             </div>
-      
-            <div class="col-lg-3 col-md-6 order-lg-first" style="margin-top: 75px;">
-              <div class="info-box mb-4">
-                <i class="bx bx-phone-call"></i>
-                <h3>Call Us</h3>
-                <p>+91 96866 57675</p>
-              </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 order-lg-first" style="margin-top: 75px;">
+            <div class="info-box mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Call Us</h3>
+              <p>+91 96866 57675</p>
             </div>
+          </div>
 
         </div>
 
@@ -699,7 +680,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->

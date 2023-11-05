@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sending Email Using Formspree.io</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 45%;
+            margin: auto;
+            background-color: aliceblue;
+            padding: 1rem;
+            border-radius: 16px;
+
+        }
+        input{
+            padding: 0.5rem;
+            border-radius: 16px;
+        }
+        input[type="submit"]{
+            width: fit-content;
+            background-color: orange;
+            color: white;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 1px 1px 5px black;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <h1 style="text-align: center;">My Form</h1>
+    <form action="https://formspree.io/f/xeqbdzkw" method="post">
+        <input name="name" type="text" placeholder="Enter your Name...">
+        <input name="email" type="email" placeholder="Enter your Email...">
+        <input name="contact_no" type="number" placeholder="Enter your Contact Number...">
+        <textarea name="message" name="" id="" cols="30" rows="10" placeholder="Enter Message"></textarea>
+        <input type="submit" value="Send">
+    </form>
+
+</body>
+</html>
