@@ -1,10 +1,228 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
-    authDomain: "snu-query.firebaseapp.com",
-    databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
-    projectId: "snu-query",
-    storageBucket: "snu-query.appspot.com",
-    messagingSenderId: "350908354215",
-    appId: "1:350908354215:web:146b8142a7db2549f15582",
-    measurementId: "G-T7426ZGZWQ"
-};
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-top: 20px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("/assets/img/Shiv-Nadar-University-August-2021-1731.jpg") top center;
+            background-size: cover;
+            animation: change 10s infinite ease-in-out;
+        }
+
+        .card img {
+            display: none;
+        }
+
+        .card-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes change {
+            0% {
+                background-image: url(/assets/img/1.jpg);
+            }
+            35% {
+                background-image: url(/assets/img/2.jpg);
+            }
+            70% {
+                background-image: url(/assets/img/3.jpg);
+            }
+            100% {
+                background-image: url(/assets/img/4.jpg);
+            }
+        }
+        .card img {
+            display: none;
+        }
+
+        .card:hover {
+            background-color: #555; /* Change the background color on hover */
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styles for the header and other elements */
+        #header {
+            width: 100%;
+            background-color: #808080;
+            padding: 20px 0;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .black-text {
+            color: rgb(16, 15, 15);
+        }
+
+        .blue-text {
+            color: blue;
+        }
+
+        .green-text {
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500"/></a></h1>
+            <a href="index.html" class="logo"> <alt="" class="img-fluid"></a>
+            <div class="search-box">
+                <form action="" class="search">
+                    <h1>
+                        <p class="black-text"><u>EVENTS</u></p>
+                    </h1>
+                </form>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="/index.html">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Ask</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Hostels</a></li>
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">Resource Bank</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="login.html">Login</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+        </div>
+    </header>
+
+    <!-- First Set of Containers -->
+    <div class="container">
+        <!-- Container 1 -->
+        <div class="card">
+            <h2>SURGE</h2>
+            <p>Content for the first container...</p>
+        </div>
+        <!-- Container 2 -->
+        <div class="card">
+            <h2>HALLOWEEN</h2>
+            <p>Content for the second container...</p>
+        </div>
+    </div>
+
+    <!-- Second Set of Containers -->
+    <div class="container">
+        <!-- Container 3 -->
+        <div class="card">
+            <h2>DANDIYA</h2>
+            <p>Content for the third container...</p>
+        </div>
+        <!-- Container 4 -->
+        <div class="card">
+            <h2>BREEZE</h2>
+            <p>Content for the fourth container...</p>
+        </div>
+    </div>
+
+    <!-- Third Set of Containers -->
+    <div class="container">
+        <!-- Container 5 -->
+        <div class="card">
+            <h2>SIGREE</h2>
+            <p>Content for the fifth container...</p>
+        </div>
+        <!-- Container 6 -->
+        <div class="card">
+            <h2>THE GIVING TREE</h2>
+            <p>Content for the sixth container...</p>
+        </div>
+    </div>
+    <!-- New Page Start -->
+    <div class="container">
+        <!-- Container 7 -->
+        <div class="card">
+            <!-- Your content for Container 7 -->
+            <h2>Container 7</h2>
+            <p>Content for the seventh container...</p>
+        </div>
+        <!-- Container 8 -->
+        <div class="card">
+            <!-- Your content for Container 8 -->
+            <h2>Container 8</h2>
+            <p>Content for the eighth container...</p>
+        </div>
+    </div>
+    <!-- New Page End -->
+
+    <!-- New Page Start -->
+    <div class="container">
+        <!-- Container 9 -->
+        <div class="card">
+            <!-- Your content for Container 9 -->
+            <h2>Container 9</h2>
+            <p>Content for the ninth container...</p>
+        </div>
+        <!-- Container 10 -->
+        <div class="card">
+            <!-- Your content for Container 10 -->
+            <h2>Container 10</h2>
+            <p>Content for the tenth container...</p>
+        </div>
+    </div>
+    <!-- New Page End -->
+</body>
+</html>
