@@ -1,152 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta content="width-device-width, initial-scale=1.0" name="viewport">
-    <title>SNU Query - Login</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <!-- Fav icons Arin -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/favicon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <!-- Corrected the URL for swiper-bundle.min.css -->
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login & Registration Form | Codehal</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
-    <!-- ======= Header ======= -->
-    <header id="header" class="d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
-            <a href="index.html" class="logo">
-                <alt="" class="img-fluid">
-            </a>
-            <div class="search-box">
-                <form action="" class="search">
-                    <span class="icon-large"><i class="ri-search-line"></i></span>
-                    <input type="search" placeholder="What's on your mind today ?">
-                    <button type="Submit"><img src="/assets/img/snuglass.png" height="30" /></button>
-                </form>
-            </div>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto active" href="/index.html">Home</a></li>
-                    <li><a class "nav-link scrollto" href="#services">Ask</a></li>
-                    <li class="dropdown">
-                        <a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Faculty</a></li>
-                            <li><a href="#">Hostels</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">Resource Bank</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="login.html">Login</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-        </div>
-    </header><!-- End Header -->
-
-    <div style="text-align: center; margin-top: 100px;">
-        <h2>Login</h2>
+    <div class="wrapper">
+      <div class="form-wrapper sign-in">
         <form action="login.php" method="post" role="form" id="loginForm">
-            <div>
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" required>
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" required>
-            </div>
-            <div>
-                <button type="submit">Sign In</button>
-            </div>
+          <h1>SNUQUERY</h1>
+          <h2>Login</h2>
+          <div class="input-group">
+        <input type="text" name="username" id="username" required>
+            <label for="">Username</label>
+          </div>
+          <div class="input-group">
+            <input type="password" name="password" id="password" required>
+            <label for="">Password</label>
+          </div>
+          <button type="submit">Sign In</button>
         </form>
+      </div>
     </div>
-    <!-- Firebase Configuration and JavaScript Code -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
-        import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
 
-        // Your Firebase configuration here
-        const firebaseConfig = {
-            apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
-            authDomain: "snu-query.firebaseapp.com",
-            databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
-            projectId: "snu-query",
-            storageBucket: "snu-query.appspot.com",
-            messagingSenderId: "350908354215",
-            appId: "1:350908354215:web:146b8142a7db2549f15582",
-            measurementId: "G-T7426ZGZWQ"
-        };
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  background: #000;
+  box-shadow: 0 0 50px #0ef;
+  border-radius: 20px;
+  padding: 40px;
+  overflow: hidden;
+}
+.wrapper:hover {
+  animation: animate 1s linear infinite;
+}
+@keyframes animate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: 1s ease-in-out;
+}
+.wrapper.active .form-wrapper.sign-in {
+  transform: translateY(-450px);
+}
+.wrapper .form-wrapper.sign-up {
+  position: absolute;
+  top: 450px;
+  left: 0;
+}
+.wrapper.active .form-wrapper.sign-up {
+  transform: translateY(-450px);
+}
 
-        const loginForm = document.getElementById("loginForm");
+h1 {
+  font-size: 40px;
+  margin: 50px 0;
+  color: #fff;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
 
-        loginForm.addEventListener("submit", (e) => {
-            e.preventDefault();
+h2 {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+.input-group {
+  position: relative;
+  margin: 30px 0;
+  border-bottom: 2px solid #fff;
+}
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+.input-group input {
+  width: 320px;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 5px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.input-group input:focus~label,
+.input-group input:valid~label {
+  top: -5px;
+}
+button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: #0ef;
+  box-shadow: 0 0 10px #0ef;
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+</style>
 
-            const email = loginForm["username"].value;
-            const password = loginForm["password"].value;
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
+    import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
 
-            // Check if the email ends with "@snu.edu.in"
-            if (email.endsWith("@snu.edu.in")) {
-                signInWithEmailAndPassword(auth, email, password)
-                    .then((userCredential) => {
-                        const user = userCredential.user;
-                        console.log("User signed in:", user);
-                        // You can redirect the user to another page after a successful login
-                        // window.location.href = "/dashboard.html";
-                        window.location.href = "index.html";
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        console.error("Login failed:", errorCode, errorMessage);
+    // Your Firebase configuration here
+    const firebaseConfig = {
+        apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
+        authDomain: "snu-query.firebaseapp.com",
+        databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
+        projectId: "snu-query",
+        storageBucket: "snu-query.appspot.com",
+        messagingSenderId: "350908354215",
+        appId: "1:350908354215:web:146b8142a7db2549f15582",
+        measurementId: "G-T7426ZGZWQ"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-                        // Show an alert on the page based on the error code
-                        if (errorCode === "auth/user-not-found") {
-                            alert("User not found. Please use your SNU Email ID.");
-                        } else if (errorCode === "auth/wrong-password") {
-                            alert("Incorrect password. Please use your SNU Email ID.");
-                        } else {
-                            alert("Login unsuccessful. Please check your ID or Password.");
-                        }
+    const loginForm = document.getElementById("loginForm");
 
-                        // Reset the text boxes
-                        loginForm["username"].value = "";
-                        loginForm["password"].value = "";
-                    });
-            } else {
-                // Email domain is not allowed, show an alert
-                alert("Only @snu.edu.in email addresses are allowed to log in.");
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-                // Reset the text boxes
-                loginForm["username"].value = "";
-                loginForm["password"].value = "";
-            }
-        });
-    </script>
+        const email = loginForm["username"].value;
+        const password = loginForm["password"].value;
+
+        // Check if the email ends with "@snu.edu.in"
+        if (email.endsWith("@snu.edu.in")) {
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log("User signed in:", user);
+                    // You can redirect the user to another page after a successful login
+                    // window.location.href = "/dashboard.html";
+                    window.location.href = "index.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Login failed:", errorCode, errorMessage);
+
+                    // Show an alert on the page based on the error code
+                    if (errorCode === "auth/user-not-found") {
+                        alert("User not found. Please use your SNU Email ID.");
+                    } else if (errorCode === "auth/wrong-password") {
+                        alert("Incorrect password. Please use your SNU Email ID.");
+                    } else {
+                        alert("Login unsuccessful. Please check your ID or Password.");
+                    }
+
+                    // Reset the text boxes
+                    loginForm["username"].value = "";
+                    loginForm["password"].value = "";
+                });
+        } else {
+            // Email domain is not allowed, show an alert
+            alert("Only @snu.edu.in email addresses are allowed to log in.");
+
+            // Reset the text boxes
+            loginForm["username"].value = "";
+            loginForm["password"].value = "";
+        }
+    });
+</script>
 
 </body>
-
 </html>
