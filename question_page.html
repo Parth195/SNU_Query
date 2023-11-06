@@ -104,21 +104,22 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            margin-top: 30px;
-            background-color: #ffffff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 30px;
+        background-color: #ffffff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border: 2px solid rgb(102, 89, 89); /* Add red border to the container */
+    }
 
-        h1 {
-            text-align: center;
-            color: #337ab7;
-            font-size: 32px;
-        }
+    h1 {
+        text-align: center;
+        color: #337ab7;
+        font-size: 32px;
+    }
 
         section {
             margin: 20px 0;
@@ -563,39 +564,11 @@
 
     <script type="module">
         // Firebase configuration and initialization code here
-        function handlePostQuestionClick() {
-            postQuestion();
-        }
-
-        // Add an event listener to the button
-        const postQuestionButton = document.getElementById("postQuestion");
-        postQuestionButton.addEventListener("click", handlePostQuestionClick);
-
-        function postQuestion() {
-            const author = document.getElementById("authorName").value;
-            const questionText = document.getElementById("question").value;
-            const tags = getSelectedCheckboxes("tags");
-
-            // Push the question data to the Firebase database
-            const newQuestionRef = push(questionsRef, {
-                text: questionText,
-                tags: tags,
-                author: author,
-                timestamp: new Date().toISOString(),
-                upvotes: 0,
-                answers: {}
-            }).then(() => {
-                // Data was successfully written to Firebase
-                console.log("Question posted successfully!");
-            }).catch((error) => {
-                console.error("Error posting question: ", error);
-            });
-        }
-
+    
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
         import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
-
+    
         const firebaseConfig = {
             apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
             authDomain: "snu-query.firebaseapp.com",
@@ -606,13 +579,11 @@
             appId: "1:350908354215:web:146b8142a7db2549f15582",
             measurementId: "G-T7426ZGZWQ"
         };
-
+    
         const firebaseApp = initializeApp(firebaseConfig);
-
-        // Create a reference to your Firebase Realtime Database
         const firebaseDatabase = getDatabase(firebaseApp);
         const questionsRef = ref(firebaseDatabase, "questions");
-
+    
         function getSelectedCheckboxes(name) {
             const checkboxes = document.querySelectorAll(`[name="${name}"]:checked`);
             const values = [];
@@ -621,7 +592,46 @@
             });
             return values;
         }
-
+    
+        function handlePostQuestionClick() {
+            postQuestion();
+        }
+    
+        // Add an event listener to the button
+        const postQuestionButton = document.getElementById("postQuestion");
+        postQuestionButton.addEventListener("click", handlePostQuestionClick);
+    
+        function postQuestion() {
+            const author = document.getElementById("authorName").value;
+            const questionText = document.getElementById("question").value;
+            const tags = getSelectedCheckboxes("tags");
+    
+            // Perform form validation
+            if (author && questionText && tags.length > 0) {
+                // All fields are filled, proceed with posting the question
+                const newQuestionRef = push(questionsRef, {
+                    text: questionText,
+                    tags: tags,
+                    author: author,
+                    timestamp: new Date().toISOString(),
+                    upvotes: 0,
+                    answers: {}
+                }).then(() => {
+                    // Data was successfully written to Firebase
+                    console.log("Question posted successfully!");
+                    alert("Question posted successfully!"); // Display success message
+                    setTimeout(() => {
+                        window.location.reload(); // Reload the page after a short delay
+                    }, 1500);
+                }).catch((error) => {
+                    console.error("Error posting question: ", error);
+                });
+            } else {
+                // Fields are missing, display an error message
+                alert("Please fill in all fields to post the question.");
+            }
+        }
+    
         // Function to get URL parameters by name
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -632,10 +642,10 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-
+    
         // Get the 'target' parameter from the URL
         var target = getParameterByName('target');
-
+    
         // Check the corresponding checkbox based on the 'target' parameter
         if (target) {
             var checkbox = document.querySelector('input[name="userType"][value="' + target + '"]');
@@ -643,11 +653,7 @@
                 checkbox.checked = true;
             }
         }
-
     </script>
-
-
-
-</body>
-
-</html>
+    </body>
+    </html>
+    
