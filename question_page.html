@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <title>Question Posting Website</title>
+    <title>SNU Query-Post Question</title>
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.png" rel="apple-touch-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
@@ -104,22 +106,23 @@
         }
 
         .container {
-        max-width: 800px;
-        margin: 0 auto;
-        margin-top: 30px;
-        background-color: #ffffff;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 30px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        border: 2px solid rgb(102, 89, 89); /* Add red border to the container */
-    }
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 30px;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgb(102, 89, 89);
+            /* Add red border to the container */
+        }
 
-    h1 {
-        text-align: center;
-        color: #337ab7;
-        font-size: 32px;
-    }
+        h1 {
+            text-align: center;
+            color: #337ab7;
+            font-size: 32px;
+        }
 
         section {
             margin: 20px 0;
@@ -413,31 +416,33 @@
         .navbar-mobile .dropdown>.dropdown-active {
             display: block;
         }
+
         .styled-button {
-  text-decoration: none;
-  display: inline-block;
-  padding: 0px 0px;
-  background-color: #e83e8c; /* Change the background color to your desired color */
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-weight: bold; /* Make the text bold */
-  font-size: 16px; /* Adjust the font size */
-  text-transform: uppercase; /* Transform text to uppercase */
-  letter-spacing: 2px; /* Add letter spacing for style */
+            text-decoration: none;
+            display: inline-block;
+            padding: 0px 0px;
+            background-color: #e83e8c;
+            /* Change the background color to your desired color */
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            /* Make the text bold */
+            font-size: 16px;
+            /* Adjust the font size */
+            text-transform: uppercase;
+            /* Transform text to uppercase */
+            letter-spacing: 2px;
+            /* Add letter spacing for style */
 
-  /* Style the button on hover */
-  &:hover {
-    background-color: #ff5733; /* Change the background color on hover */
-  }
-}
-
-
-
-
-
+            /* Style the button on hover */
+            &:hover {
+                background-color: #ff5733;
+                /* Change the background color on hover */
+            }
+        }
     </style>
 
 
@@ -553,22 +558,22 @@
         <!-- <button type="submit" id="postQuestion" onclick=""><i class="fas fa-paper-plane fa-icon"></i> View Questions</button> -->
         <a href="all_questions.html" class="styled-button">
             <button>View All</button>
-          </a>
-          
-          
+        </a>
+
+
         <button type="submit" id="postQuestion" onclick="postQuestion()"><i class="fas fa-paper-plane fa-icon"></i> Post
             Question</button>
-        
+
     </div>
 
 
     <script type="module">
         // Firebase configuration and initialization code here
-    
+
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
         import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
-    
+
         const firebaseConfig = {
             apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
             authDomain: "snu-query.firebaseapp.com",
@@ -579,11 +584,11 @@
             appId: "1:350908354215:web:146b8142a7db2549f15582",
             measurementId: "G-T7426ZGZWQ"
         };
-    
+
         const firebaseApp = initializeApp(firebaseConfig);
         const firebaseDatabase = getDatabase(firebaseApp);
         const questionsRef = ref(firebaseDatabase, "questions");
-    
+
         function getSelectedCheckboxes(name) {
             const checkboxes = document.querySelectorAll(`[name="${name}"]:checked`);
             const values = [];
@@ -592,20 +597,20 @@
             });
             return values;
         }
-    
+
         function handlePostQuestionClick() {
             postQuestion();
         }
-    
+
         // Add an event listener to the button
         const postQuestionButton = document.getElementById("postQuestion");
         postQuestionButton.addEventListener("click", handlePostQuestionClick);
-    
+
         function postQuestion() {
             const author = document.getElementById("authorName").value;
             const questionText = document.getElementById("question").value;
             const tags = getSelectedCheckboxes("tags");
-    
+
             // Perform form validation
             if (author && questionText && tags.length > 0) {
                 // All fields are filled, proceed with posting the question
@@ -631,7 +636,7 @@
                 alert("Please fill in all fields to post the question.");
             }
         }
-    
+
         // Function to get URL parameters by name
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -642,10 +647,10 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-    
+
         // Get the 'target' parameter from the URL
         var target = getParameterByName('target');
-    
+
         // Check the corresponding checkbox based on the 'target' parameter
         if (target) {
             var checkbox = document.querySelector('input[name="userType"][value="' + target + '"]');
@@ -654,6 +659,6 @@
             }
         }
     </script>
-    </body>
-    </html>
-    
+</body>
+
+</html>
