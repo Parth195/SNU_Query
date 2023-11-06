@@ -456,19 +456,6 @@ form.search button:hover {
 # Hero Section
 --------------------------------------------------------------*/
 /* Style for the expand buttons */
-.expand-button {
-  background-color: yellow; /* Set the background color to yellow */
-  color: black; /* Set the text color to black */
-  border: none;
-  padding: 8px 16px; /* Add padding to the buttons */
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.expand-button:hover {
-  background-color: #ffcc00; /* Change the background color on hover */
-}
 /* Style for the expand container */
 .expand-container {
   display: flex;
@@ -477,19 +464,20 @@ form.search button:hover {
   margin-top: 10px; /* Add some space between the button and content */
 }
 
-/* Style for the expand button */
+/* Style for the drop-down button */
 .expand-button {
-  background-color: yellow;
-  color: black;
+  background-color: transparent;
   border: none;
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 0;
   cursor: pointer;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.expand-button:hover {
-  background-color: #ffcc00;
+/* Style for the drop-down arrow symbol */
+.expand-button .arrow {
+  font-size: 24px;
 }
 
 /* Style for the info popup */
@@ -498,6 +486,17 @@ form.search button:hover {
   text-align: center;
   padding: 10px;
 }
+
+/* Style for the arrow symbol when content is expanded */
+.expand-container.expanded .expand-button .arrow {
+  transform: rotate(180deg); /* Rotate the arrow 180 degrees */
+}
+
+/* Style for the info popup when content is expanded */
+.expand-container.expanded .info-popup {
+  display: block; /* Show the content when expanded */
+}
+
 
 
 #hero {
