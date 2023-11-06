@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
+    <title>EVENTS</title>
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
         body {
@@ -40,11 +40,111 @@
             background-size: cover;
         }
 
+        .card1 {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("/assets/img/1.jpg") top center;
+            background-size: cover;
+        }
+
+        .card2 {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("/assets/img/1.jpg") top center;
+            background-size: cover;
+        }
+
+        .card3 {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("/assets/img/1.jpg") top center;
+            background-size: cover;
+        }
+
+        .card4 {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("/assets/img/1.jpg") top center;
+            background-size: cover;
+        }
+
         .card img {
             display: none;
         }
 
         .card-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card1 img {
+            display: none;
+        }
+
+        .card1-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card2 img {
+            display: none;
+        }
+
+        .card2-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card3 img {
+            display: none;
+        }
+
+        .card3-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card4 img {
+            display: none;
+        }
+
+        .card4-content {
             display: block;
             z-index: 10;
             position: relative;
@@ -76,7 +176,127 @@
             }
         }
 
+        .card1:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change1 10s infinite ease-in-out;
+        }
+
+        @keyframes change1 {
+            0% {
+                background-image: url(/assets/img/1.jpg);
+            }
+
+            35% {
+                background-image: url(/assets/img/2.jpg);
+            }
+
+            70% {
+                background-image: url(/assets/img/3.jpg);
+            }
+
+            100% {
+                background-image: url(/assets/img/4.jpg);
+            }
+        }
+
+        .card2:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change2 10s infinite ease-in-out;
+        }
+
+        @keyframes change2 {
+            0% {
+                background-image: url(/assets/img/1.jpg);
+            }
+
+            35% {
+                background-image: url(/assets/img/2.jpg);
+            }
+
+            70% {
+                background-image: url(/assets/img/3.jpg);
+            }
+
+            100% {
+                background-image: url(/assets/img/4.jpg);
+            }
+        }
+
+        .card3:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change3 10s infinite ease-in-out;
+        }
+
+        @keyframes change3 {
+            0% {
+                background-image: url(/assets/img/1.jpg);
+            }
+
+            35% {
+                background-image: url(/assets/img/2.jpg);
+            }
+
+            70% {
+                background-image: url(/assets/img/3.jpg);
+            }
+
+            100% {
+                background-image: url(/assets/img/4.jpg);
+            }
+        }
+
+        .card4:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change4 10s infinite ease-in-out;
+        }
+
+        @keyframes change4 {
+            0% {
+                background-image: url(/assets/img/1.jpg);
+            }
+
+            35% {
+                background-image: url(/assets/img/2.jpg);
+            }
+
+            70% {
+                background-image: url(/assets/img/3.jpg);
+            }
+
+            100% {
+                background-image: url(/assets/img/4.jpg);
+            }
+        }
+
         .card img {
+            display: none;
+        }
+
+        .card1 img {
+            display: none;
+        }
+
+        .card2 img {
+            display: none;
+        }
+
+        .card3 img {
+            display: none;
+        }
+
+        .card4 img {
             display: none;
         }
 
@@ -194,12 +414,12 @@
     <!-- First Set of Containers -->
     <div class="container">
         <!-- Container 1 -->
-        <div class="card">
+        <div class="card1">
             <h2>SURGE</h2>
             <p>Content for the first container...</p>
         </div>
         <!-- Container 2 -->
-        <div class="card">
+        <div class="card2">
             <h2>HALLOWEEN</h2>
             <p>Content for the second container...</p>
         </div>
@@ -208,12 +428,12 @@
     <!-- Second Set of Containers -->
     <div class="container">
         <!-- Container 3 -->
-        <div class="card">
+        <div class="card3">
             <h2>DANDIYA</h2>
             <p>Content for the third container...</p>
         </div>
         <!-- Container 4 -->
-        <div class="card">
+        <div class="card4">
             <h2>BREEZE</h2>
             <p>Content for the fourth container...</p>
         </div>
