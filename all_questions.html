@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <title>Question and Answer Page</title>
+    <title>SNU Query-Answer</title>
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.png" rel="apple-touch-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -222,10 +224,10 @@
             <div class="question-text">
                 <h2>Question 1</h2>
                 <div class="question-options">
-                    <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-1')"></i><span class="votes upvotes"
-                        id="upvotes-1">0</span>
-                    <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-1')"></i><span class="votes downvotes"
-                        id="downvotes-1">0</span>
+                    <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-1')"></i><span
+                        class="votes upvotes" id="upvotes-1">0</span>
+                    <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-1')"></i><span
+                        class="votes downvotes" id="downvotes-1">0</span>
                 </div>
             </div>
             <p>What is your question?</p>
@@ -240,7 +242,8 @@
                 <div class="format-buttons">
                     <button class="format-button" onclick="formatText('question-1-answer', 'bold')"><b>B</b></button>
                     <button class="format-button" onclick="formatText('question-1-answer', 'italic')"><i>I</i></button>
-                    <button class="format-button" onclick="formatText('question-1-answer', 'underline')"><u>U</u></button>
+                    <button class="format-button"
+                        onclick="formatText('question-1-answer', 'underline')"><u>U</u></button>
                 </div>
                 <button class="post-answer" onclick="postAnswer('question-1')">Post Answer</button>
             </div>
@@ -261,15 +264,16 @@
             <div class="question-text">
                 <h2>Question 2</h2>
                 <div class="question-options">
-                    <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-2')"></i><span class="votes upvotes"
-                        id="upvotes-2">0</span>
-                    <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-2')"></i><span class="votes downvotes"
-                        id="downvotes-2">0</span>
+                    <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-2')"></i><span
+                        class="votes upvotes" id="upvotes-2">0</span>
+                    <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-2')"></i><span
+                        class="votes downvotes" id="downvotes-2">0</span>
                 </div>
             </div>
             <p>What is your question?</p>
             <div class="question-options">
-                <button class="previously-answered-button" onclick="showPreviouslyAnswered('question-2')">Previously Answered</button>
+                <button class="previously-answered-button" onclick="showPreviouslyAnswered('question-2')">Previously
+                    Answered</button>
                 <button class="answers-button" onclick="showAnswerForm('question-2')">Add an Answer</button>
             </div>
             <div class="answer-form" id="question-2-answer-form">
@@ -278,7 +282,8 @@
                 <div class="format-buttons">
                     <button class="format-button" onclick="formatText('question-2-answer', 'bold')"><b>B</b></button>
                     <button class="format-button" onclick="formatText('question-2-answer', 'italic')"><i>I</i></button>
-                    <button class="format-button" onclick="formatText('question-2-answer', 'underline')"><u>U</u></button>
+                    <button class="format-button"
+                        onclick="formatText('question-2-answer', 'underline')"><u>U</u></button>
                 </div>
                 <button class="post-answer" onclick="postAnswer('question-2')">Post Answer</button>
             </div>
@@ -294,104 +299,104 @@
                 <p>Answer.....</p>
             </div>
 
-        <script>
-            function showPreviouslyAnswered(questionId) {
-                const previousAnswered = document.getElementById(questionId + "-answered");
-                previousAnswered.classList.toggle('active');
-            }
-        
-            function showAnswerForm(questionId) {
-                const answerForm = document.getElementById(questionId + "-answer-form");
-                answerForm.classList.toggle('active');
-            }
-        
-            function closeAnswerForm(questionId) {
-                const answerForm = document.getElementById(questionId + "-answer-form");
-                answerForm.classList.remove('active');
-            }
-        
-            function postAnswer(questionId) {
-                const answerText = document.getElementById(questionId + "-answer").value;
-                // Code to post the answer goes here
-                console.log("Posting answer for Question " + questionId + ": " + answerText);
-                alert('Answer submitted');
-                location.reload();
-            }
-        
-            function formatText(textAreaId, format) {
-        const textArea = document.getElementById(textAreaId);
-        const start = textArea.selectionStart;
-        const end = textArea.selectionEnd;
+            <script>
+                function showPreviouslyAnswered(questionId) {
+                    const previousAnswered = document.getElementById(questionId + "-answered");
+                    previousAnswered.classList.toggle('active');
+                }
 
-        let prefix = '';
-        let suffix = '';
+                function showAnswerForm(questionId) {
+                    const answerForm = document.getElementById(questionId + "-answer-form");
+                    answerForm.classList.toggle('active');
+                }
 
-        switch (format) {
-            case 'bold':
-                prefix = '<b>';
-                suffix = '</b>';
-                break;
-            case 'italic':
-                prefix = '<i>';
-                suffix = '</i>';
-                break;
-            case 'underline':
-                prefix = '<u>';
-                suffix = '</u>';
-                break;
-        }
+                function closeAnswerForm(questionId) {
+                    const answerForm = document.getElementById(questionId + "-answer-form");
+                    answerForm.classList.remove('active');
+                }
 
-        const selectedText = textArea.value.substring(start, end);
-        const textBefore = textArea.value.substring(0, start);
-        const textAfter = textArea.value.substring(end);
+                function postAnswer(questionId) {
+                    const answerText = document.getElementById(questionId + "-answer").value;
+                    // Code to post the answer goes here
+                    console.log("Posting answer for Question " + questionId + ": " + answerText);
+                    alert('Answer submitted');
+                    location.reload();
+                }
 
-        const newText = textBefore + prefix + selectedText + suffix + textAfter;
-        textArea.value = newText;
-    }
-            
-        
-    function toggleUpvote(id) {
-        const upvoteCount = document.getElementById(id);
-        const upvote = upvoteCount.previousElementSibling;
-        const downvoteCount = document.getElementById('downvotes-' + id.split('-')[1]);
-        const downvote = downvoteCount.previousElementSibling;
+                function formatText(textAreaId, format) {
+                    const textArea = document.getElementById(textAreaId);
+                    const start = textArea.selectionStart;
+                    const end = textArea.selectionEnd;
 
-        if (upvote.classList.contains('upvoted')) {
-            upvote.classList.remove('upvoted');
-            upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
-        } else {
-            upvote.classList.add('upvoted');
-            upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
+                    let prefix = '';
+                    let suffix = '';
 
-            if (downvote.classList.contains('downvoted')) {
-                downvote.classList.remove('downvoted');
-                downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
-            }
-        }
-    }
+                    switch (format) {
+                        case 'bold':
+                            prefix = '<b>';
+                            suffix = '</b>';
+                            break;
+                        case 'italic':
+                            prefix = '<i>';
+                            suffix = '</i>';
+                            break;
+                        case 'underline':
+                            prefix = '<u>';
+                            suffix = '</u>';
+                            break;
+                    }
 
-    function toggleDownvote(id) {
-        const downvoteCount = document.getElementById(id);
-        const downvote = downvoteCount.previousElementSibling;
-        const upvoteCount = document.getElementById('upvotes-' + id.split('-')[1]);
-        const upvote = upvoteCount.previousElementSibling;
+                    const selectedText = textArea.value.substring(start, end);
+                    const textBefore = textArea.value.substring(0, start);
+                    const textAfter = textArea.value.substring(end);
 
-        if (downvote.classList.contains('downvoted')) {
-            downvote.classList.remove('downvoted');
-            downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
-        } else {
-            downvote.classList.add('downvoted');
-            downvoteCount.textContent = parseInt(downvoteCount.textContent) + 1;
+                    const newText = textBefore + prefix + selectedText + suffix + textAfter;
+                    textArea.value = newText;
+                }
 
-            if (upvote.classList.contains('upvoted')) {
-                upvote.classList.remove('upvoted');
-                upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
-            }
-        }
-    }
-        </script>
-        
-    </div>
+
+                function toggleUpvote(id) {
+                    const upvoteCount = document.getElementById(id);
+                    const upvote = upvoteCount.previousElementSibling;
+                    const downvoteCount = document.getElementById('downvotes-' + id.split('-')[1]);
+                    const downvote = downvoteCount.previousElementSibling;
+
+                    if (upvote.classList.contains('upvoted')) {
+                        upvote.classList.remove('upvoted');
+                        upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
+                    } else {
+                        upvote.classList.add('upvoted');
+                        upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
+
+                        if (downvote.classList.contains('downvoted')) {
+                            downvote.classList.remove('downvoted');
+                            downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
+                        }
+                    }
+                }
+
+                function toggleDownvote(id) {
+                    const downvoteCount = document.getElementById(id);
+                    const downvote = downvoteCount.previousElementSibling;
+                    const upvoteCount = document.getElementById('upvotes-' + id.split('-')[1]);
+                    const upvote = upvoteCount.previousElementSibling;
+
+                    if (downvote.classList.contains('downvoted')) {
+                        downvote.classList.remove('downvoted');
+                        downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
+                    } else {
+                        downvote.classList.add('downvoted');
+                        downvoteCount.textContent = parseInt(downvoteCount.textContent) + 1;
+
+                        if (upvote.classList.contains('upvoted')) {
+                            upvote.classList.remove('upvoted');
+                            upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
+                        }
+                    }
+                }
+            </script>
+
+        </div>
 </body>
 
 </html>
