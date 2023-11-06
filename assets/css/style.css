@@ -501,7 +501,7 @@ form.search button:hover {
 
 #hero {
   height: 750px;
-  background: url("/assets/img/Shiv-Nadar-University-August-2021-1731.jpg")top center;
+  /* background: url("/assets/img/Shiv-Nadar-University-August-2021-1731.jpg")top center; */
   background-size: cover;
   position: relative;
   animation: change 10s infinite ease-in-out;

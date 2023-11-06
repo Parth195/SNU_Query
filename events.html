@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
+    <title>EVENTS</title>
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
         body {
@@ -35,9 +36,68 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
-            background: url("/assets/img/Shiv-Nadar-University-August-2021-1731.jpg") top center;
+            background: url("/assets/img/1.jpg") top center;
             background-size: cover;
-            animation: change 10s infinite ease-in-out;
+        }
+
+        .card1 {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("/assets/img/breeze/1.jpg") top center;
+            background-size: cover;
+        }
+
+        .card2 {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("/assets/img/tedx/1.png") top center;
+            background-size: cover;
+        }
+
+        .card3 {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("assets/img/cul event/1.jpg") top center;
+            background-size: cover;
+        }
+
+        .card4 {
+            width: calc(50% - 5px);
+            height: 600px;
+            background-color: #333;
+            border-radius: 0;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: url("assets/img/surge/1.jpg") top center;
+            background-size: cover;
         }
 
         .card img {
@@ -50,43 +110,201 @@
             position: relative;
         }
 
+        .card1 img {
+            display: none;
+        }
+
+        .card1-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card2 img {
+            display: none;
+        }
+
+        .card2-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card3 img {
+            display: none;
+        }
+
+        .card3-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card4 img {
+            display: none;
+        }
+
+        .card4-content {
+            display: block;
+            z-index: 10;
+            position: relative;
+        }
+
         .card:hover {
             background-color: #555;
             color: white;
             transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change 10s infinite ease-in-out;
         }
 
         @keyframes change {
             0% {
                 background-image: url(/assets/img/1.jpg);
             }
+
             35% {
                 background-image: url(/assets/img/2.jpg);
             }
+
             70% {
                 background-image: url(/assets/img/3.jpg);
             }
+
             100% {
                 background-image: url(/assets/img/4.jpg);
             }
         }
+
+        .card1:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change1 10s infinite ease-in-out;
+        }
+
+        @keyframes change1 {
+            0% {
+                background-image: url(/assets/img/breeze/1.jpg);
+            }
+
+            35% {
+                background-image: url(/assets/img/breeze/2.jpg);
+            }
+
+            70% {
+                background-image: url(/assets/img/breeze/3.jpg);
+
+            }
+
+            100% {
+                background-image: url(/assets/img/breeze/4.jpg);
+            }
+        }
+
+        .card2:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change2 10s infinite ease-in-out;
+        }
+
+        @keyframes change2 {
+            0% {
+                background-image: url(assets/img/tedx/1.png);
+            }
+
+            35% {
+                background-image: url(/assets/img/tedx/2.jpg);
+            }
+
+            70% {
+                background-image: url(assets/img/tedx/3.jpg);
+            }
+
+            100% {
+                background-image: url(assets/img/tedx/4.jpg);
+            }
+        }
+
+        .card3:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change3 10s infinite ease-in-out;
+        }
+
+        @keyframes change3 {
+            0% {
+                background-image: url("assets/img/cul event/1.jpg");
+            }
+
+            35% {
+                background-image: url("assets/img/cul event/2.jpg");
+            }
+
+            70% {
+                background-image: url("assets/img/cul event/3.jpg");
+            }
+
+            100% {
+                background-image: url("assets/img/cul event/4.jpg");
+            }
+        }
+
+        .card4:hover {
+            background-color: #555;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change4 10s infinite ease-in-out;
+        }
+
+        @keyframes change4 {
+            0% {
+                background-image: url(assets/img/surge/1.jpg);
+            }
+
+            35% {
+                background-image: url(ssets/img/surge/2.jpg);
+            }
+
+            70% {
+                background-image: url(/ssets/img/surge/3.jpg);
+            }
+
+            100% {
+                background-image: url(ssets/img/surge/4.jpg);
+            }
+        }
+
         .card img {
             display: none;
         }
 
-        .card:hover {
-            background-color: #555; /* Change the background color on hover */
-            color: white;
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .card1 img {
+            display: none;
         }
-        
+
+        .card2 img {
+            display: none;
+        }
+
+        .card3 img {
+            display: none;
+        }
+
+        .card4 img {
+            display: none;
+        }
 
         /* Styles for the header and other elements */
         #header {
             width: 100%;
-            background-color:  hwb(0 26% 74%);
+            background-color: hwb(0 26% 74%);
             padding: 20px 0;
             box-sizing: border-box;
             display: flex;
@@ -117,46 +335,51 @@
         .green-text {
             color: #00ff00;
         }
+
         .navbar {
-  padding: 0;
-  margin-top: 40px;
-}
-#header .logo {
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-right: 80px;
-  margin-left: -40px;
-}
-#header .logo img {
-  max-height: 180px;
-  mARGIN-TOP:-30PX;
+            padding: 0;
+            margin-top: 40px;
+        }
 
-}
-#header.fixed-top {
-  background: hwb(0 26% 74%);
-}
+        #header .logo {
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-right: 80px;
+            margin-left: -40px;
+        }
 
+        #header .logo img {
+            max-height: 180px;
+            margin-top: -30px;
+        }
+
+        #header.fixed-top {
+            background: hwb(0 26% 74%);
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500"/></a></h1>
-            <a href="index.html" class="logo"> <alt="" class="img-fluid"></a>
+            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
+            <a href="index.html" class="logo">
+                <alt="" class="img-fluid">
+            </a>
             <div class="search-box">
                 <form action="" class="search">
                     <h1>
                         <p class="black-text">
                             EVENTS </p>
-                            
+
                     </h1>
-                    
+
                 </form>
             </div>
             <nav id="navbar" class="navbar">
@@ -167,7 +390,7 @@
                         <a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="https://snu.edu.in/faculty/">Faculty</a></li>
-              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                            <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
@@ -176,9 +399,9 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li> -->
-              <li><a href="hostels.html">Hostels</a></li>
-              <li><a href="events.html">Events</a></li>
-              <!-- <li><a href="#">Resource Bank</a></li> -->
+                            <li><a href="hostels.html">Hostels</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <!-- <li><a href="#">Resource Bank</a></li> -->
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="login.html">Login/Sign-Up</a></li>
@@ -192,28 +415,28 @@
     <!-- First Set of Containers -->
     <div class="container">
         <!-- Container 1 -->
-        <div class="card">
-            <h2>SURGE</h2>
-            <p>Content for the first container...</p>
+        <div class="card1">
+            <h2>BREEZE</h2>
+            <p></p>
         </div>
         <!-- Container 2 -->
-        <div class="card">
-            <h2>HALLOWEEN</h2>
-            <p>Content for the second container...</p>
+        <div class="card2">
+            <h2>TED X</h2>
+            <p></p>
         </div>
     </div>
 
     <!-- Second Set of Containers -->
     <div class="container">
         <!-- Container 3 -->
-        <div class="card">
-            <h2>DANDIYA</h2>
-            <p>Content for the third container...</p>
+        <div class="card3">
+            <h2>CULTURAL EVENTS</h2>
+            <p></p>
         </div>
         <!-- Container 4 -->
-        <div class="card">
-            <h2>BREEZE</h2>
-            <p>Content for the fourth container...</p>
+        <div class="card4">
+            <h2>SURGE</h2>
+            <p>.</p>
         </div>
     </div>
 
@@ -235,7 +458,7 @@
         <!-- Container 7 -->
         <div class="card">
             <!-- Your content for Container 7 -->
-            <h2>Container 7</h2>
+            <h2>HALLOWEEN</h2>
             <p>Content for the seventh container...</p>
         </div>
         <!-- Container 8 -->
@@ -264,4 +487,5 @@
     </div>
     <!-- New Page End -->
 </body>
+
 </html>
