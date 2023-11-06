@@ -81,11 +81,12 @@
             transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
+        
 
         /* Styles for the header and other elements */
         #header {
             width: 100%;
-            background-color: #808080;
+            background-color:  hwb(0 26% 74%);
             padding: 20px 0;
             box-sizing: border-box;
             display: flex;
@@ -104,7 +105,9 @@
         }
 
         .black-text {
-            color: rgb(16, 15, 15);
+            color: rgb(248, 243, 243);
+            margin-right: 260px;
+            margin-top: 50px;
         }
 
         .blue-text {
@@ -114,6 +117,30 @@
         .green-text {
             color: #00ff00;
         }
+        .navbar {
+  padding: 0;
+  margin-top: 40px;
+}
+#header .logo {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-right: 80px;
+  margin-left: -40px;
+}
+#header .logo img {
+  max-height: 180px;
+  mARGIN-TOP:-30PX;
+
+}
+#header.fixed-top {
+  background: hwb(0 26% 74%);
+}
+
     </style>
 </head>
 <body>
@@ -125,8 +152,11 @@
             <div class="search-box">
                 <form action="" class="search">
                     <h1>
-                        <p class="black-text"><u>EVENTS</u></p>
+                        <p class="black-text"><u>
+                            EVENTS</u> </p>
+                            
                     </h1>
+                    
                 </form>
             </div>
             <nav id="navbar" class="navbar">
