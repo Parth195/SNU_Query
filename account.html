@@ -1,142 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animated Login & Registration Form | Codehal</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #000;
-}
-.wrapper {
-  position: relative;
-  width: 400px;
-  height: 500px;
-  background: #000;
-  box-shadow: 0 0 50px #0ef;
-  border-radius: 20px;
-  padding: 40px;
-  overflow: hidden;
-}
-.wrapper:hover {
-  animation: animate 1s linear infinite;
-}
-@keyframes animate {
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-.form-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  transition: 1s ease-in-out;
-}
-.wrapper.active .form-wrapper.sign-in {
-  transform: translateY(-450px);
-}
-.wrapper .form-wrapper.sign-up {
-  position: absolute;
-  top: 450px;
-  left: 0;
-}
-.wrapper.active .form-wrapper.sign-up {
-  transform: translateY(-450px);
-}
 
-h2 {
-  font-size: 30px;
-  color: #fff;
-  text-align: center;
-}
-.input-group {
-  position: relative;
-  margin: 30px 0;
-  border-bottom: 2px solid #fff;
-}
-.input-group label {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
-}
-.input-group input {
-  width: 320px;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
-  padding: 0 5px;
-  background: transparent;
-  border: none;
-  outline: none;
-}
-.input-group input:focus~label,
-.input-group input:valid~label {
-  top: -5px;
-}
-.remember {
-  margin: -5px 0 15px 5px;
-}
-.remember label {
-  color: #fff;
-  font-size: 14px;
-}
-.remember label input {
-  accent-color: #0ef;
-}
-button {
-  position: relative;
-  width: 100%;
-  height: 40px;
-  background: #0ef;
-  box-shadow: 0 0 10px #0ef;
-  font-size: 16px;
-  color: #000;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 30px;
-  border: none;
-  outline: none;
-}
-.signUp-link {
-  font-size: 14px;
-  text-align: center;
-  margin: 15px 0;
-}
-.signUp-link p {
-  color: #fff;
-}
-.signUp-link p a {
-  color: #0ef;
-  text-decoration: none;
-  font-weight: 500;
-}
-.signUp-link p a:hover {
-  text-decoration: underline;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000;
+    }
+
+    .wrapper {
+      position: relative;
+      width: 400px;
+      height: 500px;
+      background: #000;
+      box-shadow: 0 0 50px #0ef;
+      border-radius: 20px;
+      padding: 40px;
+      overflow: hidden;
+    }
+
+    .wrapper:hover {
+      animation: animate 1s linear infinite;
+    }
+
+    @keyframes animate {
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      transition: 1s ease-in-out;
+    }
+
+    .wrapper.active .form-wrapper.sign-in {
+      transform: translateY(-450px);
+    }
+
+    .wrapper .form-wrapper.sign-up {
+      position: absolute;
+      top: 450px;
+      left: 0;
+    }
+
+    .wrapper.active .form-wrapper.sign-up {
+      transform: translateY(-450px);
+    }
+
+    h2 {
+      font-size: 30px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .input-group {
+      position: relative;
+      margin: 30px 0;
+      border-bottom: 2px solid #fff;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: .5s;
+    }
+
+    .input-group input {
+      width: 320px;
+      height: 40px;
+      font-size: 16px;
+      color: #fff;
+      padding: 0 5px;
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+
+    .input-group input:focus~label,
+    .input-group input:valid~label {
+      top: -5px;
+    }
+
+    .remember {
+      margin: -5px 0 15px 5px;
+    }
+
+    .remember label {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .remember label input {
+      accent-color: #0ef;
+    }
+
+    button {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      background: #0ef;
+      box-shadow: 0 0 10px #0ef;
+      font-size: 16px;
+      color: #000;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+    }
+
+    .signUp-link {
+      font-size: 14px;
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .signUp-link p {
+      color: #fff;
+    }
+
+    .signUp-link p a {
+      color: #0ef;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signUp-link p a:hover {
+      text-decoration: underline;
+    }
   </style>
-
 </head>
+
 <body>
   <div class="wrapper">
     <div class="form-wrapper sign-in">
@@ -144,35 +165,35 @@ button {
         <h2>SNUQUERY</h2>
         <h2>Login</h2>
         <div class="input-group">
-		<input type="text" name="username" id="username" required>
-            	<label for="">Email Id</label>
-          </div>
-          <div class="input-group">
-            	<input type="password" name="password" id="password" required>
-            	<label for="">Password</label>
-          </div>
+          <input type="text" name="username" id="username" required>
+          <label for="">Email Id</label>
+        </div>
+        <div class="input-group">
+          <input type="password" name="password" id="password" required>
+          <label for="">Password</label>
+        </div>
         <div class="remember">
           <label><input type="checkbox"> Remember me</label>
         </div>
-   	<button type="submit">Sign In</button>
+        <button type="submit">Sign In</button>
         <div class="signUp-link">
           <p>Don't have an account? <a href="#" class="signUpBtn-link">Sign Up</a></p>
         </div>
       </form>
     </div>
     <div class="form-wrapper sign-up">
-      <form action="">
+      <form action="" id="signUpForm">
         <h2>Sign Up</h2>
         <div class="input-group">
-          <input type="text" required>
+          <input type="text" name="name" id="name" required>
           <label for="">Name</label>
         </div>
         <div class="input-group">
-          <input type="email" required>
+          <input type="email" name="email" id="email" required>
           <label for="">Email</label>
         </div>
         <div class="input-group">
-          <input type="password" required>
+          <input type="password" name="signupPassword" id="signupPassword" required>
           <label for="">Password</label>
         </div>
         <div class="remember">
@@ -185,26 +206,23 @@ button {
       </form>
     </div>
   </div>
-  <script src="script.js"></script>
-
   <script>
     const signInBtnLink = document.querySelector('.signInBtn-link');
-const signUpBtnLink = document.querySelector('.signUpBtn-link');
-const wrapper = document.querySelector('.wrapper');
-signUpBtnLink.addEventListener('click', () => {
-    wrapper.classList.toggle('active');
-});
-signInBtnLink.addEventListener('click', () => {
-    wrapper.classList.toggle('active');
-});
+    const signUpBtnLink = document.querySelector('.signUpBtn-link');
+    const wrapper = document.querySelector('.wrapper');
+    signUpBtnLink.addEventListener('click', () => {
+      wrapper.classList.toggle('active');
+    });
+    signInBtnLink.addEventListener('click', () => {
+      wrapper.classList.toggle('active');
+    });
   </script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
 
-<script type="module">
-  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
-  import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
-
-  // Your Firebase configuration here
-  const firebaseConfig = {
+    // Your Firebase configuration here
+    const firebaseConfig = {
       apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
       authDomain: "snu-query.firebaseapp.com",
       databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
@@ -213,56 +231,98 @@ signInBtnLink.addEventListener('click', () => {
       messagingSenderId: "350908354215",
       appId: "1:350908354215:web:146b8142a7db2549f15582",
       measurementId: "G-T7426ZGZWQ"
-  };
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-  const loginForm = document.getElementById("loginForm");
+    const loginForm = document.getElementById("loginForm");
+    const signUpForm = document.getElementById("signUpForm");
 
-  loginForm.addEventListener("submit", (e) => {
+    loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
-
       const email = loginForm["username"].value;
       const password = loginForm["password"].value;
 
       // Check if the email ends with "@snu.edu.in"
       if (email.endsWith("@snu.edu.in")) {
-          signInWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
-                  const user = userCredential.user;
-                  console.log("User signed in:", user);
-                  // You can redirect the user to another page after a successful login
-                  // window.location.href = "/dashboard.html";
-                  window.location.href = "index.html";
-              })
-              .catch((error) => {
-                  const errorCode = error.code;
-                  const errorMessage = error.message;
-                  console.error("Login failed:", errorCode, errorMessage);
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("User signed in:", user);
+            // You can redirect the user to another page after a successful login
+            // window.location.href = "/dashboard.html";
+            window.location.href = "index.html";
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Login failed:", errorCode, errorMessage);
 
-                  // Show an alert on the page based on the error code
-                  if (errorCode === "auth/user-not-found") {
-                      alert("User not found. Please use your SNU Email ID.");
-                  } else if (errorCode === "auth/wrong-password") {
-                      alert("Incorrect password. Please use your SNU Email ID.");
-                  } else {
-                      alert("Login unsuccessful. Please check your ID or Password.");
-                  }
+            // Show an alert on the page based on the error code
+            if (errorCode === "auth/user-not-found") {
+              alert("User not found. Please use your SNU Email ID.");
+            } else if (errorCode === "auth/wrong-password") {
+              alert("Incorrect password. Please use your SNU Email ID.");
+            } else {
+              alert("Login unsuccessful. Please check your ID or Password.");
+            }
 
-                  // Reset the text boxes
-                  loginForm["username"].value = "";
-                  loginForm["password"].value = "";
-              });
+            // Reset the text boxes
+            loginForm["username"].value = "";
+            loginForm["password"].value = "";
+          });
       } else {
-          // Email domain is not allowed, show an alert
-          alert("Only @snu.edu.in email addresses are allowed to log in.");
+        // Email domain is not allowed, show an alert
+        alert("Only @snu.edu.in email addresses are allowed to log in.");
 
-          // Reset the text boxes
-          loginForm["username"].value = "";
-          loginForm["password"].value = "";
+        // Reset the text boxes
+        loginForm["username"].value = "";
+        loginForm["password"].value = "";
       }
-  });
-</script>
+    });
 
+    signUpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = signUpForm["email"].value;
+      const password = signUpForm["signupPassword"].value;
+      const name = signUpForm["name"].value;
+
+      // Check if the email ends with "@snu.edu.in"
+      if (email.endsWith('@snu.edu.in')) {
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log('User registered and signed in:', user);
+            // You can redirect the user to another page after successful registration
+            window.location.href = 'index.html';
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error('Registration failed:', errorCode, errorMessage);
+
+            // Show an alert on the page based on the error code
+            if (errorCode === 'auth/weak-password') {
+              alert('Weak password. Please use a stronger password.');
+            } else if (errorCode === 'auth/email-already-in-use') {
+              alert('Email already in use. Please use another email address.');
+            } else {
+              alert('Registration unsuccessful. Please check your information.');
+            }
+
+            // Reset the password input
+            signUpForm["signupPassword"].value = '';
+          });
+      } else {
+        // Email domain is not allowed, show an alert
+        alert('Only @snu.edu.in email addresses are allowed for registration.');
+
+        // Reset the email and password inputs
+        signUpForm["email"].value = '';
+        signUpForm["signupPassword"].value = '';
+      }
+    });
+  </script>
 </body>
+
 </html>
