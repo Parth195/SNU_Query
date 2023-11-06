@@ -412,7 +412,35 @@
         .navbar-mobile .dropdown>.dropdown-active {
             display: block;
         }
+        .styled-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 0px;
+  background-color: #e83e8c; /* Change the background color to your desired color */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold; /* Make the text bold */
+  font-size: 16px; /* Adjust the font size */
+  text-transform: uppercase; /* Transform text to uppercase */
+  letter-spacing: 2px; /* Add letter spacing for style */
+
+  /* Style the button on hover */
+  &:hover {
+    background-color: #ff5733; /* Change the background color on hover */
+  }
+}
+
+
+
+
+
     </style>
+
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
 
 
     <header id="header" class="d-flex align-items-center">
@@ -512,17 +540,24 @@
         </section>
 
         <section class="most-asked-section">
-            <h2>Most Asked Questions <i class="fas fa-question fa-icon"></i></h2>
+            <h2><i class="fas fa-question-circle"></i> Frequently encountered doubts</h2>
+
             <!-- List of most asked questions here -->
             <ul>
-                <li><a href="all_questions.html">Question 1</a></li>
+                <!-- <li><a href="all_questions.html">Question 1</a></li>
                 <li><a href="#">Question 2</a></li>
-                <li><a href="#">Question 3</a></li>
+                <li><a href="#">Question 3</a></li> -->
             </ul>
         </section>
-
+        <!-- <button type="submit" id="postQuestion" onclick=""><i class="fas fa-paper-plane fa-icon"></i> View Questions</button> -->
+        <a href="all_questions.html" class="styled-button">
+            <button>View All</button>
+          </a>
+          
+          
         <button type="submit" id="postQuestion" onclick="postQuestion()"><i class="fas fa-paper-plane fa-icon"></i> Post
             Question</button>
+        
     </div>
 
 

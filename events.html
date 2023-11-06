@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,9 +36,8 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
-            background: url("/assets/img/Shiv-Nadar-University-August-2021-1731.jpg") top center;
+            background: url("/assets/img/1.jpg") top center;
             background-size: cover;
-            animation: change 10s infinite ease-in-out;
         }
 
         .card img {
@@ -55,38 +55,35 @@
             color: white;
             transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: change 10s infinite ease-in-out;
         }
 
         @keyframes change {
             0% {
                 background-image: url(/assets/img/1.jpg);
             }
+
             35% {
                 background-image: url(/assets/img/2.jpg);
             }
+
             70% {
                 background-image: url(/assets/img/3.jpg);
             }
+
             100% {
                 background-image: url(/assets/img/4.jpg);
             }
         }
+
         .card img {
             display: none;
         }
 
-        .card:hover {
-            background-color: #555; /* Change the background color on hover */
-            color: white;
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        
-
         /* Styles for the header and other elements */
         #header {
             width: 100%;
-            background-color:  hwb(0 26% 74%);
+            background-color: hwb(0 26% 74%);
             padding: 20px 0;
             box-sizing: border-box;
             display: flex;
@@ -117,46 +114,51 @@
         .green-text {
             color: #00ff00;
         }
+
         .navbar {
-  padding: 0;
-  margin-top: 40px;
-}
-#header .logo {
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-right: 80px;
-  margin-left: -40px;
-}
-#header .logo img {
-  max-height: 180px;
-  mARGIN-TOP:-30PX;
+            padding: 0;
+            margin-top: 40px;
+        }
 
-}
-#header.fixed-top {
-  background: hwb(0 26% 74%);
-}
+        #header .logo {
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-right: 80px;
+            margin-left: -40px;
+        }
 
+        #header .logo img {
+            max-height: 180px;
+            margin-top: -30px;
+        }
+
+        #header.fixed-top {
+            background: hwb(0 26% 74%);
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500"/></a></h1>
-            <a href="index.html" class="logo"> <alt="" class="img-fluid"></a>
+            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
+            <a href="index.html" class="logo">
+                <alt="" class="img-fluid">
+            </a>
             <div class="search-box">
                 <form action="" class="search">
                     <h1>
                         <p class="black-text">
                             EVENTS </p>
-                            
+
                     </h1>
-                    
+
                 </form>
             </div>
             <nav id="navbar" class="navbar">
@@ -167,7 +169,7 @@
                         <a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="https://snu.edu.in/faculty/">Faculty</a></li>
-              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                            <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
@@ -176,9 +178,9 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li> -->
-              <li><a href="hostels.html">Hostels</a></li>
-              <li><a href="events.html">Events</a></li>
-              <!-- <li><a href="#">Resource Bank</a></li> -->
+                            <li><a href="hostels.html">Hostels</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <!-- <li><a href="#">Resource Bank</a></li> -->
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="login.html">Login/Sign-Up</a></li>
@@ -264,4 +266,5 @@
     </div>
     <!-- New Page End -->
 </body>
+
 </html>
