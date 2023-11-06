@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question and Answer Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #337ab7;
+            font-size: 32px;
+        }
+
+        section {
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .question {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .answer {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+        }
+
+        .answer-text {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .vote-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .votes {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .vote-button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 20px;
+            color: #337ab7;
+        }
+
+        .answered-filter {
+            margin-top: 20px;
+        }
+
+        .answered-filter label {
+            font-weight: bold;
+        }
+
+        .answered-filter input[type="checkbox"] {
+            margin: 5px;
+        }
+
+        .answer-question-button {
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 70%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .format-buttons {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .format-button {
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .close-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Questions and Answers</h1>
+
+        <section class="answered-filter">
+            <label>Show:</label>
+            <input type="checkbox" id="show-answered" onchange="filterAnswers()"> Answered
+            <input type="checkbox" id="show-unanswered" onchange="filterAnswers()"> Unanswered
+        </section>
+
+        <section class="question">
+            <h2>Question 1</h2>
+            <p>What is your question?</p>
+            <button class="answer-question-button" onclick="openModal('question-1')">Answer</button>
+            <div class="answer">
+                <div class="vote-buttons">
+                    <button class="vote-button" onclick="upvote(this)"><i class="fas fa-arrow-up"></i></button>
+                    <span class="votes">0</span>
+                    <button class="vote-button" onclick="downvote(this)"><i class="fas fa-arrow-down"></i></button>
+                </div>
+                <div class="answer-text">
+                    <p>Answer 1</p>
+                </div>
+            </div>
+            <div class="answer">
+                <div class="vote-buttons">
+                    <button class="vote-button" onclick="upvote(this)"><i class="fas fa-arrow-up"></i></button>
+                    <span class="votes">0</span>
+                    <button class="vote-button" onclick="downvote(this)"><i class="fas fa-arrow-down"></i></button>
+                </div>
+                <div class="answer-text">
+                    <p>Answer 2</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal" id="question-1-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Answer Question 1</h2>
+                <button class="close-button" onclick="closeModal('question-1')"><i class="fas fa-times"></i></button>
+            </div>
+            <textarea id="question-1-answer" rows="4" cols="50" placeholder="Type your answer here"></textarea>
+            <div class="format-buttons">
+                <button class="format-button" onclick="formatText('question-1-answer', 'bold')"><i
+                        class="fas fa-bold"></i></button>
+                <button class="format-button" onclick="formatText('question-1-answer', 'italic')"><i
+                        class="fas fa-italic"></i></button>
+                <button class="format-button" onclick="formatText('question-1-answer', 'underline')"><i
+                        class="fas fa-underline"></i></button>
+            </div>
+            <button class="answer-question-button" onclick="closeModal('question-1')">Submit Answer</button>
+        </div>
+    </div>
+
+    <script>
+        function filterAnswers() {
+            var showAnswered = document.getElementById("show-answered").checked;
+            var showUnanswered = document.getElementById("show-unanswered").checked;
+
+            var answers = document.querySelectorAll(".answer");
+
+            for (var i = 0; i < answers.length; i++) {
+                var answer = answers[i];
+                var isAnswered = answer.querySelector(".answer-text p").textContent.trim() !== "";
+
+                if ((!showAnswered && isAnswered) || (!showUnanswered && !isAnswered)) {
+                    answer.style.display = "none";
+                } else {
+                    answer.style.display = "block";
+                }
+            }
+        }
+
+        function openModal(questionId) {
+            var modal = document.getElementById(questionId + "-modal");
+            modal.style.display = "block";
+        }
+
+        function closeModal(questionId) {
+            var modal = document.getElementById(questionId + "-modal");
+            modal.style.display = "none";
+        }
+
+        function formatText(textAreaId, format) {
+            var textArea = document.getElementById(textAreaId);
+            var text = textArea.value;
+            var selectionStart = textArea.selectionStart;
+            var selectionEnd = textArea.selectionEnd;
+            var selectedText = text.substring(selectionStart, selectionEnd);
+            var formattedText;
+
+            switch (format) {
+                case 'bold':
+                    formattedText = "<strong>" + selectedText + "</strong>";
+                    break;
+                case 'italic':
+                    formattedText = "<em>" + selectedText + "</em>";
+                    break;
+                case 'underline':
+                    formattedText = "<u>" + selectedText + "</u>";
+                    break;
+            }
+
+            var newText = text.substring(0, selectionStart) + formattedText + text.substring(selectionEnd);
+            textArea.value = newText;
+        }
+
+        function upvote(button) {
+            var votes = button.nextElementSibling;
+            votes.textContent = parseInt(votes.textContent) + 1;
+        }
+
+        function downvote(button) {
+            var votes = button.previousElementSibling;
+            votes.textContent = parseInt(votes.textContent) - 1;
+        }
+    </script>
+</body>
+
+</html>

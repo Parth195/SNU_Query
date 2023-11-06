@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question Posting Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #337ab7;
+            font-size: 32px;
+        }
+
+        section {
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        input[type="checkbox"] {
+            margin: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #235a96;
+        }
+
+        .fa-icon {
+            margin-right: 10px;
+        }
+
+        /* Styling specific sections */
+        .author-section {
+            background-color: #f2f2f2;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .question-section {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .checkbox-section {
+            background-color: #f2f2f2;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .tags-section {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .most-asked-section {
+            background-color: #f2f2f2;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><i class="fas fa-question-circle fa-icon"></i> Ask a Question</h1>
+
+        <section class="author-section">
+            <h2>Author Information <i class="fas fa-user fa-icon"></i></h2>
+            <form>
+                <input type="text" id="authorName" name="authorName" placeholder="Your Name">
+                <input type="text" id="designation" name="designation" placeholder="Your Designation">
+            </form>
+        </section>
+
+        <section class="question-section">
+            <h2>Your Question <i class="fas fa-question fa-icon"></i></h2>
+            <form>
+                <textarea id="question" name="question" rows="4" cols="50"
+                    placeholder="Type your question here"></textarea>
+            </form>
+        </section>
+
+        <section class="checkbox-section">
+            <h2>Who is this question referring to? <i class="fas fa-users fa-icon"></i></h2>
+            <form>
+                <input type="checkbox" name="userType" value="student"> Student
+                <input type="checkbox" name="userType" value="faculty"> Faculty
+                <input type="checkbox" name="userType" value="alumni"> Alumni
+            </form>
+        </section>
+
+        <section class="tags-section">
+            <h2>Select Tags <i class="fas fa-tags fa-icon"></i></h2>
+            <form>
+                <input type="checkbox" name="tags" value="mess"> Mess
+                <input type="checkbox" name="tags" value="hostel"> Hostel
+                <input type="checkbox" name="tags" value="academics"> Academics
+                <input type="checkbox" name="tags" value="more"> More
+            </form>
+        </section>
+
+        <section class="most-asked-section">
+            <h2>Most Asked Questions <i class="fas fa-question fa-icon"></i></h2>
+            <!-- List of most asked questions here -->
+            <ul>
+                <li><a href="all_questions.html">Question 1</a></li>
+                <li><a href="#">Question 2</a></li>
+                <li><a href="#">Question 3</a></li>
+            </ul>
+        </section>
+
+        <button type="submit"><i class="fas fa-paper-plane fa-icon"></i> Post Question</button>
+    </div>
+</body>
+
+</html>
