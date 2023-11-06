@@ -226,7 +226,13 @@
                         <!-- <li><a href="#">Resource Bank</a></li> -->
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="login.html">Login/Sign-Up</a></li>
+                <li class="dropdown" id="userDropdown" style="display: none;">
+                    <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
+                    <ul id="userDropdownList">
+                        <li><a href="#" id="logoutLink">Logout</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login/Sign-Up</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -307,26 +313,29 @@
         <div class="expand-button" data-card="4">
             <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
         </div>
+<<<<<<< HEAD
         <div class="info-popup" data-card="4">
             <p>vishveer singh 
                7042469292</p>
+=======
+        <<<<<<< HEAD <div class="info-popup" data-card="4">
+            <p>vishveer singh
+                7042469292</p>
+>>>>>>> b073319ea90a8bc3b7de3254a7cd09e6a60a77f2
             <!-- Additional Information for Hostel 2A -->
-        </div>
     </div>
-</div>
+    </div>
+    </div>
 
-        <!-- Hostel Card 5 -->
-<div class="hostel-card">
-    <img class="hostel-image" src="/assets/img/IMG_0945.jpg" alt="Hostel 2B">
-    <h2 class="hostel-name">Hostel 2B</h2>
-    <p class="hostel-address">Kaziranga</p>
-    <div class="hostel-contact">
-        <i class="contact-icon">Contact Info 2B</i>
-    </div>
-    <div class="expand-container">
-        <div class="expand-button" data-card="5">
-            <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+    <!-- Hostel Card 5 -->
+    <div class="hostel-card">
+        <img class="hostel-image" src="/assets/img/IMG_0945.jpg" alt="Hostel 2B">
+        <h2 class="hostel-name">Hostel 2B</h2>
+        <p class="hostel-address">Kaziranga</p>
+        <div class="hostel-contact">
+            <i class="contact-icon">Contact Info 2B</i>
         </div>
+<<<<<<< HEAD
         <div class="info-popup" data-card="5">
             <p>balbeer singh
                9454825920</p>
@@ -371,10 +380,83 @@
         <div class="info-popup" data-card="7">
             <p>ajay sharma 9907703912</p>
             <!-- Additional Information for Hostel 3A -->
+=======
+        <div class="expand-container">
+            <div class="expand-button" data-card="5">
+                <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+            </div>
+            <div class="info-popup" data-card="5">
+                <p>balbeer singh
+                    9454825920</p>
+                <!-- Additional Information for Hostel 2B -->
+            </div>
         </div>
     </div>
-</div>
 
+    <!-- Hostel Card 6 -->
+    <div class="hostel-card">
+        <img class="hostel-image" src="/assets/img/IMG_0931.jpg" alt="Hostel 2C">
+        <h2 class "hostel-name">Hostel 2C</h2>
+        <p class="hostel-address">Periyar</p>
+        <div class="hostel-contact">
+            <i class="contact-icon">Contact Info 2C</i>
+        </div>
+        <div class="expand-container">
+            <div class="expand-button" data-card="6">
+                <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+            </div>
+            <div class="info-popup" data-card="6">
+                <p>gaurav bharadwaj
+                    9599500662 </p>
+                <!-- Additional Information for Hostel 2C -->
+            </div>
+>>>>>>> b073319ea90a8bc3b7de3254a7cd09e6a60a77f2
+        </div>
+    </div>
+
+<<<<<<< HEAD
+=======
+    =======
+    <!-- Hostel 6 -->
+    <div class="hostel-card">
+        <img class="hostel-image" src="/assets/img/IMG_0931.jpg" alt="Hostel 2C">
+        <h2 class="hostel-name">Hostel 2C</h2>
+        <p class="hostel-address">Periyar</p>
+        <div class="hostel-contact">
+            <i class="contact-icon">Contact Info 2C</i>
+        </div>
+        <div class="info-popup">
+            <p>Hello Hostel 2C</p>
+            <!-- Additional Information for Hostel 2C -->
+        </div>
+        <span class="expand-info"><button class="expand-button">Expand</button></span>
+    </div>
+    >>>>>>> refs/remotes/origin/main
+    <!-- Hostel 7 -->
+    <div class="hostel-card">
+        <img class="hostel-image" src="/assets/img/IMG_0919.jpg" alt="Hostel 3A">
+        <h2 class="hostel-name">Hostel 3A</h2>
+        <p class="hostel-address">Gir</p>
+        <div class="hostel-contact">
+            <i class="contact-icon">Contact Info 3A</i>
+        </div>
+        <div class="info-popup">
+            <p>Hello Hostel 3A</p>
+            <!-- Additional Information for Hostel 3A -->
+        </div>
+        <span class="expand-info"><button class="expand-button">Expand</button></span>
+    </div>
+    <<<<<<< HEAD <div class="info-popup" data-card="7">
+        <p>ajay sharma
+            9907703912</p>
+        <!-- Additional Information for Hostel 3A -->
+        </div>
+        </div>
+        </div>
+
+        =======
+        >>>>>>> refs/remotes/origin/main
+>>>>>>> b073319ea90a8bc3b7de3254a7cd09e6a60a77f2
         <!-- Hostel 8 -->
         <!-- Hostel 3B -->
 <div class="hostel-card">
@@ -643,9 +725,10 @@
             <span class="expand-info">V</span>
         </div>
     -->
-    </div>
+        </div>
 
 
+<<<<<<< HEAD
     <script>
         // Script to toggle information display
 const expandButtons = document.querySelectorAll('.expand-button');
@@ -665,6 +748,19 @@ expandButtons.forEach(button => {
 });
 
     </script>
+=======
+        <script>
+            // Script to toggle information display
+            const expandInfoButtons = document.querySelectorAll('.expand-info');
+            expandInfoButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const infoPopup = this.parentElement.querySelector('.info-popup');
+                    infoPopup.style.display = infoPopup.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        </script>
+>>>>>>> b073319ea90a8bc3b7de3254a7cd09e6a60a77f2
 </body>
 
 </html>
