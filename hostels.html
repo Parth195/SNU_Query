@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,18 @@
     <style>
         /* Common styles */
         body {
-            background-color: black;
+            background-color: rgb(10, 10, 10);
             color: white;
-            text-align: center; /* Align text to the center */
-            padding: 0; /* Remove default padding */
-            margin: 0; /* Reset margin */
+            text-align: center;
+            /* Align text to the center */
+            padding: 0;
+            /* Remove default padding */
+            margin: 0;
+            /* Reset margin */
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center content horizontally */
+            align-items: center;
+            /* Center content horizontally */
         }
 
         .hostelb{
@@ -23,21 +28,27 @@
         }
 
         .header {
-            padding: 0px; /* Add padding to the header */
+            padding: 0px;
+            /* Add padding to the header */
             display: flex;
             align-items: center;
-            background-color: #808080; /* Set grey background for the header */
-            width: 100%; /* Take full width of the viewport */
+            background-color: #808080;
+            /* Set grey background for the header */
+            width: 100%;
+            /* Take full width of the viewport */
         }
 
         .hostel-logo {
             margin-left: 20px;
-            margin-right: 20px; /* Add margin to the left of the image */
+            margin-right: 20px;
+            /* Add margin to the left of the image */
         }
 
         .hostel-logo img {
-            width: 120px; /* Set the width of the image */
-            height: 120px; /* Maintain aspect ratio */
+            width: 120px;
+            /* Set the width of the image */
+            height: 120px;
+            /* Maintain aspect ratio */
             padding: 0px;
             padding-top: 0px;
             border: 0px;
@@ -49,40 +60,55 @@
             flex-wrap: wrap;
             justify-content: space-between;
 
-            gap: 20px; /* Adjust the gap between hostels */
-            padding: 20px 0; /* Add padding to the container */
-            margin: 0; /* Reset margin */
-            width: 80%; /* Adjust container width */
+            gap: 20px;
+            /* Adjust the gap between hostels */
+            padding: 20px 0;
+            /* Add padding to the container */
+            margin: 0;
+            /* Reset margin */
+            width: 80%;
+            /* Adjust container width */
         }
 
         .hostel-heading {
-            text-align: center; /* Center the heading */
-            margin: 0; /* Remove margin for the heading */
+            text-align: center;
+            /* Center the heading */
+            margin: 0;
+            /* Remove margin for the heading */
             margin-left: 625px;
         }
 
         .hostel-heading h1 {
-            margin: 0; /* Remove margin for the heading */
+            margin: 0;
+            /* Remove margin for the heading */
         }
 
         .hostel-heading img {
-            width: 100px; /* Set the width of the image */
-            height: auto; /* Maintain aspect ratio */
-            margin-right: 1000px; /* Add some spacing between the image and text */
+            width: 100px;
+            /* Set the width of the image */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-right: 1000px;
+            /* Add some spacing between the image and text */
         }
 
         .hostel-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 20px; /* Adjust the gap between hostels */
-            padding: 20px 0; /* Add padding to the container */
-            margin: 0; /* Reset margin */
+            gap: 20px;
+            /* Adjust the gap between hostels */
+            padding: 20px 0;
+            /* Add padding to the container */
+            margin: 0;
+            /* Reset margin */
         }
 
         .hostel-card {
-            width: calc(25% - 20px); /* Set the width of each hostel card */
-            background-color: black; /* Set a background color */
+            width: calc(25% - 20px);
+            /* Set the width of each hostel card */
+            background-color: black;
+            /* Set a background color */
             border-radius: 15px;
             padding: 15px;
             transition: all 0.3s ease;
@@ -90,12 +116,14 @@
         }
 
         .hostel-card img {
-            max-width: 100%; /* Ensure images don't overflow */
+            max-width: 100%;
+            /* Ensure images don't overflow */
             height: auto;
         }
 
         .hostel-card:hover {
-            background-color: white; /* Change the background color on hover */
+            background-color: white;
+            /* Change the background color on hover */
             color: black;
             transform: scale(1.1);
             opacity: 1;
@@ -104,15 +132,19 @@
         }
 
         .hostel-card:nth-child(3n+1) {
-            margin-right: 20px; /* Add right margin to every 3rd hostel card */
+            margin-right: 20px;
+            /* Add right margin to every 3rd hostel card */
         }
+
         .hostel-card:nth-child(3n+2) {
-            margin: 0 20px; /* Add margin to every 3rd+1 hostel card */
+            margin: 0 20px;
+            /* Add margin to every 3rd+1 hostel card */
         }
 
         .hostel-image {
             color: white;
         }
+
         body {
             display: flex;
             flex-direction: column;
@@ -125,7 +157,7 @@
         /* Style for the header */
         #header {
             width: 100%;
-            background-color: #808080;
+            background-color:  hwb(0 26% 74%);
             padding: 20px 0;
             box-sizing: border-box;
             display: flex;
@@ -157,13 +189,15 @@
 <!-- Navigation Bar -->
 <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-        <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500"/></a></h1>
-        <a href="index.html" class="logo"> <alt="" class="img-fluid"></a>
+        <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
+        <a href="index.html" class="logo">
+            <alt="" class="img-fluid">
+        </a>
         <div class="search-box">
             <form action="" class="search">
                 <!-- <span class="icon-large"><i class="ri-search-line"></i></span><button type="Submit"><img src="/assets/img/snuglass.png" height="30"/></button> -->
                 <!-- <input type="search" placeholder="Hostels"> -->
-                <h1><u>HOSTELS</u></h1>
+                <h1>HOSTELS</h1>
                 <!--  -->
             </form>
         </div>
@@ -174,20 +208,30 @@
                 <li class="dropdown">
                     <a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Faculty</a></li>
-                        <li><a href="#">Hostels</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Resource Bank</a></li>
+                        <li><a href="https://snu.edu.in/faculty/">Faculty</a></li>
+                        <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li> -->
+                        <li><a href="hostels.html">Hostels</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <!-- <li><a href="#">Resource Bank</a></li> -->
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="login.html">Login</a></li>
+                <li><a class="nav-link scrollto" href="login.html">Login/Sign-Up</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
     </div>
 </header>
+
 <body>
-    
+
 
     <div class="hostel-container">
         <!-- Hostel 1 -->
@@ -253,7 +297,7 @@
                 <button class="expand-button">Expand</button>
                 </span>
         </div>
-        <!-- Hostel 5 -->   
+        <!-- Hostel 5 -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0945.jpg" alt="Hostel 2B">
             <h2 class="hostel-name">Hostel 2B</h2>
@@ -536,4 +580,5 @@
         });
     </script>
 </body>
+
 </html>

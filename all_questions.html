@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f2f2f2;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -16,143 +16,200 @@
         }
 
         .container {
-            max-width: 800px;
-            background-color: #ffffff;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
             text-align: center;
-            color: #337ab7;
-            font-size: 32px;
-        }
-
-        section {
-            margin: 20px 0;
-        }
-
-        h2 {
-            font-size: 24px;
-            color: #333;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
         }
 
         .question {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
+            width: 100%;
+            background-color: #d3d6d6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
         }
 
-        .answer {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
+        .question:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .question-text {
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .answer-text {
-            flex-grow: 1;
-            margin-right: 10px;
-        }
-
-        .vote-buttons {
+        .question-options {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .question-options i {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .answers-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .answers-button:hover {
+            background-color: #2980b9;
+        }
+
+        .upvoted {
+            color: #3498db;
+        }
+
+        .downvoted {
+            color: #e74c3c;
         }
 
         .votes {
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .vote-button {
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-size: 20px;
-            color: #337ab7;
-        }
-
-        .answered-filter {
-            margin-top: 20px;
-        }
-
-        .answered-filter label {
             font-weight: bold;
+            margin-left: 5px;
         }
 
-        .answered-filter input[type="checkbox"] {
-            margin: 5px;
-        }
-
-        .answer-question-button {
-            background-color: #337ab7;
+        .previously-answered-button {
+            background-color: #2ecc71;
             color: white;
             border: none;
             border-radius: 5px;
-            padding: 5px 10px;
+            padding: 10px 20px;
             cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 20px;
         }
 
-        .modal {
+        .previously-answered-button:hover {
+            background-color: #27ae60;
+        }
+
+        .previously-answered {
             display: none;
-            background-color: rgba(0, 0, 0, 0.7);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            width: 70%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .modal-header {
-            display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            align-items: center;
+            width: calc(100% - 30px);
+            padding: 0px;
+            background-color: #d3d6d6;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .previously-answered.active {
+            display: flex;
+        }
+
+        .question,
+        .answer,
+        .previously-answered div {
+            width: calc(100% - 30px);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(67, 66, 66, 0.1);
+        }
+
+        .question h2,
+        .answer h2 {
+            font-size: 1.5rem;
+        }
+
+        .answer-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            z-index: 1;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer-form.active {
+            display: block;
+        }
+
+        .answer-form span.close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            cursor: pointer;
+            z-index: 1;
+            background-color: #fff;
+            border-radius: 50%;
+            padding: 6px;
+            border: 1px solid #aaa;
+        }
+
+        .answer-form textarea {
+            width: calc(100% - 22px);
+            height: 200px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+            text-align: left;
+            padding-left: 10px;
+            font-size: 16px;
         }
 
         .format-buttons {
-            margin-top: 10px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
         }
 
         .format-button {
-            background-color: #337ab7;
+            background-color: #3498db;
             color: white;
             border: none;
             border-radius: 5px;
             padding: 5px 10px;
             cursor: pointer;
-            margin-right: 10px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
         }
 
-        .close-button {
-            background-color: #f44336;
+        .format-button:hover {
+            background-color: #2980b9;
+        }
+
+        .post-answer {
+            background-color: #27ae60;
             color: white;
             border: none;
             border-radius: 5px;
-            padding: 5px 10px;
+            padding: 10px 20px;
             cursor: pointer;
-            float: right;
+            transition: background-color 0.3s;
+        }
+
+        .post-answer:hover {
+            background-color: #219d54;
         }
     </style>
 </head>
@@ -161,121 +218,180 @@
     <div class="container">
         <h1>Questions and Answers</h1>
 
-        <section class="answered-filter">
-            <label>Show:</label>
-            <input type="checkbox" id="show-answered" onchange="filterAnswers()"> Answered
-            <input type="checkbox" id="show-unanswered" onchange="filterAnswers()"> Unanswered
-        </section>
-
-        <section class="question">
-            <h2>Question 1</h2>
+        <div class="question">
+            <div class="question-text">
+                <h2>Question 1</h2>
+                <div class="question-options">
+                    <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-1')"></i><span class="votes upvotes"
+                        id="upvotes-1">0</span>
+                    <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-1')"></i><span class="votes downvotes"
+                        id="downvotes-1">0</span>
+                </div>
+            </div>
             <p>What is your question?</p>
-            <button class="answer-question-button" onclick="openModal('question-1')">Answer</button>
-            <div class="answer">
-                <div class="vote-buttons">
-                    <button class="vote-button" onclick="upvote(this)"><i class="fas fa-arrow-up"></i></button>
-                    <span class="votes">0</span>
-                    <button class="vote-button" onclick="downvote(this)"><i class="fas fa-arrow-down"></i></button>
-                </div>
-                <div class="answer-text">
-                    <p>Answer 1</p>
-                </div>
+            <div class="question-options">
+                <button class="previously-answered-button" onclick="showPreviouslyAnswered('question-1')">Previously
+                    Answered</button>
+                <button class="answers-button" onclick="showAnswerForm('question-1')">Add an Answer</button>
             </div>
-            <div class="answer">
-                <div class="vote-buttons">
-                    <button class="vote-button" onclick="upvote(this)"><i class="fas fa-arrow-up"></i></button>
-                    <span class="votes">0</span>
-                    <button class="vote-button" onclick="downvote(this)"><i class="fas fa-arrow-down"></i></button>
+            <div class="answer-form" id="question-1-answer-form">
+                <span class="close" onclick="closeAnswerForm('question-1')">X</span>
+                <textarea id="question-1-answer" placeholder="Your Answer"></textarea>
+                <div class="format-buttons">
+                    <button class="format-button" onclick="formatText('question-1-answer', 'bold')"><b>B</b></button>
+                    <button class="format-button" onclick="formatText('question-1-answer', 'italic')"><i>I</i></button>
+                    <button class="format-button" onclick="formatText('question-1-answer', 'underline')"><u>U</u></button>
                 </div>
-                <div class="answer-text">
-                    <p>Answer 2</p>
-                </div>
+                <button class="post-answer" onclick="postAnswer('question-1')">Post Answer</button>
             </div>
-        </section>
-    </div>
-
-    <div class="modal" id="question-1-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Answer Question 1</h2>
-                <button class="close-button" onclick="closeModal('question-1')"><i class="fas fa-times"></i></button>
-            </div>
-            <textarea id="question-1-answer" rows="4" cols="50" placeholder="Type your answer here"></textarea>
-            <div class="format-buttons">
-                <button class="format-button" onclick="formatText('question-1-answer', 'bold')"><i
-                        class="fas fa-bold"></i></button>
-                <button class="format-button" onclick="formatText('question-1-answer', 'italic')"><i
-                        class="fas fa-italic"></i></button>
-                <button class="format-button" onclick="formatText('question-1-answer', 'underline')"><i
-                        class="fas fa-underline"></i></button>
-            </div>
-            <button class="answer-question-button" onclick="closeModal('question-1')">Submit Answer</button>
         </div>
+
+        <div class="previously-answered" id="question-1-answered">
+            <div class="answer" style="border: 2px solid red;">
+                <h2>Previous Answer 1</h2>
+                <p>Answer 1</p>
+            </div>
+            <div class="answer" style="border: 2px solid red;">
+                <h2>Previous Answer 2</h2>
+                <p>Answer 2</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">
+                <h2>Question 2</h2>
+                <div class="question-options">
+                    <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-2')"></i><span class="votes upvotes"
+                        id="upvotes-2">0</span>
+                    <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-2')"></i><span class="votes downvotes"
+                        id="downvotes-2">0</span>
+                </div>
+            </div>
+            <p>What is your question?</p>
+            <div class="question-options">
+                <button class="previously-answered-button" onclick="showPreviouslyAnswered('question-2')">Previously Answered</button>
+                <button class="answers-button" onclick="showAnswerForm('question-2')">Add an Answer</button>
+            </div>
+            <div class="answer-form" id="question-2-answer-form">
+                <span class="close" onclick="closeAnswerForm('question-2')">X</span>
+                <textarea id="question-2-answer" placeholder="Your Answer"></textarea>
+                <div class="format-buttons">
+                    <button class="format-button" onclick="formatText('question-2-answer', 'bold')"><b>B</b></button>
+                    <button class="format-button" onclick="formatText('question-2-answer', 'italic')"><i>I</i></button>
+                    <button class="format-button" onclick="formatText('question-2-answer', 'underline')"><u>U</u></button>
+                </div>
+                <button class="post-answer" onclick="postAnswer('question-2')">Post Answer</button>
+            </div>
+        </div>
+
+        <div class="previously-answered" id="question-2-answered">
+            <div class="answer" style="border: 2px solid red;">
+                <h2>Previous Answer 1 </h2>
+                <p>Answer.....</p>
+            </div>
+            <div class="answer" style="border: 2px solid red;">
+                <h2>Previous Answer 2 </h2>
+                <p>Answer.....</p>
+            </div>
+
+        <script>
+            function showPreviouslyAnswered(questionId) {
+                const previousAnswered = document.getElementById(questionId + "-answered");
+                previousAnswered.classList.toggle('active');
+            }
+        
+            function showAnswerForm(questionId) {
+                const answerForm = document.getElementById(questionId + "-answer-form");
+                answerForm.classList.toggle('active');
+            }
+        
+            function closeAnswerForm(questionId) {
+                const answerForm = document.getElementById(questionId + "-answer-form");
+                answerForm.classList.remove('active');
+            }
+        
+            function postAnswer(questionId) {
+                const answerText = document.getElementById(questionId + "-answer").value;
+                // Code to post the answer goes here
+                console.log("Posting answer for Question " + questionId + ": " + answerText);
+                alert('Answer submitted');
+                location.reload();
+            }
+        
+            function formatText(textAreaId, format) {
+        const textArea = document.getElementById(textAreaId);
+        const start = textArea.selectionStart;
+        const end = textArea.selectionEnd;
+
+        let prefix = '';
+        let suffix = '';
+
+        switch (format) {
+            case 'bold':
+                prefix = '<b>';
+                suffix = '</b>';
+                break;
+            case 'italic':
+                prefix = '<i>';
+                suffix = '</i>';
+                break;
+            case 'underline':
+                prefix = '<u>';
+                suffix = '</u>';
+                break;
+        }
+
+        const selectedText = textArea.value.substring(start, end);
+        const textBefore = textArea.value.substring(0, start);
+        const textAfter = textArea.value.substring(end);
+
+        const newText = textBefore + prefix + selectedText + suffix + textAfter;
+        textArea.value = newText;
+    }
+            
+        
+    function toggleUpvote(id) {
+        const upvoteCount = document.getElementById(id);
+        const upvote = upvoteCount.previousElementSibling;
+        const downvoteCount = document.getElementById('downvotes-' + id.split('-')[1]);
+        const downvote = downvoteCount.previousElementSibling;
+
+        if (upvote.classList.contains('upvoted')) {
+            upvote.classList.remove('upvoted');
+            upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
+        } else {
+            upvote.classList.add('upvoted');
+            upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
+
+            if (downvote.classList.contains('downvoted')) {
+                downvote.classList.remove('downvoted');
+                downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
+            }
+        }
+    }
+
+    function toggleDownvote(id) {
+        const downvoteCount = document.getElementById(id);
+        const downvote = downvoteCount.previousElementSibling;
+        const upvoteCount = document.getElementById('upvotes-' + id.split('-')[1]);
+        const upvote = upvoteCount.previousElementSibling;
+
+        if (downvote.classList.contains('downvoted')) {
+            downvote.classList.remove('downvoted');
+            downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
+        } else {
+            downvote.classList.add('downvoted');
+            downvoteCount.textContent = parseInt(downvoteCount.textContent) + 1;
+
+            if (upvote.classList.contains('upvoted')) {
+                upvote.classList.remove('upvoted');
+                upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
+            }
+        }
+    }
+        </script>
+        
     </div>
-
-    <script>
-        function filterAnswers() {
-            var showAnswered = document.getElementById("show-answered").checked;
-            var showUnanswered = document.getElementById("show-unanswered").checked;
-
-            var answers = document.querySelectorAll(".answer");
-
-            for (var i = 0; i < answers.length; i++) {
-                var answer = answers[i];
-                var isAnswered = answer.querySelector(".answer-text p").textContent.trim() !== "";
-
-                if ((!showAnswered && isAnswered) || (!showUnanswered && !isAnswered)) {
-                    answer.style.display = "none";
-                } else {
-                    answer.style.display = "block";
-                }
-            }
-        }
-
-        function openModal(questionId) {
-            var modal = document.getElementById(questionId + "-modal");
-            modal.style.display = "block";
-        }
-
-        function closeModal(questionId) {
-            var modal = document.getElementById(questionId + "-modal");
-            modal.style.display = "none";
-        }
-
-        function formatText(textAreaId, format) {
-            var textArea = document.getElementById(textAreaId);
-            var text = textArea.value;
-            var selectionStart = textArea.selectionStart;
-            var selectionEnd = textArea.selectionEnd;
-            var selectedText = text.substring(selectionStart, selectionEnd);
-            var formattedText;
-
-            switch (format) {
-                case 'bold':
-                    formattedText = "<strong>" + selectedText + "</strong>";
-                    break;
-                case 'italic':
-                    formattedText = "<em>" + selectedText + "</em>";
-                    break;
-                case 'underline':
-                    formattedText = "<u>" + selectedText + "</u>";
-                    break;
-            }
-
-            var newText = text.substring(0, selectionStart) + formattedText + text.substring(selectionEnd);
-            textArea.value = newText;
-        }
-
-        function upvote(button) {
-            var votes = button.nextElementSibling;
-            votes.textContent = parseInt(votes.textContent) + 1;
-        }
-
-        function downvote(button) {
-            var votes = button.previousElementSibling;
-            votes.textContent = parseInt(votes.textContent) - 1;
-        }
-    </script>
 </body>
 
 </html>

@@ -4,7 +4,99 @@
 <head>
     <title>Question Posting Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
     <style>
+        /* HEADER */
+        #header {
+            background: hwb(0 26% 74%);
+            transition: all 0.5s;
+            z-index: 997;
+            height: 100px;
+        }
+
+        #header.fixed-top {
+            background: hwb(0 26% 74%);
+        }
+
+        #header .logo {
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-right: 80px;
+            margin-left: -80px;
+        }
+
+        /* input[type="text"], textarea {
+  background-color : rgba(25, 25, 25, 0.95); 
+} */
+
+
+        .header-main .right {
+            flex: 1;
+
+        }
+
+        form {
+            position: relative;
+        }
+
+        form.search input {
+            line-height: 3.25em;
+            padding: 0 10em 0 10em;
+            margin-left: 75px;
+            border: 0;
+            outline: 0;
+            border-radius: 30px 0 0 30px;
+            font-size: 0.9em;
+        }
+
+
+        form.search button {
+
+            line-height: 0.25em;
+            right: 0;
+
+            /* border: 0; */
+            outline: 0;
+            /* float: top; */
+            font-size: 0.875em;
+            background-color: white;
+            color: red;
+            /* border-radius: 0 0px 0px 0; */
+            transition: #cc1616;
+            cursor: pointer;
+
+        }
+
+        form.search button:hover {
+            background-color: #cc1616;
+        }
+
+        #header .logo a {
+            color: #fff;
+        }
+
+        #header .logo img {
+            max-height: 180px;
+            float: left;
+            padding-left: 112px;
+            padding-top: 6px;
+            margin-top: -45px;
+
+
+        }
+
+        .scrolled-offset {
+            margin-top: 70px;
+        }
+
+
+
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -14,10 +106,11 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            margin-top: 30px;
             background-color: #ffffff;
             padding: 20px;
             border: 1px solid #ddd;
-            border-radius: 10px;
+            border-radius: 30px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -43,7 +136,8 @@
         input[type="text"],
         textarea {
             width: 100%;
-            padding: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             margin: 10px 0;
             border: 2px solid #ccc;
             border-radius: 5px;
@@ -99,18 +193,294 @@
             padding: 15px;
             border-radius: 5px;
         }
+
+        .navbar {
+            padding: 0;
+        }
+
+        .navbar ul {
+            margin-left: 900px;
+            padding-left: 100px;
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar>ul>li {
+            margin-left: 10px;
+        }
+
+        .navbar a,
+        .navbar a:focus {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 15px 24px 15px;
+            font-size: 14px;
+            color: #fff;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .navbar a i,
+        .navbar a:focus i {
+            font-size: 12px;
+            line-height: 0;
+            margin-left: 5px;
+        }
+
+        .navbar a:hover,
+        .navbar .active,
+        .navbar .active:focus,
+        .navbar li:hover>a {
+            background: #cc1616;
+        }
+
+        .navbar .dropdown ul {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: calc(100% + 30px);
+            margin: 0;
+            padding: 10px 0;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            background: #fff;
+            box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+            transition: 0.3s;
+        }
+
+        .navbar .dropdown ul li {
+            min-width: 200px;
+        }
+
+        .navbar .dropdown ul a {
+            padding: 10px 20px;
+            color: #191919;
+        }
+
+        .navbar .dropdown ul a i {
+            font-size: 12px;
+        }
+
+        .navbar .dropdown ul a:hover,
+        .navbar .dropdown ul .active:hover,
+        .navbar .dropdown ul li:hover>a {
+            color: hsl(0, 0%, 1%);
+        }
+
+        .navbar .dropdown:hover>ul {
+            opacity: 1;
+            top: 100%;
+            visibility: visible;
+        }
+
+        .navbar .dropdown .dropdown ul {
+            top: 0;
+            left: calc(100% - 30px);
+            visibility: hidden;
+        }
+
+        .navbar .dropdown .dropdown:hover>ul {
+            opacity: 1;
+            top: 0;
+            left: 100%;
+            visibility: visible;
+        }
+
+        @media (max-width: 1366px) {
+            .navbar .dropdown .dropdown ul {
+                left: -90%;
+            }
+
+            .navbar .dropdown .dropdown:hover>ul {
+                left: -100%;
+            }
+        }
+
+        /**
+* Mobile Navigation 
+*/
+        .mobile-nav-toggle {
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            display: none;
+            line-height: 0;
+            transition: 0.5s;
+        }
+
+        .mobile-nav-toggle.bi-x {
+            color: #cc1616;
+        }
+
+        @media (max-width: 991px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+            }
+        }
+
+        .navbar-mobile {
+            position: fixed;
+            overflow: hidden;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .navbar-mobile .mobile-nav-toggle {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .navbar-mobile ul {
+            display: block;
+            position: absolute;
+            top: 55px;
+            right: 15px;
+            bottom: 15px;
+            left: 15px;
+            padding: 10px 0;
+            background-color: #fff;
+            overflow-y: auto;
+            transition: 0.3s;
+        }
+
+        .navbar-mobile a,
+        .navbar-mobile a:focus {
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #191919;
+        }
+
+        .navbar-mobile a:hover,
+        .navbar-mobile .active,
+        .navbar-mobile li:hover>a {
+            color: #cc1616;
+            background: none;
+        }
+
+        .navbar-mobile .getstarted,
+        .navbar-mobile .getstarted:focus {
+            margin: 15px;
+        }
+
+        .navbar-mobile .dropdown ul {
+            position: static;
+            display: none;
+            margin: 10px 20px;
+            padding: 10px 0;
+            z-index: 99;
+            opacity: 1;
+            visibility: visible;
+            background: #fff;
+            box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+        }
+
+        .navbar-mobile .dropdown ul li {
+            min-width: 200px;
+        }
+
+        .navbar-mobile .dropdown ul a {
+            padding: 10px 20px;
+        }
+
+        .navbar-mobile .dropdown ul a i {
+            font-size: 12px;
+        }
+
+        .navbar-mobile .dropdown ul a:hover,
+        .navbar-mobile .dropdown ul .active:hover,
+        .navbar-mobile .dropdown ul li:hover>a {
+            color: #cc1616;
+        }
+
+        .navbar-mobile .dropdown>.dropdown-active {
+            display: block;
+        }
     </style>
+
+
+    <header id="header" class="d-flex align-items-center">
+        <!-- <div class="container d-flex align-items-center justify-content-between"> -->
+
+        <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="300" /></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html" class="logo">
+            <alt="" class="img-fluid">
+        </a>
+
+        <!-- <div class="search-box">
+        <form action="" class="search">
+          <input type="search" placeholder="Ask Questions!" size="15">
+          <button type="Submit"><img src="/assets/img/snuglass.png" height="19" align-items-ce /></button>
+        </form>
+      </div> -->
+
+        <!-- <p>hostels</p> -->
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+                <li><a class="nav-link scrollto" href="#services">Ask</a></li>
+                <!-- <li><a class="nav-link scrollto" href="#team">Awards</a></li> -->
+                <li class="dropdown"><a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="https://snu.edu.in/faculty/">Faculty</a></li>
+                        <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li> -->
+                        <li><a href="hostels.html">Hostels</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <!-- <li><a href="#">Resource Bank</a></li> -->
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+
+                <li class="dropdown" id="userDropdown" style="display: none;">
+                    <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
+                    <ul id="userDropdownList">
+                        <li><a href="#" id="logoutLink">Logout</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login/Sign-Up</a></li>
+
+
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
 </head>
 
 <body>
     <div class="container">
-        <h1><i class="fas fa-question-circle fa-icon"></i> Ask a Question</h1>
+        <h1><i></i> Ask a Question</h1>
 
         <section class="author-section">
             <h2>Author Information <i class="fas fa-user fa-icon"></i></h2>
             <form>
-                <input type="text" id="authorName" name="authorName" placeholder="Your Name">
-                <input type="text" id="designation" name="designation" placeholder="Your Designation">
+                <input type="text" id="authorName" name="authorName" placeholder="Your Name" size="1">
+                <!-- <input type="text" id="designation" name="designation" placeholder="Your Designation"> -->
             </form>
         </section>
 
@@ -151,8 +521,98 @@
             </ul>
         </section>
 
-        <button type="submit"><i class="fas fa-paper-plane fa-icon"></i> Post Question</button>
+        <button type="submit" id="postQuestion" onclick="postQuestion()"><i class="fas fa-paper-plane fa-icon"></i> Post
+            Question</button>
     </div>
+
+
+    <script type="module">
+        // Firebase configuration and initialization code here
+        function handlePostQuestionClick() {
+            postQuestion();
+        }
+
+        // Add an event listener to the button
+        const postQuestionButton = document.getElementById("postQuestion");
+        postQuestionButton.addEventListener("click", handlePostQuestionClick);
+
+        function postQuestion() {
+            const author = document.getElementById("authorName").value;
+            const questionText = document.getElementById("question").value;
+            const tags = getSelectedCheckboxes("tags");
+
+            // Push the question data to the Firebase database
+            const newQuestionRef = push(questionsRef, {
+                text: questionText,
+                tags: tags,
+                author: author,
+                timestamp: new Date().toISOString(),
+                upvotes: 0,
+                answers: {}
+            }).then(() => {
+                // Data was successfully written to Firebase
+                console.log("Question posted successfully!");
+            }).catch((error) => {
+                console.error("Error posting question: ", error);
+            });
+        }
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
+            authDomain: "snu-query.firebaseapp.com",
+            databaseURL: "https://snu-query-default-rtdb.firebaseio.com",
+            projectId: "snu-query",
+            storageBucket: "snu-query.appspot.com",
+            messagingSenderId: "350908354215",
+            appId: "1:350908354215:web:146b8142a7db2549f15582",
+            measurementId: "G-T7426ZGZWQ"
+        };
+
+        const firebaseApp = initializeApp(firebaseConfig);
+
+        // Create a reference to your Firebase Realtime Database
+        const firebaseDatabase = getDatabase(firebaseApp);
+        const questionsRef = ref(firebaseDatabase, "questions");
+
+        function getSelectedCheckboxes(name) {
+            const checkboxes = document.querySelectorAll(`[name="${name}"]:checked`);
+            const values = [];
+            checkboxes.forEach((checkbox) => {
+                values.push(checkbox.value);
+            });
+            return values;
+        }
+
+        // Function to get URL parameters by name
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Get the 'target' parameter from the URL
+        var target = getParameterByName('target');
+
+        // Check the corresponding checkbox based on the 'target' parameter
+        if (target) {
+            var checkbox = document.querySelector('input[name="userType"][value="' + target + '"]');
+            if (checkbox) {
+                checkbox.checked = true;
+            }
+        }
+
+    </script>
+
+
+
 </body>
 
 </html>
