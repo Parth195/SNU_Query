@@ -406,7 +406,13 @@
                             <!-- <li><a href="#">Resource Bank</a></li> -->
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="login.html">Login/Sign-Up</a></li>
+                    <li class="dropdown" id="userDropdown" style="display: none;">
+                        <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
+                        <ul id="userDropdownList">
+                            <li><a href="#" id="logoutLink">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login/Sign-Up</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
