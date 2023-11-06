@@ -3,12 +3,13 @@
 
 <head>
     <h1> </h1>
-    <title>Question and Answer Page</title>
+    <title>SNU Query-Answer</title>
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.png" rel="apple-touch-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-
-#header {
+        #header {
             background: hwb(0 26% 74%);
             transition: all 0.5s;
             z-index: 997;
@@ -99,315 +100,316 @@
         /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/**
+        /**
 * Desktop Navigation 
 */
-.navbar {
-  padding: 0;
-  padding-bottom: 100px;
-}
+        .navbar {
+            padding: 0;
+            padding-bottom: 100px;
+        }
 
-.navbar ul {
+        .navbar ul {
             margin-left: 1050px;
             padding-left: 0px;
             /* padding-top: 100px; */
-            
+
             display: flex;
             list-style: none;
             align-items: center;
         }
 
-.navbar li {
-  position: relative;
-}
+        .navbar li {
+            position: relative;
+        }
 
-.navbar>ul>li {
-  margin-left: 5px;
-}
+        .navbar>ul>li {
+            margin-left: 5px;
+        }
 
-.navbar a,
-.navbar a:focus {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 25px 15px 24px 15px;
-  font-size: 14px;
-  color: #fff;
-  white-space: nowrap;
-  transition: 0.3s;
-}
+        .navbar a,
+        .navbar a:focus {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 15px 24px 15px;
+            font-size: 14px;
+            color: #fff;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
 
-.navbar a i,
-.navbar a:focus i {
-  font-size: 12px;
-  line-height: 0;
-  margin-left: 5px;
-}
+        .navbar a i,
+        .navbar a:focus i {
+            font-size: 12px;
+            line-height: 0;
+            margin-left: 5px;
+        }
 
-.navbar a:hover,
-.navbar .active,
-.navbar .active:focus,
-.navbar li:hover>a {
-  background: #cc1616;
-}
+        .navbar a:hover,
+        .navbar .active,
+        .navbar .active:focus,
+        .navbar li:hover>a {
+            background: #cc1616;
+        }
 
-.navbar .dropdown ul {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: calc(100% + 30px);
-  margin: 0;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 0;
-  visibility: hidden;
-  background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-  transition: 0.3s;
-}
+        .navbar .dropdown ul {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: calc(100% + 30px);
+            margin: 0;
+            padding: 10px 0;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            background: #fff;
+            box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+            transition: 0.3s;
+        }
 
-.navbar .dropdown ul li {
-  min-width: 200px;
-}
+        .navbar .dropdown ul li {
+            min-width: 200px;
+        }
 
-.navbar .dropdown ul a {
-  padding: 10px 20px;
-  color: #191919;
-}
+        .navbar .dropdown ul a {
+            padding: 10px 20px;
+            color: #191919;
+        }
 
-.navbar .dropdown ul a i {
-  font-size: 12px;
-}
+        .navbar .dropdown ul a i {
+            font-size: 12px;
+        }
 
-.navbar .dropdown ul a:hover,
-.navbar .dropdown ul .active:hover,
-.navbar .dropdown ul li:hover>a {
-  color: hsl(0, 0%, 1%);
-}
+        .navbar .dropdown ul a:hover,
+        .navbar .dropdown ul .active:hover,
+        .navbar .dropdown ul li:hover>a {
+            color: hsl(0, 0%, 1%);
+        }
 
-.navbar .dropdown:hover>ul {
-  opacity: 1;
-  top: 100%;
-  visibility: visible;
-}
+        .navbar .dropdown:hover>ul {
+            opacity: 1;
+            top: 100%;
+            visibility: visible;
+        }
 
-.navbar .dropdown .dropdown ul {
-  top: 0;
-  left: calc(100% - 30px);
-  visibility: hidden;
-}
+        .navbar .dropdown .dropdown ul {
+            top: 0;
+            left: calc(100% - 30px);
+            visibility: hidden;
+        }
 
-.navbar .dropdown .dropdown:hover>ul {
-  opacity: 1;
-  top: 0;
-  left: 100%;
-  visibility: visible;
-}
+        .navbar .dropdown .dropdown:hover>ul {
+            opacity: 1;
+            top: 0;
+            left: 100%;
+            visibility: visible;
+        }
 
-#header {
-  background: hwb(0 26% 74%);
-  transition: all 0.5s;
-  z-index: 997;
-  height: 100px;
-  width: 100%; /* Change the width to 100% to cover the entire window horizontally */
-}
+        #header {
+            background: hwb(0 26% 74%);
+            transition: all 0.5s;
+            z-index: 997;
+            height: 100px;
+            width: 100%;
+            /* Change the width to 100% to cover the entire window horizontally */
+        }
 
 
-#header.fixed-top {
-  background: hwb(0 26% 74%);
-}
+        #header.fixed-top {
+            background: hwb(0 26% 74%);
+        }
 
-#header .logo {
-  font-size: 1px;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-right: 80px;
-  margin-left: -80px;
-}
+        #header .logo {
+            font-size: 1px;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-right: 80px;
+            margin-left: -80px;
+        }
 
-#header.search-box{
-    background-color: rgb(158, 123, 123);
-} 
+        #header.search-box {
+            background-color: rgb(158, 123, 123);
+        }
 
-/* input[type="text"], textarea {
+        /* input[type="text"], textarea {
   background-color : rgba(25, 25, 25, 0.95); 
 } */
 
 
-.header-main .right {
-  flex: 1;
+        .header-main .right {
+            flex: 1;
 
-}
+        }
 
-form {
-  position: relative;
-}
+        form {
+            position: relative;
+        }
 
-form.search input {
-  line-height: 3.25em;
-  padding: 0 10em 0 10em;
-  border: 0;
-  outline: 0;
-  border-radius: 30px 0 0 30px;
-  font-size: 0.9em;
-}
+        form.search input {
+            line-height: 3.25em;
+            padding: 0 10em 0 10em;
+            border: 0;
+            outline: 0;
+            border-radius: 30px 0 0 30px;
+            font-size: 0.9em;
+        }
 
 
-form.search button {
-  line-height: 3.25em;
-  right: 0;
-  border: 0;
-  outline: 0;
-  font-size: 0.875em;
-  background-color: rgb(158, 123, 123);
-  color: red;
-  border-radius: 0 30px 30px 0;
-  transition: #cc1616;
-  cursor: pointer;
+        form.search button {
+            line-height: 3.25em;
+            right: 0;
+            border: 0;
+            outline: 0;
+            font-size: 0.875em;
+            background-color: rgb(158, 123, 123);
+            color: red;
+            border-radius: 0 30px 30px 0;
+            transition: #cc1616;
+            cursor: pointer;
 
-}
+        }
 
-form.search button:hover {
-  background-color: #cc1616;
-}
+        form.search button:hover {
+            background-color: #cc1616;
+        }
 
-#header .logo a {
-  color: #fff;
-}
+        #header .logo a {
+            color: #fff;
+        }
 
-/* #header .logo img {
+        /* #header .logo img {
   max-height: 120px;
   float: left;
 
 } */
 
-.scrolled-offset {
-  margin-top: 70px;
-}
+        .scrolled-offset {
+            margin-top: 70px;
+        }
 
-@media (max-width: 1366px) {
-  .navbar .dropdown .dropdown ul {
-    left: -90%;
-  }
+        @media (max-width: 1366px) {
+            .navbar .dropdown .dropdown ul {
+                left: -90%;
+            }
 
-  .navbar .dropdown .dropdown:hover>ul {
-    left: -100%;
-  }
-}
+            .navbar .dropdown .dropdown:hover>ul {
+                left: -100%;
+            }
+        }
 
-/**
+        /**
 * Mobile Navigation 
 */
-.mobile-nav-toggle {
-  color: #fff;
-  font-size: 28px;
-  cursor: pointer;
-  display: none;
-  line-height: 0;
-  transition: 0.5s;
-}
+        .mobile-nav-toggle {
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            display: none;
+            line-height: 0;
+            transition: 0.5s;
+        }
 
-.mobile-nav-toggle.bi-x {
-  color: #cc1616;
-}
+        .mobile-nav-toggle.bi-x {
+            color: #cc1616;
+        }
 
-@media (max-width: 991px) {
-  .mobile-nav-toggle {
-    display: block;
-  }
+        @media (max-width: 991px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
 
-  .navbar ul {
-    display: none;
-  }
-}
+            .navbar ul {
+                display: none;
+            }
+        }
 
-.navbar-mobile {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-  z-index: 999;
-}
+        .navbar-mobile {
+            position: fixed;
+            overflow: hidden;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            transition: 0.3s;
+            z-index: 999;
+        }
 
-.navbar-mobile .mobile-nav-toggle {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
+        .navbar-mobile .mobile-nav-toggle {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
 
-.navbar-mobile ul {
-  display: block;
-  position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 15px;
-  left: 15px;
-  padding: 10px 0;
-  background-color: #fff;
-  overflow-y: auto;
-  transition: 0.3s;
-}
+        .navbar-mobile ul {
+            display: block;
+            position: absolute;
+            top: 55px;
+            right: 15px;
+            bottom: 15px;
+            left: 15px;
+            padding: 10px 0;
+            background-color: #fff;
+            overflow-y: auto;
+            transition: 0.3s;
+        }
 
-.navbar-mobile a,
-.navbar-mobile a:focus {
-  padding: 10px 20px;
-  font-size: 15px;
-  color: #191919;
-}
+        .navbar-mobile a,
+        .navbar-mobile a:focus {
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #191919;
+        }
 
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover>a {
-  color: #cc1616;
-  background: none;
-}
+        .navbar-mobile a:hover,
+        .navbar-mobile .active,
+        .navbar-mobile li:hover>a {
+            color: #cc1616;
+            background: none;
+        }
 
-.navbar-mobile .getstarted,
-.navbar-mobile .getstarted:focus {
-  margin: 15px;
-}
+        .navbar-mobile .getstarted,
+        .navbar-mobile .getstarted:focus {
+            margin: 15px;
+        }
 
-.navbar-mobile .dropdown ul {
-  position: static;
-  display: none;
-  margin: 10px 20px;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 1;
-  visibility: visible;
-  background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-}
+        .navbar-mobile .dropdown ul {
+            position: static;
+            display: none;
+            margin: 10px 20px;
+            padding: 10px 0;
+            z-index: 99;
+            opacity: 1;
+            visibility: visible;
+            background: #fff;
+            box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+        }
 
-.navbar-mobile .dropdown ul li {
-  min-width: 200px;
-}
+        .navbar-mobile .dropdown ul li {
+            min-width: 200px;
+        }
 
-.navbar-mobile .dropdown ul a {
-  padding: 10px 20px;
-}
+        .navbar-mobile .dropdown ul a {
+            padding: 10px 20px;
+        }
 
-.navbar-mobile .dropdown ul a i {
-  font-size: 12px;
-}
+        .navbar-mobile .dropdown ul a i {
+            font-size: 12px;
+        }
 
-.navbar-mobile .dropdown ul a:hover,
-.navbar-mobile .dropdown ul .active:hover,
-.navbar-mobile .dropdown ul li:hover>a {
-  color: #cc1616;
-}
+        .navbar-mobile .dropdown ul a:hover,
+        .navbar-mobile .dropdown ul .active:hover,
+        .navbar-mobile .dropdown ul li:hover>a {
+            color: #cc1616;
+        }
 
-.navbar-mobile .dropdown>.dropdown-active {
-  display: block;
-}
+        .navbar-mobile .dropdown>.dropdown-active {
+            display: block;
+        }
 
 
 
@@ -430,14 +432,14 @@ form.search button:hover {
 
 
         .container {
-            width:100%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 0px;
             /* margin-top: 200px; */
 
-            
+
 
 
 
@@ -640,8 +642,8 @@ form.search button:hover {
         <a href="index.html" class="logo">
             <alt="" class="img-fluid">
         </a>
-        
-            <!-- <div class="search-box">
+
+        <!-- <div class="search-box">
                 <form action="" class="search">
                   <input type="search" placeholder="What's on your mind today ?" size="1">
                   <button type="Submit"><img src="/assets/img/snuglass.png" height="25" align-items-ce /></button>
@@ -649,16 +651,16 @@ form.search button:hover {
 
 
 
-                <nav id="navbar" class="navbar">
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+                <li><a class="nav-link scrollto" href="#services">Ask</a></li>
+                <!-- <li><a class="nav-link scrollto" href="#team">Awards</a></li> -->
+                <li class="dropdown"><a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                      <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                      <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
-                      <li><a class="nav-link scrollto" href="#services">Ask</a></li>
-                      <!-- <li><a class="nav-link scrollto" href="#team">Awards</a></li> -->
-                      <li class="dropdown"><a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                          <li><a href="https://snu.edu.in/faculty/">Faculty</a></li>
-                          <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                        <li><a href="https://snu.edu.in/faculty/">Faculty</a></li>
+                        <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
                               <li><a href="#">Deep Drop Down 1</a></li>
                               <li><a href="#">Deep Drop Down 2</a></li>
@@ -667,232 +669,236 @@ form.search button:hover {
                               <li><a href="#">Deep Drop Down 5</a></li>
                             </ul>
                           </li> -->
-                          <li><a href="hostels.html">Hostels</a></li>
-                          <li><a href="events.html">Events</a></li>
-                          
-                          <!-- <li><a href="#">Resource Bank</a></li> -->
-                        </ul>
-                      </li>
-                      <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                      <li class="dropdown" id="userDropdown" style="display: none;">
-                        <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
-                        <ul id="userDropdownList">
-                          <li><a href="#" id="logoutLink">Logout</a></li>
-                        </ul>
-                      </li>
-                      <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login</a></li>
+                        <li><a href="hostels.html">Hostels</a></li>
+                        <li><a href="events.html">Events</a></li>
+
+                        <!-- <li><a href="#">Resource Bank</a></li> -->
                     </ul>
-                      <ul>
-                       
-            
-            
+                </li>
+                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                <li class="dropdown" id="userDropdown" style="display: none;">
+                    <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
+                    <ul id="userDropdownList">
+                        <li><a href="#" id="logoutLink">Logout</a></li>
                     </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-                  </nav>
-              </div>
-    
+                </li>
+                <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login</a></li>
+            </ul>
+            <ul>
+
+
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        </div>
+
 </head>
 
 
 <body>
-    
-    
 
-        <!-- <div class="search-box">
+
+
+    <!-- <div class="search-box">
         <form action="" class="search">
           <input type="search" placeholder="Ask Questions!" size="15">
           <button type="Submit"><img src="/assets/img/snuglass.png" height="19" align-items-ce /></button>
         </form>
       </div> -->
-   
-      
-          <!-- .navbar -->
 
-          <div class="container">
-            <div class="search-box">
-                <form action="" class="search">
-                  <input type="search" placeholder="What's on your mind today ?" size="25">
-                  <button type="Submit"><img src="/assets/img/snuglass.png" height="25" align-items-ce /></button>
-                </form>
-        <h1>Questions and Answers</h1>
 
-        <div class="question">
-            <div class="question-text">
-                <h2>Question 1</h2>
+    <!-- .navbar -->
+
+    <div class="container">
+        <div class="search-box">
+            <form action="" class="search">
+                <input type="search" placeholder="What's on your mind today ?" size="25">
+                <button type="Submit"><img src="/assets/img/snuglass.png" height="25" align-items-ce /></button>
+            </form>
+            <h1>Questions and Answers</h1>
+
+            <div class="question">
+                <div class="question-text">
+                    <h2>Question 1</h2>
+                    <div class="question-options">
+                        <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-1')"></i><span
+                            class="votes upvotes" id="upvotes-1">0</span>
+                        <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-1')"></i><span
+                            class="votes downvotes" id="downvotes-1">0</span>
+                    </div>
+                </div>
+                <p>What is your question?</p>
                 <div class="question-options">
-                    <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-1')"></i><span
-                        class="votes upvotes" id="upvotes-1">0</span>
-                    <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-1')"></i><span
-                        class="votes downvotes" id="downvotes-1">0</span>
+                    <button class="previously-answered-button" onclick="showPreviouslyAnswered('question-1')">Previously
+                        Answered</button>
+                    <button class="answers-button" onclick="showAnswerForm('question-1')">Add an Answer</button>
+                </div>
+                <div class="answer-form" id="question-1-answer-form">
+                    <span class="close" onclick="closeAnswerForm('question-1')">X</span>
+                    <textarea id="question-1-answer" placeholder="Your Answer"></textarea>
+                    <div class="format-buttons">
+                        <button class="format-button"
+                            onclick="formatText('question-1-answer', 'bold')"><b>B</b></button>
+                        <button class="format-button"
+                            onclick="formatText('question-1-answer', 'italic')"><i>I</i></button>
+                        <button class="format-button"
+                            onclick="formatText('question-1-answer', 'underline')"><u>U</u></button>
+                    </div>
+                    <button class="post-answer" onclick="postAnswer('question-1')">Post Answer</button>
                 </div>
             </div>
-            <p>What is your question?</p>
-            <div class="question-options">
-                <button class="previously-answered-button" onclick="showPreviouslyAnswered('question-1')">Previously
-                    Answered</button>
-                <button class="answers-button" onclick="showAnswerForm('question-1')">Add an Answer</button>
-            </div>
-            <div class="answer-form" id="question-1-answer-form">
-                <span class="close" onclick="closeAnswerForm('question-1')">X</span>
-                <textarea id="question-1-answer" placeholder="Your Answer"></textarea>
-                <div class="format-buttons">
-                    <button class="format-button" onclick="formatText('question-1-answer', 'bold')"><b>B</b></button>
-                    <button class="format-button" onclick="formatText('question-1-answer', 'italic')"><i>I</i></button>
-                    <button class="format-button"
-                        onclick="formatText('question-1-answer', 'underline')"><u>U</u></button>
+
+            <div class="previously-answered" id="question-1-answered">
+                <div class="answer" style="border: 2px solid red;">
+                    <h2>Previous Answer 1</h2>
+                    <p>Answer 1</p>
                 </div>
-                <button class="post-answer" onclick="postAnswer('question-1')">Post Answer</button>
+                <div class="answer" style="border: 2px solid red;">
+                    <h2>Previous Answer 2</h2>
+                    <p>Answer 2</p>
+                </div>
             </div>
-        </div>
 
-        <div class="previously-answered" id="question-1-answered">
-            <div class="answer" style="border: 2px solid red;">
-                <h2>Previous Answer 1</h2>
-                <p>Answer 1</p>
-            </div>
-            <div class="answer" style="border: 2px solid red;">
-                <h2>Previous Answer 2</h2>
-                <p>Answer 2</p>
-            </div>
-        </div>
-
-        <div class="question">
-            <div class="question-text">
-                <h2>Question 2</h2>
+            <div class="question">
+                <div class="question-text">
+                    <h2>Question 2</h2>
+                    <div class="question-options">
+                        <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-2')"></i><span
+                            class="votes upvotes" id="upvotes-2">0</span>
+                        <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-2')"></i><span
+                            class="votes downvotes" id="downvotes-2">0</span>
+                    </div>
+                </div>
+                <p>What is your question?</p>
                 <div class="question-options">
-                    <i class="fas fa-thumbs-up upvote" onclick="toggleUpvote('upvotes-2')"></i><span
-                        class="votes upvotes" id="upvotes-2">0</span>
-                    <i class="fas fa-thumbs-down downvote" onclick="toggleDownvote('downvotes-2')"></i><span
-                        class="votes downvotes" id="downvotes-2">0</span>
+                    <button class="previously-answered-button" onclick="showPreviouslyAnswered('question-2')">Previously
+                        Answered</button>
+                    <button class="answers-button" onclick="showAnswerForm('question-2')">Add an Answer</button>
+                </div>
+                <div class="answer-form" id="question-2-answer-form">
+                    <span class="close" onclick="closeAnswerForm('question-2')">X</span>
+                    <textarea id="question-2-answer" placeholder="Your Answer"></textarea>
+                    <div class="format-buttons">
+                        <button class="format-button"
+                            onclick="formatText('question-2-answer', 'bold')"><b>B</b></button>
+                        <button class="format-button"
+                            onclick="formatText('question-2-answer', 'italic')"><i>I</i></button>
+                        <button class="format-button"
+                            onclick="formatText('question-2-answer', 'underline')"><u>U</u></button>
+                    </div>
+                    <button class="post-answer" onclick="postAnswer('question-2')">Post Answer</button>
                 </div>
             </div>
-            <p>What is your question?</p>
-            <div class="question-options">
-                <button class="previously-answered-button" onclick="showPreviouslyAnswered('question-2')">Previously
-                    Answered</button>
-                <button class="answers-button" onclick="showAnswerForm('question-2')">Add an Answer</button>
-            </div>
-            <div class="answer-form" id="question-2-answer-form">
-                <span class="close" onclick="closeAnswerForm('question-2')">X</span>
-                <textarea id="question-2-answer" placeholder="Your Answer"></textarea>
-                <div class="format-buttons">
-                    <button class="format-button" onclick="formatText('question-2-answer', 'bold')"><b>B</b></button>
-                    <button class="format-button" onclick="formatText('question-2-answer', 'italic')"><i>I</i></button>
-                    <button class="format-button"
-                        onclick="formatText('question-2-answer', 'underline')"><u>U</u></button>
+
+            <div class="previously-answered" id="question-2-answered">
+                <div class="answer" style="border: 2px solid red;">
+                    <h2>Previous Answer 1 </h2>
+                    <p>Answer.....</p>
                 </div>
-                <button class="post-answer" onclick="postAnswer('question-2')">Post Answer</button>
-            </div>
-        </div>
+                <div class="answer" style="border: 2px solid red;">
+                    <h2>Previous Answer 2 </h2>
+                    <p>Answer.....</p>
+                </div>
 
-        <div class="previously-answered" id="question-2-answered">
-            <div class="answer" style="border: 2px solid red;">
-                <h2>Previous Answer 1 </h2>
-                <p>Answer.....</p>
-            </div>
-            <div class="answer" style="border: 2px solid red;">
-                <h2>Previous Answer 2 </h2>
-                <p>Answer.....</p>
-            </div>
-
-            <script>
-                function showPreviouslyAnswered(questionId) {
-                    const previousAnswered = document.getElementById(questionId + "-answered");
-                    previousAnswered.classList.toggle('active');
-                }
-
-                function showAnswerForm(questionId) {
-                    const answerForm = document.getElementById(questionId + "-answer-form");
-                    answerForm.classList.toggle('active');
-                }
-
-                function closeAnswerForm(questionId) {
-                    const answerForm = document.getElementById(questionId + "-answer-form");
-                    answerForm.classList.remove('active');
-                }
-
-                function postAnswer(questionId) {
-                    const answerText = document.getElementById(questionId + "-answer").value;
-                    // Code to post the answer goes here
-                    console.log("Posting answer for Question " + questionId + ": " + answerText);
-                    alert('Answer submitted');
-                    location.reload();
-                }
-
-                function formatText(textAreaId, format) {
-                    const textArea = document.getElementById(textAreaId);
-                    const start = textArea.selectionStart;
-                    const end = textArea.selectionEnd;
-
-                    let prefix = '';
-                    let suffix = '';
-
-                    switch (format) {
-                        case 'bold':
-                            prefix = '<b>';
-                            suffix = '</b>';
-                            break;
-                        case 'italic':
-                            prefix = '<i>';
-                            suffix = '</i>';
-                            break;
-                        case 'underline':
-                            prefix = '<u>';
-                            suffix = '</u>';
-                            break;
+                <script>
+                    function showPreviouslyAnswered(questionId) {
+                        const previousAnswered = document.getElementById(questionId + "-answered");
+                        previousAnswered.classList.toggle('active');
                     }
 
-                    const selectedText = textArea.value.substring(start, end);
-                    const textBefore = textArea.value.substring(0, start);
-                    const textAfter = textArea.value.substring(end);
+                    function showAnswerForm(questionId) {
+                        const answerForm = document.getElementById(questionId + "-answer-form");
+                        answerForm.classList.toggle('active');
+                    }
 
-                    const newText = textBefore + prefix + selectedText + suffix + textAfter;
-                    textArea.value = newText;
-                }
+                    function closeAnswerForm(questionId) {
+                        const answerForm = document.getElementById(questionId + "-answer-form");
+                        answerForm.classList.remove('active');
+                    }
 
+                    function postAnswer(questionId) {
+                        const answerText = document.getElementById(questionId + "-answer").value;
+                        // Code to post the answer goes here
+                        console.log("Posting answer for Question " + questionId + ": " + answerText);
+                        alert('Answer submitted');
+                        location.reload();
+                    }
 
-                function toggleUpvote(id) {
-                    const upvoteCount = document.getElementById(id);
-                    const upvote = upvoteCount.previousElementSibling;
-                    const downvoteCount = document.getElementById('downvotes-' + id.split('-')[1]);
-                    const downvote = downvoteCount.previousElementSibling;
+                    function formatText(textAreaId, format) {
+                        const textArea = document.getElementById(textAreaId);
+                        const start = textArea.selectionStart;
+                        const end = textArea.selectionEnd;
 
-                    if (upvote.classList.contains('upvoted')) {
-                        upvote.classList.remove('upvoted');
-                        upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
-                    } else {
-                        upvote.classList.add('upvoted');
-                        upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
+                        let prefix = '';
+                        let suffix = '';
 
-                        if (downvote.classList.contains('downvoted')) {
-                            downvote.classList.remove('downvoted');
-                            downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
+                        switch (format) {
+                            case 'bold':
+                                prefix = '<b>';
+                                suffix = '</b>';
+                                break;
+                            case 'italic':
+                                prefix = '<i>';
+                                suffix = '</i>';
+                                break;
+                            case 'underline':
+                                prefix = '<u>';
+                                suffix = '</u>';
+                                break;
                         }
+
+                        const selectedText = textArea.value.substring(start, end);
+                        const textBefore = textArea.value.substring(0, start);
+                        const textAfter = textArea.value.substring(end);
+
+                        const newText = textBefore + prefix + selectedText + suffix + textAfter;
+                        textArea.value = newText;
                     }
-                }
 
-                function toggleDownvote(id) {
-                    const downvoteCount = document.getElementById(id);
-                    const downvote = downvoteCount.previousElementSibling;
-                    const upvoteCount = document.getElementById('upvotes-' + id.split('-')[1]);
-                    const upvote = upvoteCount.previousElementSibling;
 
-                    if (downvote.classList.contains('downvoted')) {
-                        downvote.classList.remove('downvoted');
-                        downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
-                    } else {
-                        downvote.classList.add('downvoted');
-                        downvoteCount.textContent = parseInt(downvoteCount.textContent) + 1;
+                    function toggleUpvote(id) {
+                        const upvoteCount = document.getElementById(id);
+                        const upvote = upvoteCount.previousElementSibling;
+                        const downvoteCount = document.getElementById('downvotes-' + id.split('-')[1]);
+                        const downvote = downvoteCount.previousElementSibling;
 
                         if (upvote.classList.contains('upvoted')) {
                             upvote.classList.remove('upvoted');
                             upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
+                        } else {
+                            upvote.classList.add('upvoted');
+                            upvoteCount.textContent = parseInt(upvoteCount.textContent) + 1;
+
+                            if (downvote.classList.contains('downvoted')) {
+                                downvote.classList.remove('downvoted');
+                                downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
+                            }
                         }
                     }
-                }
-            </script>
 
-        </div>
+                    function toggleDownvote(id) {
+                        const downvoteCount = document.getElementById(id);
+                        const downvote = downvoteCount.previousElementSibling;
+                        const upvoteCount = document.getElementById('upvotes-' + id.split('-')[1]);
+                        const upvote = upvoteCount.previousElementSibling;
+
+                        if (downvote.classList.contains('downvoted')) {
+                            downvote.classList.remove('downvoted');
+                            downvoteCount.textContent = parseInt(downvoteCount.textContent) - 1;
+                        } else {
+                            downvote.classList.add('downvoted');
+                            downvoteCount.textContent = parseInt(downvoteCount.textContent) + 1;
+
+                            if (upvote.classList.contains('upvoted')) {
+                                upvote.classList.remove('upvoted');
+                                upvoteCount.textContent = parseInt(upvoteCount.textContent) - 1;
+                            }
+                        }
+                    }
+                </script>
+
+            </div>
 </body>
 
 </html>
