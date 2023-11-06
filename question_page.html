@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <title>Question Posting Website</title>
+    <title>SNU Query-Post Question</title>
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.png" rel="apple-touch-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
@@ -112,6 +114,8 @@
             border: 1px solid #ddd;
             border-radius: 30px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgb(102, 89, 89);
+            /* Add red border to the container */
         }
 
         h1 {
@@ -412,31 +416,33 @@
         .navbar-mobile .dropdown>.dropdown-active {
             display: block;
         }
+
         .styled-button {
-  text-decoration: none;
-  display: inline-block;
-  padding: 0px 0px;
-  background-color: #e83e8c; /* Change the background color to your desired color */
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-weight: bold; /* Make the text bold */
-  font-size: 16px; /* Adjust the font size */
-  text-transform: uppercase; /* Transform text to uppercase */
-  letter-spacing: 2px; /* Add letter spacing for style */
+            text-decoration: none;
+            display: inline-block;
+            padding: 0px 0px;
+            background-color: #e83e8c;
+            /* Change the background color to your desired color */
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            /* Make the text bold */
+            font-size: 16px;
+            /* Adjust the font size */
+            text-transform: uppercase;
+            /* Transform text to uppercase */
+            letter-spacing: 2px;
+            /* Add letter spacing for style */
 
-  /* Style the button on hover */
-  &:hover {
-    background-color: #ff5733; /* Change the background color on hover */
-  }
-}
-
-
-
-
-
+            /* Style the button on hover */
+            &:hover {
+                background-color: #ff5733;
+                /* Change the background color on hover */
+            }
+        }
     </style>
 
 
@@ -551,45 +557,17 @@
         <!-- <button type="submit" id="postQuestion" onclick=""><i class="fas fa-paper-plane fa-icon"></i> View Questions</button> -->
         <a href="all_questions.html" class="styled-button">
             <button>View All</button>
-          </a>
-          
-          
+        </a>
+
+
         <button type="submit" id="postQuestion" onclick="postQuestion()"><i class="fas fa-paper-plane fa-icon"></i> Post
             Question</button>
-        
+
     </div>
 
 
     <script type="module">
         // Firebase configuration and initialization code here
-        function handlePostQuestionClick() {
-            postQuestion();
-        }
-
-        // Add an event listener to the button
-        const postQuestionButton = document.getElementById("postQuestion");
-        postQuestionButton.addEventListener("click", handlePostQuestionClick);
-
-        function postQuestion() {
-            const author = document.getElementById("authorName").value;
-            const questionText = document.getElementById("question").value;
-            const tags = getSelectedCheckboxes("tags");
-
-            // Push the question data to the Firebase database
-            const newQuestionRef = push(questionsRef, {
-                text: questionText,
-                tags: tags,
-                author: author,
-                timestamp: new Date().toISOString(),
-                upvotes: 0,
-                answers: {}
-            }).then(() => {
-                // Data was successfully written to Firebase
-                console.log("Question posted successfully!");
-            }).catch((error) => {
-                console.error("Error posting question: ", error);
-            });
-        }
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
@@ -607,8 +585,6 @@
         };
 
         const firebaseApp = initializeApp(firebaseConfig);
-
-        // Create a reference to your Firebase Realtime Database
         const firebaseDatabase = getDatabase(firebaseApp);
         const questionsRef = ref(firebaseDatabase, "questions");
 
@@ -619,6 +595,45 @@
                 values.push(checkbox.value);
             });
             return values;
+        }
+
+        function handlePostQuestionClick() {
+            postQuestion();
+        }
+
+        // Add an event listener to the button
+        const postQuestionButton = document.getElementById("postQuestion");
+        postQuestionButton.addEventListener("click", handlePostQuestionClick);
+
+        function postQuestion() {
+            const author = document.getElementById("authorName").value;
+            const questionText = document.getElementById("question").value;
+            const tags = getSelectedCheckboxes("tags");
+
+            // Perform form validation
+            if (author && questionText && tags.length > 0) {
+                // All fields are filled, proceed with posting the question
+                const newQuestionRef = push(questionsRef, {
+                    text: questionText,
+                    tags: tags,
+                    author: author,
+                    timestamp: new Date().toISOString(),
+                    upvotes: 0,
+                    answers: {}
+                }).then(() => {
+                    // Data was successfully written to Firebase
+                    console.log("Question posted successfully!");
+                    alert("Question posted successfully!"); // Display success message
+                    setTimeout(() => {
+                        window.location.reload(); // Reload the page after a short delay
+                    }, 1500);
+                }).catch((error) => {
+                    console.error("Error posting question: ", error);
+                });
+            } else {
+                // Fields are missing, display an error message
+                alert("Please fill in all fields to post the question.");
+            }
         }
 
         // Function to get URL parameters by name
@@ -642,11 +657,7 @@
                 checkbox.checked = true;
             }
         }
-
     </script>
-
-
-
 </body>
 
 </html>
