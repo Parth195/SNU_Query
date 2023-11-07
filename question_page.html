@@ -443,101 +443,101 @@
                 /* Change the background color on hover */
             }
         }
-         /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* Reset CSS */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* Additional CSS styles go here */
+        /* Reset CSS */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+        }
 
-/* Styles for the .wrapper class */
-.wrapper {
-    max-width: 75%;
-    margin: auto;
-}
+        /* Additional CSS styles go here */
 
-/* Styles for paragraphs and h1 elements within .wrapper */
-.wrapper > p,
-.wrapper > h1 {
-    margin: 1.5rem 0;
-    text-align: center;
-}
+        /* Styles for the .wrapper class */
+        .wrapper {
+            max-width: 75%;
+            margin: auto;
+        }
 
-/* Additional style for h1 elements within .wrapper */
-.wrapper > h1 {
-    letter-spacing: 3px;
-}
+        /* Styles for paragraphs and h1 elements within .wrapper */
+        .wrapper>p,
+        .wrapper>h1 {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
 
-/* Style for h1 elements within .wrapper */
-.wrapper > h1 {
-    letter-spacing: 3px;
-}
+        /* Additional style for h1 elements within .wrapper */
+        .wrapper>h1 {
+            letter-spacing: 3px;
+        }
 
-/* Styles for the .accordion class */
-.accordion {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-    font-size: 1.2rem;
-    width: 100%;
-    padding: 2rem 2.5rem;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
+        /* Style for h1 elements within .wrapper */
+        .wrapper>h1 {
+            letter-spacing: 3px;
+        }
 
-/* Additional styles for the .accordion class */
-.accordion {
-    transition: 0.4s;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-}
+        /* Styles for the .accordion class */
+        .accordion {
+            background-color: white;
+            color: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 100%;
+            padding: 2rem 2.5rem;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
 
-/* Styles for the icon within .accordion */
-.accordion i {
-    font-size: 1.6rem;
-}
+        /* Additional styles for the .accordion class */
+        .accordion {
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
 
-/* Styles for the active and hover states */
-.active,
-.accordion:hover {
-    background-color: #f1f7f5;
-}
+        /* Styles for the icon within .accordion */
+        .accordion i {
+            font-size: 1.6rem;
+        }
 
-/* Styles for the .panel class */
-.panel {
-    padding: 0 2rem 2.5rem 2rem;
-    background-color: white;
-    overflow: hidden;
-    background-color: #f1f7f5;
-    display: none;
-}
+        /* Styles for the active and hover states */
+        .active,
+        .accordion:hover {
+            background-color: #f1f7f5;
+        }
 
-/* Styles for paragraphs within .panel */
-.panel p {
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 1.2rem;
-    line-height: 1.4;
-}
+        /* Styles for the .panel class */
+        .panel {
+            padding: 0 2rem 2.5rem 2rem;
+            background-color: white;
+            overflow: hidden;
+            background-color: #f1f7f5;
+            display: none;
+        }
 
-/* Styles for the .faq class */
-.faq {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 10px 0;
-}
+        /* Styles for paragraphs within .panel */
+        .panel p {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
 
-.faq.active{
-  border: none;
-}
+        /* Styles for the .faq class */
+        .faq {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+        }
 
+        .faq.active {
+            border: none;
+        }
     </style>
 
 
@@ -658,44 +658,66 @@
         <button type="submit" id="postQuestion" onclick="postQuestion()"><i class="fas fa-paper-plane fa-icon"></i> Post
             Question</button>
 
-            
+
 
     </div>
-<div class="wrapper">
-       
+    <div class="wrapper">
+
         <h1>Frequently Asked Questions</h1>
         <div class="faq">
             <button class="accordion">What is Krushi? <i class="fa-solid fa-chevron-down"></i></button>
             <div class="panel">
-                <p>Krushi is a Public Charitable Trust designed to carry out farming on an extensive scale using natural and sustainable methods.</p>
+                <p>Krushi is a Public Charitable Trust designed to carry out farming on an extensive scale using natural
+                    and sustainable methods.</p>
             </div>
         </div>
-        
+
         <div class="faq">
             <button class="accordion">What is Krushi? <i class="fa-solid fa-chevron-down"></i></button>
             <div class="panel">
-                <p>Krushi is a Public Charitable Trust designed to carry out farming on an extensive scale using natural and sustainable methods.</p>
+                <p>Krushi is a Public Charitable Trust designed to carry out farming on an extensive scale using natural
+                    and sustainable methods.</p>
             </div>
         </div>
-        
+
         <div class="faq">
             <button class="accordion">What is Krushi? <i class="fa-solid fa-chevron-down"></i></button>
             <div class="panel">
-                <p>Krushi is a Public Charitable Trust designed to carry out farming on an extensive scale using natural and sustainable methods.</p>
+                <p>Krushi is a Public Charitable Trust designed to carry out farming on an extensive scale using natural
+                    and sustainable methods.</p>
             </div>
         </div>
-        
+
         <div class="faq">
             <button class="accordion">What is Krushi? <i class="fa-solid fa-chevron-down"></i></button>
             <div class="panel">
-                <p>Krushi is a Public Charitable Trust designed to carry out farming on an extensive scale using natural and sustainable methods.</p>
+                <p>Krushi is a Public Charitable Trust designed to carry out farming on an extensive scale using natural
+                    and sustainable methods.</p>
             </div>
         </div>
     </div>
-    
+
+    <script src="session.js"></script>
 
     <script type="module">
         // Firebase configuration and initialization code here
+        if (isUserLoggedIn()) {
+            const username = JSON.parse(localStorage.getItem('uname'));
+
+            const userEmailDisplay = document.getElementById("userEmailDisplay");
+            userEmailDisplay.innerText = username;
+            console.log(username);
+            userDropdown.style.display = "block";
+            loginButton.style.display = "none";
+            setUserSession();
+        }
+        else {
+            // User is not logged in, display the logged-out content
+            clearUserSession();
+            serDropdown.style.display = "none";
+            loginButton.style.display = "block";
+        };
+
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
@@ -787,19 +809,19 @@
 
         }
         var acc = document.getElementsByClassName("accordion");
-var i;
+        var i;
 
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
         }
-    });
-}
     </script>
 </body>
 

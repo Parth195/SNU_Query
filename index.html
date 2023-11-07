@@ -110,6 +110,8 @@
 
   <!-- Updated JavaScript code in your index.html -->
   <!-- Updated JavaScript code in your index.html -->
+  <script src="session.js"></script>
+
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
     import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
@@ -144,13 +146,20 @@
       if (user) {
         // User is logged in
         const userName = getUserNameFromEmail(user.email);
+        localStorage.setItem('uname', JSON.stringify(userName));
         userEmailDisplay.innerText = userName;
+        setUserSession();
         userDropdown.style.display = "block";
         loginButton.style.display = "none"; // Hide the login button
+        console.log("User is logged in:", userName); // Log the user's name to the console
       } else {
         // No user is logged in
+        //const userName = "Login";
+        clearUserSession();
+        //localStorage.setItem('uname', JSON.stringify(userName));
         userDropdown.style.display = "none";
         loginButton.style.display = "block"; // Show the login button
+        console.log("No user is logged in");
       }
     });
 
@@ -160,6 +169,7 @@
         // User is logged out
         userDropdown.style.display = "none";
         loginButton.style.display = "block"; // Show the login button
+        console.log("User is logged out");
       }).catch((error) => {
         console.error("Logout failed:", error);
       });

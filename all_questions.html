@@ -800,8 +800,25 @@
                     <h2>Previous Answer 2 </h2>
                     <p>Answer.....</p>
                 </div>
-
+                <script src="session.js"></script>
                 <script>
+
+                    if (isUserLoggedIn()) {
+                        const username = JSON.parse(localStorage.getItem('uname'));
+
+                        const userEmailDisplay = document.getElementById("userEmailDisplay");
+                        userEmailDisplay.innerText = username;
+                        console.log(username);
+                        userDropdown.style.display = "block";
+                        loginButton.style.display = "none";
+                        setUserSession();
+                    }
+                    else {
+                        // User is not logged in, display the logged-out content
+                        clearUserSession();
+                        serDropdown.style.display = "none";
+                        loginButton.style.display = "block";
+                    };
                     function showPreviouslyAnswered(questionId) {
                         const previousAnswered = document.getElementById(questionId + "-answered");
                         previousAnswered.classList.toggle('active');

@@ -494,6 +494,25 @@
         </div>
     </div>
     <!-- New Page End -->
+    <script src="session.js"></script>
+    <script>
+        if (isUserLoggedIn()) {
+            const username = JSON.parse(localStorage.getItem('uname'));
+
+            const userEmailDisplay = document.getElementById("userEmailDisplay");
+            userEmailDisplay.innerText = username;
+            console.log(username);
+            userDropdown.style.display = "block";
+            loginButton.style.display = "none";
+            setUserSession();
+        }
+        else {
+            // User is not logged in, display the logged-out content
+            clearUserSession();
+            serDropdown.style.display = "none";
+            loginButton.style.display = "block";
+        };
+    </script>
 </body>
 
 </html>
