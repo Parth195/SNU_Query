@@ -3,15 +3,70 @@
 
 <head>
     <title>Fetch Questions</title>
+    <style>
+        /* Basic styling for the question list */
+        #questionList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #questionList li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        /* Style for the answer form */
+        #answerForm {
+            margin-top: 20px;
+        }
+
+        #answerForm input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        #answerForm button {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style for the answers list */
+        #answersList {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        #answersList li {
+            margin-bottom: 5px;
+            padding: 5px;
+            border: 1px solid #eee;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Questions:</h1>
     <ul id="questionList"></ul>
 
+    <!-- Answer form -->
+    <div id="answerForm" style="display: none;">
+        <h2>Answering the selected question:</h2>
+        <input type="text" id="answerText" placeholder="Your answer"><br>
+        <input type="text" id="answerAuthor" placeholder="Your name"><br>
+        <button type="submit" id="postAnswer"> Post Answer</button>
+        <ul id="answersList"></ul>
+    </div>
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+        import { getDatabase, ref, onValue, push } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
@@ -23,13 +78,13 @@
             appId: "1:350908354215:web:146b8142a7db2549f15582",
             measurementId: "G-T7426ZGZWQ"
         };
-
         // Initialize Firebase
         const firebaseApp = initializeApp(firebaseConfig);
         const database = getDatabase(firebaseApp);
         const questionsRef = ref(database, "questions");
 
         const questionList = document.getElementById("questionList");
+        let selectedQuestionId = null;
 
         // Function to fetch and display questions
         function fetchQuestions() {
@@ -42,12 +97,10 @@
                     for (const questionKey in questions) {
                         if (questions.hasOwnProperty(questionKey)) {
                             const question = questions[questionKey];
-                            // Create a list item for each question
                             const listItem = document.createElement("li");
-                            // Join the tags array into a string
-                            const tags = question.tags.join("   ,    ");
-                            // Use the correct syntax to include the tags and timestamp
+                            const tags = question.tags.join(", ");
                             listItem.textContent = `Author: ${question.author}, Question: ${question.text}, Tags: ${tags}, Timestamp: ${question.timestamp}`;
+                            listItem.onclick = () => showQuestionAndAnswers(questionKey, question);
                             questionList.appendChild(listItem);
                         }
                     }
@@ -57,6 +110,77 @@
             });
         }
 
+        // Function to show the question and existing answers
+        function showQuestionAndAnswers(questionId, question) {
+            selectedQuestionId = questionId;
+            const answerForm = document.getElementById('answerForm');
+            answerForm.style.display = 'block';
+
+            const answersList = document.getElementById('answersList');
+            answersList.innerHTML = ''; // Clear previous answers
+
+            // Display the question text
+            const questionText = document.createElement('li');
+            questionText.textContent = `Question: ${question.text}`;
+            answersList.appendChild(questionText);
+
+            // Display existing answers if available
+            const answersRef = ref(database, `questions/${questionId}/answers`);
+            onValue(answersRef, (snapshot) => {
+                const answers = snapshot.val();
+                if (answers) {
+                    for (const answerKey in answers) {
+                        if (answers.hasOwnProperty(answerKey)) {
+                            const answer = answers[answerKey];
+                            const answerItem = document.createElement('li');
+                            answerItem.textContent = `Answer by ${answer.answerAuthor}: ${answer.answerText}`;
+                            answersList.appendChild(answerItem);
+                        }
+                    }
+                }
+            }, (error) => {
+                console.error("Error fetching answers:", error);
+            });
+        }
+
+        function getSelectedQuestionId() {
+            return selectedQuestionId;
+        }
+
+        function handlePostAnswerClick() {
+            postAnswer();
+        }
+
+        // Add an event listener to the post answer button
+        const postAnswerButton = document.getElementById("postAnswer");
+        postAnswerButton.addEventListener("click", handlePostAnswerClick);
+
+        function postAnswer() {
+            const selectedQuestionId = getSelectedQuestionId();
+            const answerText = document.getElementById("answerText").value;
+            const answerAuthor = document.getElementById("answerAuthor").value;
+
+            // Perform form validation
+            if (selectedQuestionId && answerText && answerAuthor) {
+                // All fields are filled, proceed with posting the answer
+                const answersRef = ref(database, `questions/${selectedQuestionId}/answers`);
+                const newAnswerRef = push(answersRef, {
+                    answerText: answerText,
+                    answerAuthor: answerAuthor,
+                    timestamp: new Date().toISOString()
+                }).then(() => {
+                    console.log("Answer posted successfully!");
+                    alert("Answer posted successfully!");
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                }).catch((error) => {
+                    console.error("Error posting answer: ", error);
+                });
+            } else {
+                alert("Please fill in all fields to post the answer.");
+            }
+        }
 
         // Call the function to fetch questions
         fetchQuestions();
