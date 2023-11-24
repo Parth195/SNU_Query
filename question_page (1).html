@@ -203,7 +203,7 @@
                             const question = questions[questionKey];
                             const listItem = document.createElement("li");
                             const tags = question.tags.join(", ");
-                            listItem.textContent = `Author: ${question.author}, Question: ${question.text}, Tags: ${tags}, Timestamp: ${question.timestamp}`;
+                            listItem.textContent = `Author: ${question.author}, Question: ${question.text}, Tags: ${tags}, Asked To: ${question.userTypes}`;
                             listItem.appendChild(createVoteButtons('question', questionKey, question.votes));
                             listItem.onclick = () => showQuestionAndAnswers(questionKey, question);
                             questionList.appendChild(listItem);
