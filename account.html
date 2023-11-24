@@ -223,7 +223,7 @@
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
-
+    import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js';
     // Your Firebase configuration here
     const firebaseConfig = {
       apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
@@ -237,6 +237,7 @@
     };
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+    const firestore = getFirestore(app);
 
     const loginForm = document.getElementById("loginForm");
     const signUpForm = document.getElementById("signUpForm");
@@ -307,29 +308,31 @@
             const user = userCredential.user;
             console.log('User registered:', user);
 
-            return sendEmailVerification(auth.currentUser); // Send verification email
+            // Send verification email
+            return sendEmailVerification(auth.currentUser);
           })
           .then(() => {
             alert("Email Verification sent! Please verify your email to complete registration.");
-            // You can prompt the user to check their email for verification
-
-            // You can also reset the form inputs after sending verification
+            
+            // You can reset the form inputs after sending verification
             signUpForm.reset();
 
             // Listen for the user's email verification status
             auth.currentUser.reload().then(() => {
               if (auth.currentUser.emailVerified) {
-                // If email is verified, add user details to Firebase
-                const userRef = firebase.database().ref('users/' + auth.currentUser.uid);
-                userRef.set({
-                  name: name,
-                  email: email,
+                // If email is verified, add user details to Firestore
+                const userRef = doc(firestore, 'users', auth.currentUser.uid);
+                setDoc(userRef, {
+                  Name: name,
+                  Email: email,
                   // ... other user details you want to store
-                }).then(() => {
-                  console.log('User details added to Firebase after verification.');
+                })
+                .then(() => {
+                  console.log('User details added to Firestore after verification.');
                   // You can redirect the user to another page or perform other actions here
-                }).catch((error) => {
-                  console.error('Error adding user details to Firebase:', error);
+                })
+                .catch((error) => {
+                  console.error('Error adding user details to Firestore:', error);
                 });
               } else {
                 // Email not verified, prompt the user to verify
