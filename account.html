@@ -273,6 +273,7 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
     import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js';
+    import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js'; // Import Realtime Database
     // Your Firebase configuration here
     const firebaseConfig = {
       apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
@@ -376,6 +377,15 @@
               Name: name,
               Role: [userType], // Convert the user type to an array as mentioned in your document structure
             });
+            const db = getDatabase();
+            const dbRef = ref(db, 'users/' + user.uid);
+            const userData = {
+              name: name,
+              email: email,
+              userType: userType,
+              // ... other user details you want to store
+            };
+            await set(dbRef, userData);
 
             return sendEmailVerification(auth.currentUser); // Send verification email
           })
