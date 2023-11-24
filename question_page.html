@@ -564,27 +564,15 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="/index.html">Home</a></li>
-                <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
-                <li><a class="nav-link scrollto" href="#services">Ask</a></li>
-                <!-- <li><a class="nav-link scrollto" href="#team">Awards</a></li> -->
+                <li><a class="nav-link scrollto" href="">Ask</a></li>
                 <li class="dropdown"><a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="https://snu.edu.in/faculty/">Faculty</a></li>
-                        <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li> -->
                         <li><a href="hostels.html">Hostels</a></li>
                         <li><a href="events.html">Events</a></li>
-                        <!-- <li><a href="#">Resource Bank</a></li> -->
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
 
                 <li class="dropdown" id="userDropdown" style="display: none;">
                     <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
@@ -593,9 +581,6 @@
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login/Sign-Up</a></li>
-
-
-
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
@@ -609,7 +594,6 @@
             <h2>Author Information <i class="fas fa-user fa-icon"></i></h2>
             <form>
                 <input type="text" id="authorName" name="authorName" placeholder="Your Name" size="1">
-                <!-- <input type="text" id="designation" name="designation" placeholder="Your Designation"> -->
             </form>
         </section>
 
@@ -623,7 +607,7 @@
 
         <section class="checkbox-section">
             <h2>Who is this question referring to? <i class="fas fa-users fa-icon"></i></h2>
-            <form>
+            <form id="userTypeForm">
                 <input type="checkbox" name="userType" value="student"> Student
                 <input type="checkbox" name="userType" value="faculty"> Faculty
                 <input type="checkbox" name="userType" value="alumni"> Alumni
@@ -644,9 +628,6 @@
             <h2>Frequently encountered doubts </h2>
             <!-- List of most asked questions here -->
             <ul>
-                <!-- <li><a href="all_questions.html">Question 1</a></li>
-                <li><a href="#">Question 2</a></li>
-                <li><a href="#">Question 3</a></li> -->
             </ul>
         </section>
         <!-- <button type="submit" id="postQuestion" onclick=""><i class="fas fa-paper-plane fa-icon"></i> View Questions</button> -->
@@ -768,9 +749,11 @@
             const author = document.getElementById("authorName").value;
             const questionText = document.getElementById("question").value;
             const tags = getSelectedCheckboxes("tags");
+            const userTypeForm = document.getElementById("userTypeForm");
+            const userTypes = getSelectedCheckboxes("userType");
 
             // Perform form validation
-            if (author && questionText && tags.length > 0) {
+            if (author && questionText && tags.length > 0 && userTypes.length > 0) {
                 // All fields are filled, proceed with posting the question
                 const newQuestionRef = push(questionsRef, {
                     text: questionText,
@@ -778,7 +761,8 @@
                     author: author,
                     timestamp: new Date().toISOString(),
                     upvotes: 0,
-                    answers: {}
+                    answers: {},
+                    userTypes: userTypes // Add selected user types to the data
                 }).then(() => {
                     // Data was successfully written to Firebase
                     console.log("Question posted successfully!");
@@ -794,6 +778,7 @@
                 alert("Please fill in all fields to post the question.");
             }
         }
+
 
         // Function to get URL parameters by name
         function getParameterByName(name, url) {
