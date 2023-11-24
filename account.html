@@ -295,78 +295,84 @@
     // ... (your existing code)
 
     signUpForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = signUpForm["email"].value;
-      const password = signUpForm["signupPassword"].value;
-      const name = signUpForm["name"].value;
+    e.preventDefault();
 
-      // Check if the email ends with "@snu.edu.in"
-      if (email.endsWith('@snu.edu.in')) {
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            console.log('User registered:', user);
+    // Check if the user has agreed to the terms and conditions
+    const termsCheckbox = signUpForm.querySelector('input[type="checkbox"]');
+    if (!termsCheckbox.checked) {
+      alert('Please agree to the terms and conditions.');
+      return;
+    }
 
-            return sendEmailVerification(auth.currentUser); // Send verification email
-          })
-          .then(() => {
-            alert("Email Verification sent! Please verify your email to complete registration.");
-            // You can prompt the user to check their email for verification
+    // Continue with the sign-up process if the terms are agreed
+    const email = signUpForm["email"].value;
+    const password = signUpForm["signupPassword"].value;
+    const name = signUpForm["name"].value;
 
-            // You can also reset the form inputs after sending verification
-            signUpForm.reset();
+    // Check if the email ends with "@snu.edu.in"
+    if (email.endsWith('@snu.edu.in')) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log('User registered:', user);
 
-            // Listen for the user's email verification status
-            auth.currentUser.reload().then(() => {
-              if (auth.currentUser.emailVerified) {
-                // If email is verified, add user details to Firebase
-                const userRef = firebase.database().ref('users/' + auth.currentUser.uid);
-                userRef.set({
-                  name: name,
-                  email: email,
-                  // ... other user details you want to store
-                }).then(() => {
-                  console.log('User details added to Firebase after verification.');
-                  // You can redirect the user to another page or perform other actions here
-                }).catch((error) => {
-                  console.error('Error adding user details to Firebase:', error);
-                });
-              } else {
-                // Email not verified, prompt the user to verify
-                alert("Please verify your email to complete registration.");
-              }
-            });
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error('Registration failed:', errorCode, errorMessage);
+          return sendEmailVerification(auth.currentUser); // Send verification email
+        })
+        .then(() => {
+          alert("Email Verification sent! Please verify your email to complete registration.");
+          // You can prompt the user to check their email for verification
 
-            // Show an alert on the page based on the error code
-            if (errorCode === 'auth/weak-password') {
-              alert('Weak password. Please use a stronger password.');
-            } else if (errorCode === 'auth/email-already-in-use') {
-              alert('Email already in use. Please use another email address.');
+          // You can also reset the form inputs after sending verification
+          signUpForm.reset();
+
+          // Listen for the user's email verification status
+          auth.currentUser.reload().then(() => {
+            if (auth.currentUser.emailVerified) {
+              // If email is verified, add user details to Firebase
+              const userRef = firebase.database().ref('users/' + auth.currentUser.uid);
+              userRef.set({
+                name: name,
+                email: email,
+                // ... other user details you want to store
+              }).then(() => {
+                console.log('User details added to Firebase after verification.');
+                // You can redirect the user to another page or perform other actions here
+              }).catch((error) => {
+                console.error('Error adding user details to Firebase:', error);
+              });
             } else {
-              alert('Registration unsuccessful. Please check your information.');
+              // Email not verified, prompt the user to verify
+              alert("Please verify your email to complete registration.");
             }
-
-            // Reset the password input
-            signUpForm["signupPassword"].value = '';
           });
-      } else {
-        // Email domain is not allowed, show an alert
-        alert('Only @snu.edu.in email addresses are allowed for registration.');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error('Registration failed:', errorCode, errorMessage);
 
-        // Reset the email and password inputs
-        signUpForm["email"].value = '';
-        signUpForm["signupPassword"].value = '';
-      }
-    });
+          // Show an alert on the page based on the error code
+          if (errorCode === 'auth/weak-password') {
+            alert('Weak password. Please use a stronger password.');
+          } else if (errorCode === 'auth/email-already-in-use') {
+            alert('Email already in use. Please use another email address.');
+          } else {
+            alert('Registration unsuccessful. Please check your information.');
+          }
 
+          // Reset the password input
+          signUpForm["signupPassword"].value = '';
+        });
+    } else {
+      // Email domain is not allowed, show an alert
+      alert('Only @snu.edu.in email addresses are allowed for registration.');
 
-
-  </script>
+      // Reset the email and password inputs
+      signUpForm["email"].value = '';
+      signUpForm["signupPassword"].value = '';
+    }
+  });
+</script>
 </body>
 
 </html>
