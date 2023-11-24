@@ -623,7 +623,7 @@
 
         <section class="checkbox-section">
             <h2>Who is this question referring to? <i class="fas fa-users fa-icon"></i></h2>
-            <form>
+            <form id="userTypeForm">
                 <input type="checkbox" name="userType" value="student"> Student
                 <input type="checkbox" name="userType" value="faculty"> Faculty
                 <input type="checkbox" name="userType" value="alumni"> Alumni
@@ -768,9 +768,11 @@
             const author = document.getElementById("authorName").value;
             const questionText = document.getElementById("question").value;
             const tags = getSelectedCheckboxes("tags");
+            const userTypeForm = document.getElementById("userTypeForm");
+            const userTypes = getSelectedCheckboxes("userType");
 
             // Perform form validation
-            if (author && questionText && tags.length > 0) {
+            if (author && questionText && tags.length > 0 && userTypes.length > 0) {
                 // All fields are filled, proceed with posting the question
                 const newQuestionRef = push(questionsRef, {
                     text: questionText,
@@ -778,7 +780,8 @@
                     author: author,
                     timestamp: new Date().toISOString(),
                     upvotes: 0,
-                    answers: {}
+                    answers: {},
+                    userTypes: userTypes // Add selected user types to the data
                 }).then(() => {
                     // Data was successfully written to Firebase
                     console.log("Question posted successfully!");
@@ -794,6 +797,7 @@
                 alert("Please fill in all fields to post the question.");
             }
         }
+
 
         // Function to get URL parameters by name
         function getParameterByName(name, url) {
