@@ -162,7 +162,7 @@
     <div id="answerForm" style="display: none;">
         <h2>Answering the selected question:</h2>
         <input type="text" id="answerText" placeholder="Your answer"><br>
-        <input type="text" id="answerAuthor" placeholder="Your name"><br>
+        <!-- <input type="text" id="answerAuthor" placeholder="Your name"><br> -->
         <button type="submit" id="postAnswer"> Post Answer</button>
         <ul id="answersList"></ul>
     </div>
@@ -335,7 +335,7 @@
         function postAnswer() {
             const selectedQuestionId = getSelectedQuestionId();
             const answerText = document.getElementById("answerText").value;
-            const answerAuthor = document.getElementById("answerAuthor").value;
+            const answerAuthor = isUserLoggedIn() ? JSON.parse(localStorage.getItem('uname')) : "";
 
             // Perform form validation
             if (selectedQuestionId && answerText && answerAuthor) {
@@ -359,6 +359,7 @@
                 alert("Please fill in all fields to post the answer.");
             }
         }
+
 
         // Call the function to fetch questions
         fetchQuestions();
