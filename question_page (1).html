@@ -158,27 +158,21 @@
             const userId = 'unique_user_id'; // Replace with actual user ID logic
             const voteRef = ref(database, `votes/${type}/${entityId}/${userId}`);
             const entityRef = ref(database, `questions/${entityId}`);
-            const voteValue = voteType === 'upvote' ? 1 : -1;
 
             runTransaction(entityRef, (entity) => {
                 if (!entity.votes) {
-                    entity.votes = { upvote: 0, downvote: 0 };
+                    entity.votes = {};
                 }
 
-                // Check if the user already voted the same way
-                const existingVote = entity.votes[voteType] === voteValue;
+                // Check if the user already voted
+                const userVote = entity.votes[userId];
 
-                if (existingVote) {
+                if (userVote === voteType) {
                     // If the user's existing vote matches the current action, cancel the vote
-                    entity.votes[voteType] = 0;
+                    delete entity.votes[userId];
                 } else {
-                    // Toggle between upvote/downvote
-                    entity.votes[voteType] = voteValue;
-                    // Cancel the opposite vote if it exists
-                    const oppositeVoteType = voteType === 'upvote' ? 'downvote' : 'upvote';
-                    if (entity.votes[oppositeVoteType] === -voteValue) {
-                        entity.votes[oppositeVoteType] = 0;
-                    }
+                    // Set/Update the user's vote
+                    entity.votes[userId] = voteType;
                 }
                 return entity;
             }).then(() => {
@@ -188,6 +182,7 @@
                 console.error("Error voting:", error);
             });
         }
+
 
 
         // Function to show the question and existing answers
