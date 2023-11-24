@@ -164,7 +164,22 @@
                 if (!entity.votes) {
                     entity.votes = { upvote: 0, downvote: 0 };
                 }
-                entity.votes[voteType] += voteValue;
+
+                // Check if the user already voted the same way
+                const existingVote = entity.votes[voteType] === voteValue;
+
+                if (existingVote) {
+                    // If the user's existing vote matches the current action, cancel the vote
+                    entity.votes[voteType] = 0;
+                } else {
+                    // Toggle between upvote/downvote
+                    entity.votes[voteType] = voteValue;
+                    // Cancel the opposite vote if it exists
+                    const oppositeVoteType = voteType === 'upvote' ? 'downvote' : 'upvote';
+                    if (entity.votes[oppositeVoteType] === -voteValue) {
+                        entity.votes[oppositeVoteType] = 0;
+                    }
+                }
                 return entity;
             }).then(() => {
                 console.log(`Voted ${voteType} on ${type} ${entityId}`);
@@ -173,6 +188,7 @@
                 console.error("Error voting:", error);
             });
         }
+
 
         // Function to show the question and existing answers
         function showQuestionAndAnswers(questionId, question) {
