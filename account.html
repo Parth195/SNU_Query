@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>SNU Query-Login</title>
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/favicon.png" rel="apple-touch-icon">
@@ -24,7 +25,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background:  hwb(0 26% 74%);
+      background: hwb(0 26% 74%);
     }
 
     .wrapper {
@@ -221,7 +222,7 @@
   </script>
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
-    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
 
     // Your Firebase configuration here
     const firebaseConfig = {
@@ -240,6 +241,7 @@
     const loginForm = document.getElementById("loginForm");
     const signUpForm = document.getElementById("signUpForm");
 
+
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const email = loginForm["username"].value;
@@ -250,12 +252,18 @@
         signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user;
-            console.log("User signed in:", user);
-            // You can redirect the user to another page after a successful login
-            // window.location.href = "/dashboard.html";
-            window.location.href = "index.html";
+
+            // Check if the user's email is verified
+            if (user.emailVerified) {
+              console.log("User signed in:", user);
+              window.location.href = "index.html"; // Redirect to dashboard or desired page
+            } else {
+              // Prompt the user to verify their email before login
+              alert("Please verify your email before logging in.");
+            }
           })
           .catch((error) => {
+            // Handle login errors
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error("Login failed:", errorCode, errorMessage);
@@ -283,6 +291,9 @@
       }
     });
 
+
+    // ... (your existing code)
+
     signUpForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = signUpForm["email"].value;
@@ -294,9 +305,37 @@
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user;
-            console.log('User registered and signed in:', user);
-            // You can redirect the user to another page after successful registration
-            window.location.href = 'index.html';
+            console.log('User registered:', user);
+
+            return sendEmailVerification(auth.currentUser); // Send verification email
+          })
+          .then(() => {
+            alert("Email Verification sent! Please verify your email to complete registration.");
+            // You can prompt the user to check their email for verification
+
+            // You can also reset the form inputs after sending verification
+            signUpForm.reset();
+
+            // Listen for the user's email verification status
+            auth.currentUser.reload().then(() => {
+              if (auth.currentUser.emailVerified) {
+                // If email is verified, add user details to Firebase
+                const userRef = firebase.database().ref('users/' + auth.currentUser.uid);
+                userRef.set({
+                  name: name,
+                  email: email,
+                  // ... other user details you want to store
+                }).then(() => {
+                  console.log('User details added to Firebase after verification.');
+                  // You can redirect the user to another page or perform other actions here
+                }).catch((error) => {
+                  console.error('Error adding user details to Firebase:', error);
+                });
+              } else {
+                // Email not verified, prompt the user to verify
+                alert("Please verify your email to complete registration.");
+              }
+            });
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -324,6 +363,9 @@
         signUpForm["signupPassword"].value = '';
       }
     });
+
+
+
   </script>
 </body>
 
