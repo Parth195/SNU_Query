@@ -379,6 +379,25 @@
             serDropdown.style.display = "none";
             loginButton.style.display = "block";
         };
+
+        // Add an event listener to the search input
+        const searchInput = document.querySelector('.search input');
+        searchInput.addEventListener('input', handleSearch);
+
+        function handleSearch(event) {
+            const searchTerm = event.target.value.toLowerCase(); // Get the search term and convert to lowercase
+            const questionItems = document.querySelectorAll('#questionList li');
+
+            questionItems.forEach((questionItem) => {
+                const questionText = questionItem.textContent.toLowerCase(); // Get the question text and convert to lowercase
+                if (questionText.includes(searchTerm)) {
+                    questionItem.style.display = 'block'; // Show the question if it includes the search term
+                } else {
+                    questionItem.style.display = 'none'; // Hide the question if it doesn't match the search term
+                }
+            });
+        }
+
     </script>
 </body>
 
