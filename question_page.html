@@ -539,6 +539,12 @@
             border: none;
         }
     </style>
+    <style>
+        /* Add your existing styles */
+        .author-section.logged-in {
+            display: none;
+        }
+    </style>
 
 
     <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
@@ -815,6 +821,21 @@
                     panel.style.display = "block";
                 }
             });
+        }
+        if (isUserLoggedIn()) {
+            const username = JSON.parse(localStorage.getItem('uname'));
+
+            document.getElementById("authorName").value = username;
+            userDropdown.style.display = "block";
+            loginButton.style.display = "none";
+
+            document.querySelector('.author-section').classList.add('logged-in');
+
+            setUserSession();
+        } else {
+            clearUserSession();
+            userDropdown.style.display = "none";
+            loginButton.style.display = "block";
         }
     </script>
 </body>
