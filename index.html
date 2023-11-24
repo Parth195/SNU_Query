@@ -59,12 +59,16 @@
         <alt="" class="img-fluid">
       </a>
 
-      <div class="search-box">
-        <form action="" class="search">
-          <input type="search" placeholder="What's on your mind today ?" size="26">
-          <button type="Submit"><img src="/assets/img/snuglass.png" height="25" align-items-ce /></button>
-        </form>
-      </div>
+      <!-- Assuming the search box is inside a section or a div -->
+      <section id="search-section">
+        <a href="question_page (1).html">
+          <form action="" class="search">
+            <input type="search" placeholder="What's on your mind today?" size="26">
+            <button type="Submit"><img src="/assets/img/snuglass.png" height="25" align-items-ce /></button>
+          </form>
+        </a>
+      </section>
+
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -699,7 +703,17 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js">
+
+    document.getElementById('searchForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevents the default form submission
+      const query = document.getElementById('searchInput').value;
+      if (query.trim() !== '') {
+        const searchUrl = 'questions_page.html?query=' + encodeURIComponent(query);
+        window.location.href = searchUrl;
+      }
+    });
+  </script>
 
 </body>
 
