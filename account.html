@@ -358,13 +358,24 @@
       const email = signUpForm["email"].value;
       const password = signUpForm["signupPassword"].value;
       const name = signUpForm["name"].value;
+      const userType = signUpForm["userType"].value; // Get selected user type from the dropdown
 
       // Check if the email ends with "@snu.edu.in"
       if (email.endsWith('@snu.edu.in')) {
         createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
+          .then(async (userCredential) => {
             const user = userCredential.user;
             console.log('User registered:', user);
+
+            // Create a document in the "User authentication id" collection
+            const userDocRef = doc(firestore, 'User authentication id', user.uid);
+
+            // Set user details in the document
+            await setDoc(userDocRef, {
+              Email: email,
+              Name: name,
+              Role: [userType], // Convert the user type to an array as mentioned in your document structure
+            });
 
             return sendEmailVerification(auth.currentUser); // Send verification email
           })
