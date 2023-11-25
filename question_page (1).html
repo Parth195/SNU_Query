@@ -31,7 +31,13 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <style>
-        /* Basic styling for the question list */
+        body {
+            background-color: #343a40;
+            color: #fff;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
         #questionList {
             list-style: none;
             padding: 0;
@@ -43,34 +49,80 @@
             border: 1px solid #ccc;
             cursor: pointer;
             position: relative;
+            background-color: #f8f9fa;
+            /* Light grey color */
+            color: #000;
+            /* Text color */
+            display: flex;
+            align-items: center;
+        }
+
+        .author-info {
+            margin-right: 20px;
+        }
+
+        .author-info span {
+            color: #000;
         }
 
         .vote-buttons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            display: flex;
+            margin-right: 10px;
         }
 
-        /* Style for the answer form */
+        .vote-buttons button {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .upvote {
+            background-color: #28a745;
+            color: green;
+            border: none;
+        }
+
+        .downvote {
+            background-color: #dc3545;
+            color: red;
+            border: none;
+        }
+
+        .vote-count {
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .question-buttons {
+            display: flex;
+            margin-left: auto;
+        }
+
+        .question-buttons button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
         #answerForm {
             margin-top: 20px;
         }
 
         #answerForm input {
             width: 100%;
-            padding: 5px;
+            padding: 10px;
             margin-bottom: 10px;
         }
 
         #answerForm button {
-            padding: 8px 20px;
+            padding: 10px;
             background-color: #007bff;
             color: #fff;
             border: none;
             cursor: pointer;
         }
 
-        /* Style for the answers list */
         #answersList {
             list-style: none;
             padding: 0;
@@ -79,20 +131,32 @@
 
         #answersList li {
             margin-bottom: 5px;
-            padding: 5px;
-            border: 1px solid #eee;
+            padding: 10px;
+            border: 1px solid #ccc;
             position: relative;
+            background-color: #fff;
+            color: #000;
+            /* Text color */
         }
 
         .vote-buttons-answer {
-            position: absolute;
-            top: 5px;
-            right: 5px;
+            display: flex;
+            margin-right: 10px;
         }
 
-        .vote-count {
-            font-size: 12px;
-            margin-left: 10px;
+        .previously-answered {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #fff;
+            color: #000;
+            /* Text color */
+        }
+
+        .previously-answered-tags {
+            list-style-type: disc;
+            color: #000;
+            padding-left: 20px;
         }
     </style>
 </head>
@@ -203,7 +267,7 @@
                             const question = questions[questionKey];
                             const listItem = document.createElement("li");
                             const tags = question.tags.join(", ");
-                            listItem.textContent = `Author: ${question.author}, Question: ${question.text}, Tags: ${tags}, Asked To: ${question.userTypes}`;
+                            listItem.textContent = `${question.author}: ${question.text},\tTags: ${tags},Asked To: ${question.userTypes}\n`;
                             listItem.appendChild(createVoteButtons('question', questionKey, question.votes));
                             listItem.onclick = () => showQuestionAndAnswers(questionKey, question);
                             questionList.appendChild(listItem);
