@@ -161,9 +161,6 @@
       text-decoration: underline;
     }
 
-    /* Add this CSS to your existing styles */
-
-    /* Styling for the dropdown */
     .input-group select {
       width: 100%;
       height: 40px;
@@ -175,24 +172,18 @@
       outline: none;
       border-bottom: 2px solid #fff;
       -webkit-appearance: none;
-      /* Hides default arrow on Chrome/Safari */
       -moz-appearance: none;
-      /* Hides default arrow on Firefox */
       appearance: none;
-      /* Hides default arrow on modern browsers */
       background-image: url('data:image/svg+xml;utf8,<svg fill="%23fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-      /* Custom arrow icon */
       background-repeat: no-repeat;
       background-position: right 10px top 50%;
       background-size: 18px auto;
     }
 
-    /* Styling when dropdown is focused */
     .input-group select:focus {
       border-bottom-color: #0ef;
     }
 
-    /* Styling for dropdown options */
     .input-group select option {
       background-color: #000;
       color: #fff;
@@ -273,8 +264,8 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
     import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js';
-    import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js'; // Import Realtime Database
-    // Your Firebase configuration here
+    import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js';
+
     const firebaseConfig = {
       apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
       authDomain: "snu-query.firebaseapp.com",
@@ -298,28 +289,23 @@
       const email = loginForm["username"].value;
       const password = loginForm["password"].value;
 
-      // Check if the email ends with "@snu.edu.in"
       if (email.endsWith("@snu.edu.in")) {
         signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user;
 
-            // Check if the user's email is verified
             if (user.emailVerified) {
               console.log("User signed in:", user);
-              window.location.href = "index.html"; // Redirect to dashboard or desired page
+              window.location.href = "index.html";
             } else {
-              // Prompt the user to verify their email before login
               alert("Please verify your email before logging in.");
             }
           })
           .catch((error) => {
-            // Handle login errors
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error("Login failed:", errorCode, errorMessage);
 
-            // Show an alert on the page based on the error code
             if (errorCode === "auth/user-not-found") {
               alert("User not found. Please use your SNU Email ID.");
             } else if (errorCode === "auth/wrong-password") {
@@ -328,54 +314,41 @@
               alert("Login unsuccessful. Please check your ID or Password.");
             }
 
-            // Reset the text boxes
             loginForm["username"].value = "";
             loginForm["password"].value = "";
           });
       } else {
-        // Email domain is not allowed, show an alert
         alert("Only @snu.edu.in email addresses are allowed to log in.");
-
-        // Reset the text boxes
         loginForm["username"].value = "";
         loginForm["password"].value = "";
       }
     });
 
-
-    // ... (your existing code)
-
     signUpForm.addEventListener('submit', (e) => {
       e.preventDefault();
-
-      // Check if the user has agreed to the terms and conditions
       const termsCheckbox = signUpForm.querySelector('input[type="checkbox"]');
       if (!termsCheckbox.checked) {
         alert('Please agree to the terms and conditions.');
         return;
       }
 
-      // Continue with the sign-up process if the terms are agreed
       const email = signUpForm["email"].value;
       const password = signUpForm["signupPassword"].value;
       const name = signUpForm["name"].value;
-      const userType = signUpForm["userType"].value; // Get selected user type from the dropdown
+      const userType = signUpForm["userType"].value;
 
-      // Check if the email ends with "@snu.edu.in"
       if (email.endsWith('@snu.edu.in')) {
         createUserWithEmailAndPassword(auth, email, password)
           .then(async (userCredential) => {
             const user = userCredential.user;
             console.log('User registered:', user);
 
-            // Create a document in the "User authentication id" collection
             const userDocRef = doc(firestore, 'User authentication id', user.uid);
 
-            // Set user details in the document
             await setDoc(userDocRef, {
               Email: email,
               Name: name,
-              Role: [userType], // Convert the user type to an array as mentioned in your document structure
+              Role: [userType],
             });
             const db = getDatabase();
             const dbRef = ref(db, 'users/' + user.uid);
@@ -383,31 +356,22 @@
               name: name,
               email: email,
               userType: userType,
-              // ... other user details you want to store
             };
             await set(dbRef, userData);
 
-            return sendEmailVerification(auth.currentUser); // Send verification email
+            return sendEmailVerification(auth.currentUser);
           })
           .then(() => {
             alert("Email Verification sent! Please verify your email to complete registration.");
-            // You can prompt the user to check their email for verification
-
-            // You can also reset the form inputs after sending verification
             signUpForm.reset();
-
-            // Listen for the user's email verification status
             auth.currentUser.reload().then(() => {
               if (auth.currentUser.emailVerified) {
-                // If email is verified, add user details to Firebase
                 const userRef = firebase.database().ref('users/' + auth.currentUser.uid);
                 userRef.set({
                   name: name,
                   email: email,
-                  // ... other user details you want to store
                 }).then(() => {
                   console.log('User details added to Firebase after verification.');
-                  // You can redirect the user to another page or perform other actions here
                 }).catch((error) => {
                   console.error('Error adding user details to Firebase:', error);
                 });
@@ -421,8 +385,6 @@
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error('Registration failed:', errorCode, errorMessage);
-
-            // Show an alert on the page based on the error code
             if (errorCode === 'auth/weak-password') {
               alert('Weak password. Please use a stronger password.');
             } else if (errorCode === 'auth/email-already-in-use') {
@@ -430,15 +392,10 @@
             } else {
               alert('Registration unsuccessful. Please check your information.');
             }
-
-            // Reset the password input
             signUpForm["signupPassword"].value = '';
           });
       } else {
-        // Email domain is not allowed, show an alert
         alert('Only @snu.edu.in email addresses are allowed for registration.');
-
-        // Reset the email and password inputs
         signUpForm["email"].value = '';
         signUpForm["signupPassword"].value = '';
       }

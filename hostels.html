@@ -9,32 +9,25 @@
     <link href="assets/img/favicon.png" rel="apple-touch-icon">
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
-        /* Common styles */
         body {
             background-color: rgb(10, 10, 10);
             color: white;
             text-align: center;
-            /* Align text to the center */
             padding: 0;
-            /* Remove default padding */
             margin: 0;
-            /* Reset margin */
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Center content horizontally */
         }
 
         .hostelb {
             background-color: #FFC300;
         }
 
-        /* Add this CSS */
         .info-popup.show {
             display: block;
         }
 
-        /* Add this CSS */
         .info-popup {
             display: none;
         }
@@ -42,26 +35,20 @@
 
         .header {
             padding: 0px;
-            /* Add padding to the header */
             display: flex;
             align-items: center;
             background-color: #808080;
-            /* Set grey background for the header */
             width: 100%;
-            /* Take full width of the viewport */
         }
 
         .hostel-logo {
             margin-left: 20px;
             margin-right: 20px;
-            /* Add margin to the left of the image */
         }
 
         .hostel-logo img {
             width: 120px;
-            /* Set the width of the image */
             height: 120px;
-            /* Maintain aspect ratio */
             padding: 0px;
             padding-top: 0px;
             border: 0px;
@@ -74,35 +61,25 @@
             justify-content: space-between;
 
             gap: 20px;
-            /* Adjust the gap between hostels */
             padding: 20px 0;
-            /* Add padding to the container */
             margin: 0;
-            /* Reset margin */
             width: 80%;
-            /* Adjust container width */
         }
 
         .hostel-heading {
             text-align: center;
-            /* Center the heading */
             margin: 0;
-            /* Remove margin for the heading */
             margin-left: 625px;
         }
 
         .hostel-heading h1 {
             margin: 0;
-            /* Remove margin for the heading */
         }
 
         .hostel-heading img {
             width: 100px;
-            /* Set the width of the image */
             height: auto;
-            /* Maintain aspect ratio */
             margin-right: 1000px;
-            /* Add some spacing between the image and text */
         }
 
         .hostel-container {
@@ -110,18 +87,13 @@
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 20px;
-            /* Adjust the gap between hostels */
             padding: 20px 0;
-            /* Add padding to the container */
             margin: 0;
-            /* Reset margin */
         }
 
         .hostel-card {
             width: calc(25% - 20px);
-            /* Set the width of each hostel card */
             background-color: black;
-            /* Set a background color */
             border-radius: 15px;
             padding: 15px;
             transition: all 0.3s ease;
@@ -130,13 +102,11 @@
 
         .hostel-card img {
             max-width: 100%;
-            /* Ensure images don't overflow */
             height: auto;
         }
 
         .hostel-card:hover {
             background-color: white;
-            /* Change the background color on hover */
             color: black;
             transform: scale(1.1);
             opacity: 1;
@@ -146,12 +116,10 @@
 
         .hostel-card:nth-child(3n+1) {
             margin-right: 20px;
-            /* Add right margin to every 3rd hostel card */
         }
 
         .hostel-card:nth-child(3n+2) {
             margin: 0 20px;
-            /* Add margin to every 3rd+1 hostel card */
         }
 
         .hostel-image {
@@ -167,7 +135,6 @@
             margin: 0;
         }
 
-        /* Style for the header */
         #header {
             width: 100%;
             background-color: hwb(0 26% 74%);
@@ -211,7 +178,6 @@
                 <!-- <span class="icon-large"><i class="ri-search-line"></i></span><button type="Submit"><img src="/assets/img/snuglass.png" height="30"/></button> -->
                 <!-- <input type="search" placeholder="Hostels"> -->
                 <h1>HOSTELS</h1>
-                <!--  -->
             </form>
         </div>
         <nav id="navbar" class="navbar">
@@ -245,7 +211,7 @@
                 <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login/Sign-Up</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+        </nav>
     </div>
 </header>
 
@@ -253,7 +219,6 @@
 
 
     <div class="hostel-container">
-        <!-- Hostel Card 1 -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_09521a.jpg" alt="Hostel 1A">
             <h2 class="hostel-name">Hostel 1A</h2>
@@ -263,17 +228,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="1">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="1">
                     <p>anuradha sharma 9773673822 anuradha.sharma@snu.edu.in</p>
-                    <!-- Additional Information for Hostel 1A -->
                 </div>
             </div>
         </div>
 
-
-        <!-- Hostel Card 2 -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_09581b.jpg" alt="Hostel 1B">
             <h2 class="hostel-name">Hostel 1B</h2>
@@ -283,17 +245,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="2">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="2">
                     <p>balbeer bahadur singh 9454825920 balbeer.singh@snu.edu.in</p>
-                    <!-- Additional Information for Hostel 1B -->
                 </div>
             </div>
         </div>
 
-
-        <!-- Hostel Card 3 -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0948.jpg" alt="Hostel 1C">
             <h2 class="hostel-name">Hostel 1C</h2>
@@ -303,16 +262,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="3">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="3">
                     <p>visitors hostel</p>
-                    <!-- Additional Information for Hostel 1C -->
                 </div>
             </div>
         </div>
 
-        <!-- Hostel Card 4 -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0929.jpg" alt="Hostel 2A">
             <h2 class="hostel-name">Hostel 2A</h2>
@@ -322,16 +279,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="4">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="4">
                     <p>vishveer singh 7042469292 vishveer.singh@snu.edu.in</p>
-                    <!-- Additional Information for Hostel 2A -->
                 </div>
             </div>
         </div>
 
-        <!-- Hostel Card 5 -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0945.jpg" alt="Hostel 2B">
             <h2 class="hostel-name">Hostel 2B</h2>
@@ -341,16 +296,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="5">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="5">
                     <p>balbeer singh 9454825920 balbeer.singh@snu.edu.in</p>
-                    <!-- Additional Information for Hostel 2B -->
                 </div>
             </div>
         </div>
 
-        <!-- Hostel Card 6 -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0931.jpg" alt="Hostel 2C">
             <h2 class="hostel-name">Hostel 2C</h2>
@@ -360,17 +313,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="6">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="6">
                     <p>gaurav bharadwaj 9599500662 gaurav.bhardwaj@snu.edu.in </p>
-                    <!-- Additional Information for Hostel 2C -->
                 </div>
             </div>
         </div>
 
-        <!-- Hostel 7 -->
-        <!-- Hostel 3A -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0919.jpg" alt="Hostel 3A">
             <h2 class="hostel-name">Hostel 3A</h2>
@@ -380,17 +330,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="7">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="7">
                     <p>ajay sharma 9907703912 ajay.sharma@snu.edu.in</p>
-                    <!-- Additional Information for Hostel 3A -->
                 </div>
             </div>
         </div>
 
-        <!-- Hostel 8 -->
-        <!-- Hostel 3B -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0923.jpg" alt="Hostel 3B">
             <h2 class="hostel-name">Hostel 3B</h2>
@@ -400,17 +347,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="8">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="8">
                     <p>neelam chaudhary 9811322767 neelam.chaudhary@snu.edu.in</p>
-                    <!-- Additional Information for Hostel 3B -->
                 </div>
             </div>
         </div>
 
-        <!-- Hostel 9 -->
-        <!-- Hostel 3C -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0918.jpg" alt="Hostel 3C">
             <h2 class "hostel-name">Hostel 3C</h2>
@@ -420,16 +364,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="9">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="9">
                     <p>preeti jain 7665690118 preeti.jain@snu.edu.in</p>
-                    <!-- Additional Information for Hostel 3C -->
                 </div>
             </div>
         </div>
 
-        <!-- Cluster 4A -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0912.jpg" alt="Cluster 4A">
             <h2 class="hostel-name">Cluster 4A</h2>
@@ -439,16 +381,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="10">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="10">
                     <p>ameetava b mukherjee 8017979461 ameetava.mukherjee@snu.edu.in</p>
-                    <!-- Additional Information for Cluster 4A -->
                 </div>
             </div>
         </div>
 
-        <!-- Cluster 4B -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0911.jpg" alt="Cluster 4B">
             <h2 class "hostel-name">Cluster 4B</h2>
@@ -458,16 +398,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="11">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="11">
                     <p>ameetava b mukherjee 8017979461 ameetava.mukherjee@snu.edu.in</p>
-                    <!-- Additional Information for Cluster 4B -->
                 </div>
             </div>
         </div>
 
-        <!-- Cluster 4C -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0916.jpg" alt="Cluster 4C">
             <h2 class "hostel-name">Cluster 4C</h2>
@@ -477,16 +415,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="12">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="12">
                     <p>vishveer singh 7042469292 vishveer.singh@snu.edu.in</p>
-                    <!-- Additional Information for Cluster 4C -->
                 </div>
             </div>
         </div>
 
-        <!-- Cluster 5A -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0960.jpg" alt="Cluster 5A">
             <h2 class="hostel-name">Cluster 5A</h2>
@@ -496,16 +432,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="13">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="13">
                     <p>vineeta ruhela 7466067068 vineeta.ruhela@snu.edu.in</p>
-                    <!-- Additional Information for Cluster 5A -->
                 </div>
             </div>
         </div>
 
-        <!-- Cluster 5B -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0962.jpg" alt="Cluster 5B">
             <h2 class "hostel-name">Cluster 5B</h2>
@@ -515,16 +449,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="14">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="14">
                     <p>gaurav bharadwaj 9599500662 gaurav.bharadwaj@snu.edu.in</p>
-                    <!-- Additional Information for Cluster 5B -->
                 </div>
             </div>
         </div>
 
-        <!-- Towers -->
         <div class="hostel-card">
             <img class="hostel-image" src="/assets/img/IMG_0912.jpg" alt="Towers">
             <h2 class="hostel-name">Towers</h2>
@@ -534,129 +466,14 @@
             </div>
             <div class="expand-container">
                 <div class="expand-button" data-card="15">
-                    <span class="arrow">&#9660;</span> <!-- Drop-down arrow symbol -->
+                    <span class="arrow">&#9660;</span>
                 </div>
                 <div class="info-popup" data-card="15">
                     <p>no more assigned to students</p>
-                    <!-- Additional Information for Towers -->
                 </div>
             </div>
         </div>
 
-        <!--         
-        <div class="hostel-card">
-            <img class="hostel-image" src="/assets/img/IMG_0952.jpg" alt="Tower 2">
-            <h2 class="hostel-name">Tower 2</h2>
-            <p class="hostel-address">Location U</p>
-            <div class="hostel-contact">
-                <i class="contact-icon">Contact Info Tower 2</i>
-            </div>
-            <div class="info-popup">
-                <p>Hello Tower 2</p>
-                
-            </div>
-            <span class="expand-info">V</span>
-        </div>
-        
-        <div class="hostel-card">
-            <img class="hostel-image" src="/assets/img/logo.png" alt="Tower 3">
-            <h2 class="hostel-name">Tower 3</h2>
-            <p class="hostel-address">Location V</p>
-            <div class="hostel-contact">
-                <i class="contact-icon">Contact Info Tower 3</i>
-            </div>
-            <div class="info-popup">
-                <p>Hello Tower 3</p>
-                
-            </div>
-            <span class="expand-info">V</span>
-        </div>
-        
-        <div class="hostel-card">
-            <img class="hostel-image" src="/assets/img/logo.png" alt="Tower 4">
-            <h2 class="hostel-name">Tower 4</h2>
-            <p class="hostel-address">Location I</p>
-            <div class="hostel-contact">
-                <i class="contact-icon">Contact Info Tower 4</i>
-            </div>
-            <div class="info-popup">
-                <p>Hello Tower 4</p>
-                
-            </div>
-            <span class="expand-info">V</span>
-        </div> -->
-        <!-- Tower 5 -->
-        <!-- <div class="hostel-card">
-            <img class="hostel-image" src="/assets/img/logo.png" alt="Tower 5">
-            <h2 class="hostel-name">Tower 5</h2>
-            <p class="hostel-address">Location J</p>
-            <div class="hostel-contact">
-                <i class="contact-icon">Contact Info Tower 5</i>
-            </div>
-            <div class="info-popup">
-                <p>Hello Tower 5</p>
-                
-            </div>
-            <span class="expand-info">V</span>
-        </div> -->
-        <!-- Tower 6 -->
-        <!-- <div class="hostel-card">
-            <img class="hostel-image" src="/assets/img/logo.png" alt="Tower 6">
-            <h2 class="hostel-name">Tower 6</h2>
-            <p class="hostel-address">Location K</p>
-            <div class="hostel-contact">
-                <i class="contact-icon">Contact Info Tower 6</i>
-            </div>
-            <div class="info-popup">
-                <p>Hello Tower 6</p>
-                
-            </div>
-            <span class="expand-info">V</span>
-        </div> -->
-        <!-- Tower 7 -->
-        <!-- <div class="hostel-card">
-            <img class="hostel-image" src="/assets/img/logo.png" alt="Tower 7">
-            <h2 class="hostel-name">Tower 7</h2>
-            <p class="hostel-address">Location L</p>
-            <div class="hostel-contact">
-                <i class="contact-icon">Contact Info Tower 7</i>
-            </div>
-            <div class="info-popup">
-                <p>Hello Tower 7</p>
-               
-            </div>
-            <span class="expand-info">V</span>
-        </div> -->
-        <!-- Tower 8 
-        <div class="hostel-card">
-            <img class="hostel-image" src="/assets/img/logo.png" alt="Tower 8">
-            <h2 class="hostel-name">Tower 8</h2>
-            <p class="hostel-address">Location M</p>
-            <div class="hostel-contact">
-                <i class="contact-icon">Contact Info Tower 8</i>
-            </div>
-            <div class="info-popup">
-                <p>Hello Tower 8</p>
-                           </div>
-            <span class="expand-info">V</span>
-        </div>
-        
-
-        
-        <div class="hostel-card">
-            <img class="hostel-image" src="/assets/img/logo.png" alt="Tower 9">
-            <h2 class="hostel-name">Tower 9</h2>
-            <p class="hostel-address">Location N</p>
-            <div class="hostel-contact">
-                <i class="contact-icon">Contact Info Tower 9</i>
-            </div>
-            <div class="info-popup">
-                <p>Hello Tower 9</p>
-                Additional Information for Tower 9
-            </div>
-            <span class="expand-info">V</span>
-        </div>
-    -->
     </div>
     <script src="session.js"></script>
 
@@ -673,12 +490,11 @@
             setUserSession();
         }
         else {
-            // User is not logged in, display the logged-out content
             clearUserSession();
             serDropdown.style.display = "none";
             loginButton.style.display = "block";
         };
-        // Script to toggle information display
+
         const expandButtons = document.querySelectorAll('.expand-button');
 
         expandButtons.forEach(button => {
@@ -686,7 +502,6 @@
                 const cardId = this.getAttribute('data-card');
                 const infoPopup = document.querySelector(`.info-popup[data-card="${cardId}"]`);
 
-                // Toggle the display of the info-popup using classList
                 if (infoPopup.classList.contains('show')) {
                     infoPopup.classList.remove('show');
                 } else {
@@ -695,9 +510,6 @@
             });
         });
     </script>
-
-
-
 
 </body>
 

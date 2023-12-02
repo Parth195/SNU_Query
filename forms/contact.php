@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = $_POST["subject"];
     $message = $_POST["message"];
 
-    $to = "pp402@snu.edu.in"; // Replace with your email address
+    $to = "pp402@snu.edu.in";
     $headers = "From: $email" . "\r\n" .
                "Reply-To: $email" . "\r\n" .
                "X-Mailer: PHP/" . phpversion();
@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mailSent = mail($to, $subject, $message, $headers);
 
     if ($mailSent) {
-        echo "success"; // You can return this message to your front-end for a successful submission
+        echo "success"; 
     } else {
-        echo "error"; // You can handle this error on the front-end
+        echo "error";
     }
 }
 ?>
