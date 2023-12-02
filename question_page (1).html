@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Fetch Questions</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>SNU Query</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Fav icons Arin -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
     <style>
-        /* Basic styling for the question list */
+        body {
+            background-color: #343a40;
+            color: #fff;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
         #questionList {
             list-style: none;
             padding: 0;
@@ -16,34 +49,80 @@
             border: 1px solid #ccc;
             cursor: pointer;
             position: relative;
+            background-color: #f8f9fa;
+            /* Light grey color */
+            color: #000;
+            /* Text color */
+            display: flex;
+            align-items: center;
+        }
+
+        .author-info {
+            margin-right: 20px;
+        }
+
+        .author-info span {
+            color: #000;
         }
 
         .vote-buttons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            display: flex;
+            margin-right: 10px;
         }
 
-        /* Style for the answer form */
+        .vote-buttons button {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .upvote {
+            background-color: #28a745;
+            color: green;
+            border: none;
+        }
+
+        .downvote {
+            background-color: #dc3545;
+            color: red;
+            border: none;
+        }
+
+        .vote-count {
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .question-buttons {
+            display: flex;
+            margin-left: auto;
+        }
+
+        .question-buttons button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
         #answerForm {
             margin-top: 20px;
         }
 
         #answerForm input {
             width: 100%;
-            padding: 5px;
+            padding: 10px;
             margin-bottom: 10px;
         }
 
         #answerForm button {
-            padding: 8px 20px;
+            padding: 10px;
             background-color: #007bff;
             color: #fff;
             border: none;
             cursor: pointer;
         }
 
-        /* Style for the answers list */
         #answersList {
             list-style: none;
             padding: 0;
@@ -52,38 +131,108 @@
 
         #answersList li {
             margin-bottom: 5px;
-            padding: 5px;
-            border: 1px solid #eee;
+            padding: 10px;
+            border: 1px solid #ccc;
             position: relative;
+            background-color: #fff;
+            color: #000;
+            /* Text color */
         }
 
         .vote-buttons-answer {
-            position: absolute;
-            top: 5px;
-            right: 5px;
+            display: flex;
+            margin-right: 10px;
         }
 
-        .vote-count {
-            font-size: 12px;
-            margin-left: 10px;
+        .previously-answered {
+            border: 2px solid #000;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #fff;
+            color: #000;
+            /* Text color */
+        }
+
+        .previously-answered-tags {
+            list-style-type: disc;
+            color: #000;
+            padding-left: 20px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Questions:</h1>
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="index.html" class="logo">
+                <alt="" class="img-fluid">
+            </a>
+
+            <div class="search-box">
+                <form action="" class="search">
+                    <span class="icon-large"><i class="ri-search-line"></i></span>
+                    <input type="search" placeholder="What's on your mind today ?">
+                    <button type="Submit"><img src="/assets/img/snuglass.png" height="30" /></button>
+                </form>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="/index.html">Home</a></li>
+                    <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+                    <li><a class="nav-link scrollto" href="#services">Ask</a></li>
+                    <!-- <li><a class="nav-link scrollto" href="#team">Awards</a></li> -->
+                    <!-- <li><a class="nav-link scrollto" href="#pricing">Hostels</a></li> -->
+                    <!--<li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+                    <li class="dropdown"><a href="#"><span>Campus</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Faculty</a></li>
+                            <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="#">Deep Drop Down 1</a></li>
+                      <li><a href="#">Deep Drop Down 2</a></li>
+                      <li><a href="#">Deep Drop Down 3</a></li>
+                      <li><a href="#">Deep Drop Down 4</a></li>
+                      <li><a href="#">Deep Drop Down 5</a></li>
+                    </ul>
+                  </li> -->
+                            <li><a href="#">Hostels</a></li>
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">Resource Bank</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+                    <li class="dropdown" id="userDropdown" style="display: none;">
+                        <a href="#"><span id="userEmailDisplay"></span> <i class="bi bi-chevron-down"></i></a>
+                        <ul id="userDropdownList">
+                            <li><a href="#" id="logoutLink">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" id="loginButton" href="account.html">Login/Sign-Up</a></li>
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+
     <ul id="questionList"></ul>
 
     <!-- Answer form -->
     <div id="answerForm" style="display: none;">
         <h2>Answering the selected question:</h2>
         <input type="text" id="answerText" placeholder="Your answer"><br>
-        <input type="text" id="answerAuthor" placeholder="Your name"><br>
+        <!-- <input type="text" id="answerAuthor" placeholder="Your name"><br> -->
         <button type="submit" id="postAnswer"> Post Answer</button>
         <ul id="answersList"></ul>
     </div>
-
+    <script src="session.js"></script>
     <script type="module">
+
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
         import { getDatabase, ref, onValue, push, set, runTransaction } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
 
@@ -118,7 +267,7 @@
                             const question = questions[questionKey];
                             const listItem = document.createElement("li");
                             const tags = question.tags.join(", ");
-                            listItem.textContent = `Author: ${question.author}, Question: ${question.text}, Tags: ${tags}, Timestamp: ${question.timestamp}`;
+                            listItem.textContent = `${question.author}: ${question.text},\tTags: ${tags},Asked To: ${question.userTypes}\n`;
                             listItem.appendChild(createVoteButtons('question', questionKey, question.votes));
                             listItem.onclick = () => showQuestionAndAnswers(questionKey, question);
                             questionList.appendChild(listItem);
@@ -153,7 +302,6 @@
             return voteDiv;
         }
 
-        // Function to handle voting
         function handleVote(type, entityId, voteType) {
             const userId = 'unique_user_id'; // Replace with actual user ID logic
             const voteRef = ref(database, `votes/${type}/${entityId}/${userId}`);
@@ -164,15 +312,43 @@
                 if (!entity.votes) {
                     entity.votes = { upvote: 0, downvote: 0 };
                 }
-                entity.votes[voteType] += voteValue;
+
+                // Check if the user already voted the same way
+                const existingVote = entity.votes[voteType] === voteValue;
+
+                if (existingVote) {
+                    // If the user's existing vote matches the current action, cancel the vote
+                    entity.votes[voteType] = 0;
+                } else {
+                    // Toggle between upvote/downvote
+                    entity.votes[voteType] = voteValue;
+                    // Cancel the opposite vote if it exists
+                    const oppositeVoteType = voteType === 'upvote' ? 'downvote' : 'upvote';
+                    if (entity.votes[oppositeVoteType] === -voteValue) {
+                        entity.votes[oppositeVoteType] = 0;
+                    }
+                }
                 return entity;
             }).then(() => {
+                // Update the vote counts in the database
+                set(ref(database, `questions/${entityId}/votes`), entityRef.votes);
+
+                // Update the displayed vote counts on the page
+                const voteCountSpan = document.querySelector(`li[data-key="${entityId}"] .vote-count`);
+                if (voteCountSpan) {
+                    const upvotes = entityRef.votes.upvote || 0;
+                    const downvotes = entityRef.votes.downvote || 0;
+                    voteCountSpan.textContent = `Upvotes: ${upvotes}, Downvotes: ${downvotes}`;
+                }
+
                 console.log(`Voted ${voteType} on ${type} ${entityId}`);
                 alert(`Voted ${voteType} successfully!`);
             }).catch((error) => {
                 console.error("Error voting:", error);
             });
         }
+
+
 
         // Function to show the question and existing answers
         function showQuestionAndAnswers(questionId, question) {
@@ -223,7 +399,7 @@
         function postAnswer() {
             const selectedQuestionId = getSelectedQuestionId();
             const answerText = document.getElementById("answerText").value;
-            const answerAuthor = document.getElementById("answerAuthor").value;
+            const answerAuthor = isUserLoggedIn() ? JSON.parse(localStorage.getItem('uname')) : "";
 
             // Perform form validation
             if (selectedQuestionId && answerText && answerAuthor) {
@@ -248,8 +424,44 @@
             }
         }
 
+
         // Call the function to fetch questions
         fetchQuestions();
+        if (isUserLoggedIn()) {
+            const username = JSON.parse(localStorage.getItem('uname'));
+
+            const userEmailDisplay = document.getElementById("userEmailDisplay");
+            userEmailDisplay.innerText = username;
+            console.log(username);
+            userDropdown.style.display = "block";
+            loginButton.style.display = "none";
+            setUserSession();
+        }
+        else {
+            // User is not logged in, display the logged-out content
+            clearUserSession();
+            serDropdown.style.display = "none";
+            loginButton.style.display = "block";
+        };
+
+        // Add an event listener to the search input
+        const searchInput = document.querySelector('.search input');
+        searchInput.addEventListener('input', handleSearch);
+
+        function handleSearch(event) {
+            const searchTerm = event.target.value.toLowerCase(); // Get the search term and convert to lowercase
+            const questionItems = document.querySelectorAll('#questionList li');
+
+            questionItems.forEach((questionItem) => {
+                const questionText = questionItem.textContent.toLowerCase(); // Get the question text and convert to lowercase
+                if (questionText.includes(searchTerm)) {
+                    questionItem.style.display = 'block'; // Show the question if it includes the search term
+                } else {
+                    questionItem.style.display = 'none'; // Hide the question if it doesn't match the search term
+                }
+            });
+        }
+
     </script>
 </body>
 

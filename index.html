@@ -59,12 +59,16 @@
         <alt="" class="img-fluid">
       </a>
 
-      <div class="search-box">
-        <form action="" class="search">
-          <input type="search" placeholder="What's on your mind today ?" size="26">
-          <button type="Submit"><img src="/assets/img/snuglass.png" height="25" align-items-ce /></button>
-        </form>
-      </div>
+      <!-- Assuming the search box is inside a section or a div -->
+      <section id="search-section">
+        <a href="question_page (1).html">
+          <form action="" class="search">
+            <input type="search" placeholder="What's on your mind today?" size="26">
+            <button type="Submit"><img src="/assets/img/snuglass.png" height="25" align-items-ce /></button>
+          </form>
+        </a>
+      </section>
+
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -185,7 +189,7 @@
       <h2></h2>
       <a href="question_page.html" class="btn-get-started scrollto">Ask a doubt</a>
 
-      <pre>        </pre> <a href="all_questions.html" class="btn-get-started scrollto">Answer a Query</a>
+      <pre>        </pre> <a href="/question_page (1).html" class="btn-get-started scrollto">Answer a Query</a>
     </div>
 
   </section>
@@ -371,7 +375,7 @@
           <p><q><i>Have some free time or the motivation to help your students and peers? Well, there are always some
                 questions seeking for answers, so go ahead and crack as many as you can! </i></q></p>
           <!-- <p>                                                               <b> ~ Albert Einstein </b></p> -->
-          <a class="cta-btn" href="all_questions.html">Answer a query</a>
+          <a class="cta-btn" href="question_page (1).html">Answer a query</a>
         </div>
 
       </div>
@@ -649,7 +653,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a class="nav-link scrollto" href="#about">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a class="nav-link scrollto" href="#services">Ask</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="all_questions.html">Answer</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="question_page (1).html">Answer</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="events.html">Events</a></li>
               <li><i class="bx bx-chevron-right"></i> <a class="nav-link scrollto" href="#team">Awards</a></li>
             </ul>
@@ -659,7 +663,7 @@
             <h4>Our Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="question_page.html">Ask a Doubt</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="all_questions.html">Answer a Query</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="question_page (1).html">Answer a Query</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="hostels.html">Hostels</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://snu.edu.in/faculty/">Faculty</a></li>
               <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Resource Bank</a></li> -->
@@ -699,7 +703,17 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js">
+
+    document.getElementById('searchForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevents the default form submission
+      const query = document.getElementById('searchInput').value;
+      if (query.trim() !== '') {
+        const searchUrl = 'questions_page.html?query=' + encodeURIComponent(query);
+        window.location.href = searchUrl;
+      }
+    });
+  </script>
 
 </body>
 
