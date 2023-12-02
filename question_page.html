@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
-        /* HEADER */
         #header {
             background: hwb(0 26% 74%);
             transition: all 0.5s;
@@ -167,7 +166,6 @@
             margin-right: 10px;
         }
 
-        /* Styling specific sections */
         .author-section {
             background-color: #f2f2f2;
             padding: 15px;
@@ -307,9 +305,7 @@
             }
         }
 
-        /**
-* Mobile Navigation 
-*/
+
         .mobile-nav-toggle {
             color: #fff;
             font-size: 28px;
@@ -422,32 +418,23 @@
             display: inline-block;
             padding: 0px 0px;
             background-color: #e83e8c;
-            /* Change the background color to your desired color */
             color: #fff;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
             font-weight: bold;
-            /* Make the text bold */
             font-size: 16px;
-            /* Adjust the font size */
             text-transform: uppercase;
-            /* Transform text to uppercase */
             letter-spacing: 2px;
-            /* Add letter spacing for style */
 
-            /* Style the button on hover */
             &:hover {
                 background-color: #ff5733;
-                /* Change the background color on hover */
             }
         }
 
-        /* Import Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-        /* Reset CSS */
         * {
             padding: 0;
             margin: 0;
@@ -455,32 +442,25 @@
             font-family: "Roboto", sans-serif;
         }
 
-        /* Additional CSS styles go here */
-
-        /* Styles for the .wrapper class */
         .wrapper {
             max-width: 75%;
             margin: auto;
         }
 
-        /* Styles for paragraphs and h1 elements within .wrapper */
         .wrapper>p,
         .wrapper>h1 {
             margin: 1.5rem 0;
             text-align: center;
         }
 
-        /* Additional style for h1 elements within .wrapper */
         .wrapper>h1 {
             letter-spacing: 3px;
         }
 
-        /* Style for h1 elements within .wrapper */
         .wrapper>h1 {
             letter-spacing: 3px;
         }
 
-        /* Styles for the .accordion class */
         .accordion {
             background-color: white;
             color: rgba(0, 0, 0, 0.8);
@@ -493,7 +473,6 @@
             transition: 0.4s;
         }
 
-        /* Additional styles for the .accordion class */
         .accordion {
             transition: 0.4s;
             display: flex;
@@ -502,18 +481,15 @@
             font-weight: bold;
         }
 
-        /* Styles for the icon within .accordion */
         .accordion i {
             font-size: 1.6rem;
         }
 
-        /* Styles for the active and hover states */
         .active,
         .accordion:hover {
             background-color: #f1f7f5;
         }
 
-        /* Styles for the .panel class */
         .panel {
             padding: 0 2rem 2.5rem 2rem;
             background-color: white;
@@ -522,14 +498,12 @@
             display: none;
         }
 
-        /* Styles for paragraphs within .panel */
         .panel p {
             color: rgba(0, 0, 0, 0.7);
             font-size: 1.2rem;
             line-height: 1.4;
         }
 
-        /* Styles for the .faq class */
         .faq {
             border: 1px solid rgba(0, 0, 0, 0.2);
             margin: 10px 0;
@@ -540,7 +514,6 @@
         }
     </style>
     <style>
-        /* Add your existing styles */
         .author-section.logged-in {
             display: none;
         }
@@ -554,7 +527,6 @@
         <!-- <div class="container d-flex align-items-center justify-content-between"> -->
 
         <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="300" /></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
         <a href="index.html" class="logo">
             <alt="" class="img-fluid">
         </a>
@@ -566,7 +538,6 @@
         </form>
       </div> -->
 
-        <!-- <p>hostels</p> -->
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="/index.html">Home</a></li>
@@ -632,7 +603,6 @@
 
         <section class="most-asked-section">
             <h2>Frequently encountered doubts </h2>
-            <!-- List of most asked questions here -->
             <ul>
             </ul>
         </section>
@@ -696,7 +666,6 @@
     <script src="session.js"></script>
 
     <script type="module">
-        // Firebase configuration and initialization code here
         if (isUserLoggedIn()) {
             const username = JSON.parse(localStorage.getItem('uname'));
 
@@ -708,7 +677,6 @@
             setUserSession();
         }
         else {
-            // User is not logged in, display the logged-out content
             clearUserSession();
             serDropdown.style.display = "none";
             loginButton.style.display = "block";
@@ -747,7 +715,6 @@
             postQuestion();
         }
 
-        // Add an event listener to the button
         const postQuestionButton = document.getElementById("postQuestion");
         postQuestionButton.addEventListener("click", handlePostQuestionClick);
 
@@ -758,9 +725,7 @@
             const userTypeForm = document.getElementById("userTypeForm");
             const userTypes = getSelectedCheckboxes("userType");
 
-            // Perform form validation
             if (author && questionText && tags.length > 0 && userTypes.length > 0) {
-                // All fields are filled, proceed with posting the question
                 const newQuestionRef = push(questionsRef, {
                     text: questionText,
                     tags: tags,
@@ -768,25 +733,20 @@
                     timestamp: new Date().toISOString(),
                     upvotes: 0,
                     answers: {},
-                    userTypes: userTypes // Add selected user types to the data
+                    userTypes: userTypes
                 }).then(() => {
-                    // Data was successfully written to Firebase
                     console.log("Question posted successfully!");
-                    alert("Question posted successfully!"); // Display success message
+                    alert("Question posted successfully!");
                     setTimeout(() => {
-                        window.location.reload(); // Reload the page after a short delay
+                        window.location.reload();
                     }, 1500);
                 }).catch((error) => {
                     console.error("Error posting question: ", error);
                 });
             } else {
-                // Fields are missing, display an error message
                 alert("Please fill in all fields to post the question.");
             }
         }
-
-
-        // Function to get URL parameters by name
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, "\\$&");
@@ -797,10 +757,8 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        // Get the 'target' parameter from the URL
         var target = getParameterByName('target');
 
-        // Check the corresponding checkbox based on the 'target' parameter
         if (target) {
             var checkbox = document.querySelector('input[name="userType"][value="' + target + '"]');
             if (checkbox) {

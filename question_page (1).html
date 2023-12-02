@@ -19,15 +19,12 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
     <style>
@@ -50,9 +47,7 @@
             cursor: pointer;
             position: relative;
             background-color: #f8f9fa;
-            /* Light grey color */
             color: #000;
-            /* Text color */
             display: flex;
             align-items: center;
         }
@@ -136,7 +131,6 @@
             position: relative;
             background-color: #fff;
             color: #000;
-            /* Text color */
         }
 
         .vote-buttons-answer {
@@ -150,7 +144,6 @@
             margin-top: 10px;
             background-color: #fff;
             color: #000;
-            /* Text color */
         }
 
         .previously-answered-tags {
@@ -166,7 +159,6 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
             <a href="index.html" class="logo">
                 <alt="" class="img-fluid">
             </a>
@@ -201,7 +193,7 @@
                   </li> -->
                             <li><a href="#">Hostels</a></li>
                             <li><a href="#">Events</a></li>
-                            <li><a href="#">Resource Bank</a></li>
+                            <!-- <li><a href="#">Resource Bank</a></li> -->
                         </ul>
                     </li>
                     <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
@@ -215,18 +207,16 @@
 
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+            </nav>
 
         </div>
-    </header><!-- End Header -->
+    </header>
 
     <ul id="questionList"></ul>
 
-    <!-- Answer form -->
     <div id="answerForm" style="display: none;">
         <h2>Answering the selected question:</h2>
         <input type="text" id="answerText" placeholder="Your answer"><br>
-        <!-- <input type="text" id="answerAuthor" placeholder="Your name"><br> -->
         <button type="submit" id="postAnswer"> Post Answer</button>
         <ul id="answersList"></ul>
     </div>
@@ -246,7 +236,7 @@
             appId: "1:350908354215:web:146b8142a7db2549f15582",
             measurementId: "G-T7426ZGZWQ"
         };
-        // Initialize Firebase
+    
         const firebaseApp = initializeApp(firebaseConfig);
         const database = getDatabase(firebaseApp);
         const questionsRef = ref(database, "questions");
@@ -254,10 +244,9 @@
         const questionList = document.getElementById("questionList");
         let selectedQuestionId = null;
 
-        // Function to fetch and display questions
         function fetchQuestions() {
             onValue(questionsRef, (snapshot) => {
-                questionList.innerHTML = ''; // Clear the list
+                questionList.innerHTML = ''; 
 
                 const questions = snapshot.val();
 
@@ -279,7 +268,6 @@
             });
         }
 
-        // Function to create vote buttons
         function createVoteButtons(type, entityId, votes) {
             const voteDiv = document.createElement('div');
             voteDiv.className = `vote-buttons-${type}`;
@@ -303,7 +291,7 @@
         }
 
         function handleVote(type, entityId, voteType) {
-            const userId = 'unique_user_id'; // Replace with actual user ID logic
+            const userId = 'unique_user_id'; 
             const voteRef = ref(database, `votes/${type}/${entityId}/${userId}`);
             const entityRef = ref(database, `questions/${entityId}`);
             const voteValue = voteType === 'upvote' ? 1 : -1;
@@ -313,16 +301,12 @@
                     entity.votes = { upvote: 0, downvote: 0 };
                 }
 
-                // Check if the user already voted the same way
                 const existingVote = entity.votes[voteType] === voteValue;
 
                 if (existingVote) {
-                    // If the user's existing vote matches the current action, cancel the vote
                     entity.votes[voteType] = 0;
                 } else {
-                    // Toggle between upvote/downvote
                     entity.votes[voteType] = voteValue;
-                    // Cancel the opposite vote if it exists
                     const oppositeVoteType = voteType === 'upvote' ? 'downvote' : 'upvote';
                     if (entity.votes[oppositeVoteType] === -voteValue) {
                         entity.votes[oppositeVoteType] = 0;
@@ -330,10 +314,7 @@
                 }
                 return entity;
             }).then(() => {
-                // Update the vote counts in the database
                 set(ref(database, `questions/${entityId}/votes`), entityRef.votes);
-
-                // Update the displayed vote counts on the page
                 const voteCountSpan = document.querySelector(`li[data-key="${entityId}"] .vote-count`);
                 if (voteCountSpan) {
                     const upvotes = entityRef.votes.upvote || 0;
@@ -348,23 +329,17 @@
             });
         }
 
-
-
-        // Function to show the question and existing answers
         function showQuestionAndAnswers(questionId, question) {
             selectedQuestionId = questionId;
             const answerForm = document.getElementById('answerForm');
             answerForm.style.display = 'block';
 
             const answersList = document.getElementById('answersList');
-            answersList.innerHTML = ''; // Clear previous answers
+            answersList.innerHTML = '';
 
-            // Display the question text
             const questionText = document.createElement('li');
             questionText.textContent = `Question: ${question.text}`;
             answersList.appendChild(questionText);
-
-            // Display existing answers if available
             const answersRef = ref(database, `questions/${questionId}/answers`);
             onValue(answersRef, (snapshot) => {
                 const answers = snapshot.val();
@@ -392,7 +367,6 @@
             postAnswer();
         }
 
-        // Add an event listener to the post answer button
         const postAnswerButton = document.getElementById("postAnswer");
         postAnswerButton.addEventListener("click", handlePostAnswerClick);
 
@@ -400,16 +374,13 @@
             const selectedQuestionId = getSelectedQuestionId();
             const answerText = document.getElementById("answerText").value;
             const answerAuthor = isUserLoggedIn() ? JSON.parse(localStorage.getItem('uname')) : "";
-
-            // Perform form validation
             if (selectedQuestionId && answerText && answerAuthor) {
-                // All fields are filled, proceed with posting the answer
                 const answersRef = ref(database, `questions/${selectedQuestionId}/answers`);
                 const newAnswerRef = push(answersRef, {
                     answerText: answerText,
                     answerAuthor: answerAuthor,
                     timestamp: new Date().toISOString(),
-                    votes: { upvote: 0, downvote: 0 } // Initialize votes for the answer
+                    votes: { upvote: 0, downvote: 0 } 
                 }).then(() => {
                     console.log("Answer posted successfully!");
                     alert("Answer posted successfully!");
@@ -424,8 +395,6 @@
             }
         }
 
-
-        // Call the function to fetch questions
         fetchQuestions();
         if (isUserLoggedIn()) {
             const username = JSON.parse(localStorage.getItem('uname'));
@@ -438,26 +407,23 @@
             setUserSession();
         }
         else {
-            // User is not logged in, display the logged-out content
             clearUserSession();
             serDropdown.style.display = "none";
             loginButton.style.display = "block";
         };
-
-        // Add an event listener to the search input
         const searchInput = document.querySelector('.search input');
         searchInput.addEventListener('input', handleSearch);
 
         function handleSearch(event) {
-            const searchTerm = event.target.value.toLowerCase(); // Get the search term and convert to lowercase
+            const searchTerm = event.target.value.toLowerCase();
             const questionItems = document.querySelectorAll('#questionList li');
 
             questionItems.forEach((questionItem) => {
-                const questionText = questionItem.textContent.toLowerCase(); // Get the question text and convert to lowercase
+                const questionText = questionItem.textContent.toLowerCase();
                 if (questionText.includes(searchTerm)) {
-                    questionItem.style.display = 'block'; // Show the question if it includes the search term
+                    questionItem.style.display = 'block';
                 } else {
-                    questionItem.style.display = 'none'; // Hide the question if it doesn't match the search term
+                    questionItem.style.display = 'none';
                 }
             });
         }

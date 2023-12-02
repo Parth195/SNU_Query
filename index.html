@@ -18,7 +18,6 @@
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -26,40 +25,19 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <!-- ======= Top Bar =======
-  <section id="topbar" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">snu.query@snu.edu.in</a>
-        <i class="bi bi-phone-fill phone-icon"></i> +91 9686657675
-      </div>
-      <div class="social-links d-none d-md-block">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo"><a href="index.html"><img src="/assets/img/logo.png" height="500" /></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
       <a href="index.html" class="logo">
         <alt="" class="img-fluid">
       </a>
-
-      <!-- Assuming the search box is inside a section or a div -->
       <section id="search-section">
         <a href="question_page (1).html">
           <form action="" class="search">
@@ -107,20 +85,17 @@
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
     </div>
-  </header><!-- End Header -->
+  </header>
 
-  <!-- Updated JavaScript code in your index.html -->
-  <!-- Updated JavaScript code in your index.html -->
   <script src="session.js"></script>
 
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js';
     import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js';
 
-    // Your Firebase configuration here
     const firebaseConfig = {
       apiKey: "AIzaSyDr8S2OmDIo5EsNU97uJWq3gQlqv8zitAI",
       authDomain: "snu-query.firebaseapp.com",
@@ -138,41 +113,35 @@
     const userDropdown = document.getElementById("userDropdown");
     const userEmailDisplay = document.getElementById("userEmailDisplay");
     const logoutLink = document.getElementById("logoutLink");
-    const loginButton = document.getElementById("loginButton"); // Get the login button by ID
+    const loginButton = document.getElementById("loginButton");
 
-    // Function to extract the part of the email before the "@"
     function getUserNameFromEmail(email) {
       return email.split("@")[0];
     }
 
-    // Check if a user is logged in
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is logged in
         const userName = getUserNameFromEmail(user.email);
         localStorage.setItem('uname', JSON.stringify(userName));
         userEmailDisplay.innerText = userName;
         setUserSession();
         userDropdown.style.display = "block";
-        loginButton.style.display = "none"; // Hide the login button
-        console.log("User is logged in:", userName); // Log the user's name to the console
+        loginButton.style.display = "none";
+        console.log("User is logged in:", userName);
       } else {
-        // No user is logged in
         //const userName = "Login";
         clearUserSession();
         //localStorage.setItem('uname', JSON.stringify(userName));
         userDropdown.style.display = "none";
-        loginButton.style.display = "block"; // Show the login button
+        loginButton.style.display = "block";
         console.log("No user is logged in");
       }
     });
 
-    // Logout functionality
     logoutLink.addEventListener("click", () => {
       signOut(auth).then(() => {
-        // User is logged out
         userDropdown.style.display = "none";
-        loginButton.style.display = "block"; // Show the login button
+        loginButton.style.display = "block";
         console.log("User is logged out");
       }).catch((error) => {
         console.error("Logout failed:", error);
@@ -181,8 +150,6 @@
   </script>
 
 
-
-  <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
       <h1>Welcome to SNU Query</h1>
@@ -194,22 +161,9 @@
 
   </section>
 
-  <!-- ======= Hero Section 2 ======= -->
-  <!-- <section id="hero2" class="d-flex align-items-center">
-   <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">======================
-    <img class="carousel-item" src="assets/img/logo.png" />
-    <!-- <div class="carousel-item" style="background-image: url(assets/img/logo.png)">ynynynynn</div> 
-    <div class="carousel-item" style="background-image: url(assets/img/logo.png)"></div>
-    <div class="carousel-item" style="background-image: url(assets/img/logo.png)"></div>
-    <div class="carousel-item" style="background-image: url(assets/img/logo.png)"></div>
-  </section> -->
-
-  <!-- <div id "hero-carousel" class= "carousel slide" data-bs-ride = "carousel" data-bs-interval = "5000"> VANSH</div>
-   <div class="carousel-item" style="background-image: url(assets/img/logo.png)"></div> -->
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
 
@@ -236,8 +190,6 @@
                 authoritative answers and guidance. Hostel wardens, with their intimate knowledge of campus life, offer
                 valuable insights to make your stay comfortable and memorable. And let's not forget our esteemed alumni,
                 who bring their real-world experiences and wisdom to the party. </li>
-              <!-- <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li> -->
-              <!-- <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li> -->
             </ul>
             <p>
               🌟 Your mission should you choose to accept it is to join us in the quest for exploration, where every
@@ -248,76 +200,14 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section>
 
-    <!-- ======= Why Us Section ======= -->
-    <!-- <section id="why-us" class="why-us">
-      <div class="container">
-
-        <div class="row"> -->
-
-    <!-- <div class="col-lg-4" data-aos="fade-up">
-            <div class="box"> -->
-    <!-- <span>01</span>
-              <h4>ASK A PROFESSOR</h4>
-              <p>Got a query for our amazing faculty? Ask them here and get the responses directly from your very own professors.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
-            <div class="box">
-              <span>02</span>
-              <h4>Repellat Nihil</h4>
-              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box">
-              <span>03</span>
-              <h4> Ad ad velit qui</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-            </div>
-          </div> -->
-    <!-- 
-        </div>
-
-      </div> -->
-    <!-- </section>End Why Us Section -->
-
-    <!-- ======= Clients Section ======= -->
-
-
-    <!-- <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-          </div> -->
 
     </div>
 
     </div>
-    </section><!-- End Clients Section -->
+    </section>
     <hr class="dotted">
-    <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container">
 
@@ -364,9 +254,7 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Cta Section ======= -->
+    </section>
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
 
@@ -379,81 +267,10 @@
         </div>
 
       </div>
-    </section><!-- End Cta Section -->
+    </section>
 
-    <!-- ======= Portfolio Section ======= -->
+    </section>
 
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= Pricing Section ======= -->
-    <!-- <section id="pricing" class="pricing">
-      <div class="container">
-
-        <div class="section-title">
-          <span>Pricing</span>
-          <h2>Pricing</h2>
-          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="150">
-            <div class="box">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in">
-            <div class="box featured">
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
-            <div class="box">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>End Pricing Section -->
-
-    <!-- ======= Team Section ======= -->
     <section id="team" class="team">
       <div class="container">
 
@@ -469,9 +286,7 @@
               <img src="assets/img/team/team-1.jpg" alt="">
               <h4>Faculty of the Week</h4>
               <span>Dr. Pooja Singh</span>
-              <!-- <p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-              </p> -->
+              
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -486,9 +301,6 @@
               <img src="assets/img/team/team-2.jpg" alt="">
               <h4>Alumnus of the Week</h4>
               <span>Prakriti Agarwal</span>
-              <!-- <p>
-                Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-              </p> -->
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -503,9 +315,6 @@
               <img src="assets/img/team/team-3.jpg" alt="">
               <h4>Student of the Week</h4>
               <span>Parth Parashar</span>
-              <!-- <p>
-                Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-              </p> -->
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -518,9 +327,8 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section>
     <hr class="dotted">
-    <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
 
@@ -585,43 +393,13 @@
 
         <div class="row" data-aos="fade-up">
 
-          <!-- <div class="col-lg-6 ">
-            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
-          </div> -->
-
-          <!-- <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div> -->
-
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section>
 
-  </main><!-- End #main -->
+  </main>
 
-  <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
@@ -688,13 +466,12 @@
         &copy; Copyright <strong><span>SNU_Query</span></strong>. All Rights Reserved
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -702,11 +479,10 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
   <script src="assets/js/main.js">
 
     document.getElementById('searchForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevents the default form submission
+      event.preventDefault();
       const query = document.getElementById('searchInput').value;
       if (query.trim() !== '') {
         const searchUrl = 'questions_page.html?query=' + encodeURIComponent(query);
@@ -714,7 +490,6 @@
       }
     });
   </script>
-
 </body>
 
 </html>
